@@ -15,7 +15,7 @@
     word-wrap: wrap;
 }
 .textField{
-    width: 250px;
+    width: 330px;
     border-radius: 0.7rem;
     padding: 5px;
     font-size: 1rem;
@@ -30,8 +30,20 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 30px;
+    margin-top: 51px;
 }
 .bulletPoints {
     display: flex;
     justify-content: space-between;
+}
+.topSectionAboutMe {
+    margin: 2px;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: -10px;
+}
+.topSectionAboutMe .buttons{
+    background-color: #C0C0C0;
+    border: 1px solid #C0C0C0;
+    color: black;;
 }

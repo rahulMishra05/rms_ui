@@ -31,9 +31,9 @@ function AboutMe() {
 	return (
     <div className="aboutParentDiv">
       <form onSubmit={handleSubmit((data) => customFunction(data))} className="formAbout">
-      <div className="topSection">
+      <div className="topSectionAboutMe">
         <input className="buttons" type="button" name="mydetails" value="Cancel" />
-        <input className="buttons" type="button" name="mydetails" value="Save" />
+        <input className="buttons" type="submit" name="mydetails" value="Save" />
         <input className="buttons" type="button" name="mydetails" value="->" />
       </div>
          
