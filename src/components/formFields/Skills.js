@@ -27,21 +27,29 @@ function Skills() {
     return (
 
         <div className="ParentList">
-            <div className="skillsList">
-                <div className="label">
-                    <label>Skills & <br />Proficiencies</label>
+            <form className="rightSideVisibility" class onSubmit={handleSubmit((data) => customFunction(data))}>
+
+                <div className="topSectionSkills">
+                    <input className="buttons" type="button" name="mydetails" value="Cancel" />
+                    <input className="buttons" type="submit" name="mydetails" value="Save" />
+                    <input className="buttons" type="button" name="mydetails" value="->" />
                 </div>
-                <div className="SpanParent">
-                    <span className="plus">+</span>
+
+                <div className="skillsList">
+                    <div className="label">
+                        <label>Skills & <br />Proficiencies</label>
+                    </div>
+                    <div className="SpanParent">
+                        <span className="plus">+</span>
+                    </div>
+
+
+                </div>
+                <div className="search">
+                    <input placeholder="Search" name="search" id="search" />
+
                 </div>
 
-
-            </div>
-            <div className="search">
-                <input placeholder="Search" name="search" id="search" />
-
-            </div>
-            <form className="rightSideVisibility" class onChange={handleSubmit((data) => customFunction(data))}>
                 <table border="1" className="skillTable table table-bordered">
                     <thead>
                         <tr>

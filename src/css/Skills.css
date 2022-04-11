@@ -118,3 +118,14 @@ border-color: lightgray;
 .table{
 border-color:lightgray;
 }
+.topSectionSkills {
+    margin: 20px;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: -10px;
+}
+.topSectionSkills .buttons{
+    background-color: #C0C0C0;
+    border: 1px solid #C0C0C0;
+    color: black;
+}
