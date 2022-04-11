@@ -18,23 +18,24 @@
     width: 150px;
 }
 .topSection {
-    margin: 20px;
+    margin: -9px;
     display: flex;
     justify-content: flex-end;
     margin-bottom: -10px;
 }
 #formWorkExp {
-    height: 705px;
+    height: 705;
     padding: 10px;
     display: flex;
     flex-direction: column;
     width: 38vw;
-    margin-top: 10vh;
+    margin-top: 3vh;
 }
 .labelInputWorkExp {
     display: flex;
     width: 750px;
     justify-content: space-between;
+    height: 75px;
 }
 .inputsWorkExp {
     margin-left: 100px;
@@ -91,9 +92,9 @@
 }
 
 .FormFeilds {
-    margin-left: 50px;
+    margin-left: 25px;
     width: 40vw;
-    margin-top: -70px;
+    margin-top: 20px;
 }
 .datesDiv {
     margin: 5px;

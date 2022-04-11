@@ -44,7 +44,7 @@ import '../../css/WorkExp.css'
     <form onSubmit={handleSubmit((data) => customFunction(data))} id="formWorkExp">
       <div className="topSection">
         <input className="buttons" type="button" name="mydetails" value="Cancel" />
-        <input className="buttons" type="button" name="mydetails" value="Save" />
+        <input className="buttons" type="submit" name="mydetails" value="Save" />
         <input className="buttons" type="button" name="mydetails" value="->" />
       </div>
       <div className="FormFeilds">
