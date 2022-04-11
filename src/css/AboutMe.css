@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.labelAbout {
+    color: rgb(85, 84, 84);
+    font-weight: bold;
+    font-size: medium;
+}
+.formAbout {
+    margin-top: 100px;
+    margin-left: 100px;
+    width: 450px;
+    word-wrap: wrap;
+}
+.textField{
+    width: 250px;
+    border-radius: 0.7rem;
+    padding: 5px;
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+.aboutParentDiv {
+    display: flex;
+    flex-direction: column;
+    width: 40vw;
+}
+.textareaDiv {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+.bulletPoints {
+    display: flex;
+    justify-content: space-between;
+}

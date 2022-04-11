@@ -1,0 +1,120 @@
+*{
+padding:0;
+margin:0;
+box-sizing: border-box;
+}
+
+
+
+/* .rightSideVisiblity{
+margin-left:20rem;
+margin-top:10rem;
+position:relative;
+width:25%;
+height:20%;
+display:flex;
+flex-direction:column;
+}
+
+
+
+.rightSideVisiblity input{
+margin: 2rem 0;
+/* padding:3px 2rem; */
+*/
+.ParentList{
+margin-left:2rem;
+}
+.skillsList, .search{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-left:2rem;
+}
+
+
+
+.label label{
+margin: 4rem 1.5rem;
+color:grey;
+
+}
+
+
+
+.skillsList .span{
+margin-right:2rem;
+border:2px solid gray;
+border-radius: 4rem;
+padding:.5rem .5rem;
+width:4rem;
+font-size: .7rem;
+color:rgb(172, 169, 169);
+
+}
+
+
+
+.skillsList .SpanParent{
+margin-left:3rem;
+}
+.skillsList .innerSpan{
+color:#DBD7D6;
+padding-left:1.8rem;
+font-size: 15px;
+/* margin-left:.3rem; */
+}
+.plus{
+border: 2px gray solid;
+font-size: 20px;
+padding:0rem .5rem;
+color:lightgray;
+margin-top:10px;
+/* width:50px; */
+/* height:50vh; */
+}
+
+
+
+.plus:hover {
+background-color: gray;
+color: white;
+cursor: pointer;
+}
+
+
+
+
+.search input{
+margin: 1rem 1.5rem;
+border:2px gray solid;
+border-radius:60px;
+padding:.3rem 1rem;
+width:10rem;
+}
+.skillTable{
+margin-left:3.5rem;
+width: 35vw;
+border:1px gray solid;
+}
+
+
+
+.skillTable thead tr th{
+background-color: lightgray;
+/* border-bottom: 1px solid gray; */
+}
+
+
+
+.skillTable tbody tr td{
+border-right: 5px;
+border-color: lightgray;
+
+}
+
+
+
+.table{
+border-color:lightgray;
+}

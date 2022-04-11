@@ -1,0 +1,8 @@
+.mainsection{
+    display: inline-block;
+    position: relative;
+    width: 50%;
+    border: solid 5px red;
+    height: auto;
+    float: center;
+}

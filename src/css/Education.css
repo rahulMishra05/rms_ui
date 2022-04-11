@@ -1,0 +1,9 @@
+.allform{
+    display: inline-block;
+    position: relative;
+    width: auto;
+    border: none;
+    padding: 0 20px 20px 20px;
+    background-color: #fff;
+    margin: 150px 0 0 350px;
+}
