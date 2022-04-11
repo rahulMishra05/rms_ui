@@ -9,6 +9,7 @@
     margin-top: 10%;
     width: 30vw;
     margin-left: 15%;
+    margin-top: 60px;
 }
 .labelInput {
     display: flex;
@@ -70,6 +71,7 @@
 .detailsSection {
     width: 40vw;
     text-align: center;
+    height: 100vh;
 }
 .circle {
     width: 200px;
@@ -77,6 +79,7 @@
     border-radius: 50%;
     background-color: lightgray;
     margin-left: 105px;
+    margin-bottom: 30px;
 }
 .subPoints {
     display: flex;
@@ -87,4 +90,16 @@
     margin-right: 333px;
     padding: 0 32px;
     margin-bottom: 33px;
+}
+.topSectionMyDetails {
+    margin: -8px;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: -10px;
+}
+.topSectionMyDetails .buttons{
+    background-color: #C0C0C0;
+    border: 1px solid #C0C0C0;
+    color: black;
+    
 }

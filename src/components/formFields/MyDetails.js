@@ -46,7 +46,7 @@ export default function MyDetails(props) {
     <>
       <div className="detailsSection">
         <form onSubmit={handleSubmit((data) => customFunction(data))} id="formMyDetails">
-          <div className="topSection">
+          <div className="topSectionMyDetails">
             <input className="buttons" type="button" name="mydetails" value="Cancel" />
             <input className="buttons" type="submit" name="mydetails" value="Save" />
             <input className="buttons" type="button" name="mydetails" value="->" />
