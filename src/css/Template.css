@@ -104,3 +104,8 @@ h5 {
     left: 47px;
     top: -53px;
 }
+
+.roleLabel{
+    font-size: 1.2rem;
+    font-weight: 400;
+}
