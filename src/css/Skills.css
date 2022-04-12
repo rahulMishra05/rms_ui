@@ -119,10 +119,10 @@ border-color: lightgray;
 border-color:lightgray;
 }
 .topSectionSkills {
-    margin: 20px;
+   margin-top:10px;
     display: flex;
     justify-content: flex-end;
-    margin-bottom: -10px;
+    
 }
 .topSectionSkills .buttons{
     background-color: #C0C0C0;

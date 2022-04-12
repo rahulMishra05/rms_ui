@@ -25,19 +25,7 @@ function AboutMe() {
     setKeyList(list);
   };
 
-  const [keyList, setKeyList] = useState([{ key: "" }]);
-  
-  const handleServiceAdd =()=> {
-    setKeyList([...keyList ,{key: ""}]);
-  };
-
-  const handleServiceChange = (e,index) =>{
-    const {name,value} = e.target
-    const list =[...keyList];
-    list[index][name]=value; 
-    setKeyList(list);
-  };
-
+ 
   const customFunction = (d) => {
     sessionStorage.setItem("aboutme", JSON.stringify(d))
     const data = JSON.parse(sessionStorage.getItem('aboutme'))

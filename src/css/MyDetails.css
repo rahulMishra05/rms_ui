@@ -48,13 +48,13 @@
 #formMyDetails {
     padding: 10px;
     width: 550px;
-    margin-top: 10vh;
+    
 }
-.topSection {
+/* .topSection {
     margin: 20px;
     display: flex;
     justify-content: flex-end;
-}
+} */
 .topSection .buttons {
     width: 60px;
     height: 30px;
@@ -92,7 +92,7 @@
     margin-bottom: 33px;
 }
 .topSectionMyDetails {
-    margin: -8px;
+   
     display: flex;
     justify-content: flex-end;
     margin-bottom: -10px;
