@@ -21,6 +21,13 @@
     font-size: 1rem;
     margin-bottom: 5px;
 }
+.textField1{
+    width: 330px;
+    border-radius: 0.7rem;
+    padding: 5px;
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
 .aboutParentDiv {
     display: flex;
     flex-direction: column;
