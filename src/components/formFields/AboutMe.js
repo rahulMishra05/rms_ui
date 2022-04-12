@@ -12,18 +12,18 @@ function AboutMe() {
     navigate("/skills");
 }
 
-  const [keyList, setKeyList] = useState([{ key: "" }]);
+  // const [keyList, setKeyList] = useState([{ key: "" }]);
   
-  const handleServiceAdd =()=> {
-    setKeyList([...keyList ,{key: ""}]);
-  };
+  // const handleServiceAdd =()=> {
+  //   setKeyList([...keyList ,{key: ""}]);
+  // };
 
-  const handleServiceChange = (e,index) =>{
-    const {name,value} = e.target
-    const list =[...keyList];
-    list[index][name]=value; 
-    setKeyList(list);
-  };
+  // const handleServiceChange = (e,index) =>{
+  //   const {name,value} = e.target
+  //   const list =[...keyList];
+  //   list[index][name]=value; 
+  //   setKeyList(list);
+  // };
 
   const [keyList, setKeyList] = useState([{ key: "" }]);
   
