@@ -7,6 +7,19 @@ function AboutMe() {
   const { register, handleSubmit } = useForm();
   const [data, setData] = useState("");
 
+  const [keyList, setKeyList] = useState([{ key: "" }]);
+  
+  const handleServiceAdd =()=> {
+    setKeyList([...keyList ,{key: ""}]);
+  };
+
+  const handleServiceChange = (e,index) =>{
+    const {name,value} = e.target
+    const list =[...keyList];
+    list[index][name]=value; 
+    setKeyList(list);
+  };
+
   const customFunction = (d) => {
     sessionStorage.setItem("aboutme", JSON.stringify(d))
     const data = JSON.parse(sessionStorage.getItem('aboutme'))
@@ -42,11 +55,22 @@ function AboutMe() {
             <textarea {...register('about')} name="about" placeholder="Write something about yourself" id="about" cols="30" rows="10" className="textField"></textarea> 
           </div>
           <div className="bulletPoints">
+            
             <label className="labelAbout" for="subaboutme"></label>
+            {keyList.map((singleKey, index) => (
             <div className="subPoints">
-              <input {...register('points')} type="text" name="points" placeholder="Additional information..." className="textField" />
-              <input className="buttons" type="button" name="mydetails" value="+" />
+              <input {...register('points')} type="text" name="points" placeholder="Additional information..." className="textField" 
+              value= {singleKey.key}
+              onChange = {(e) => handleServiceChange(e,index)}/>
+              {
+               keyList.length-1 ===index && keyList.length < 5 &&
+              <input className="buttons" type="button" 
+              onClick={handleServiceAdd}
+              name="mydetails" value="+" />
+              }
+
             </div>
+            ))};
           </div>   
       </form>
     </div>
