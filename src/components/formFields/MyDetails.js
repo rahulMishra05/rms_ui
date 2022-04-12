@@ -4,12 +4,15 @@ import '../resumeBuilder.css'
 import '../../css/MyDetails.css'
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import axios, {setTerm} from "axios";
-
+ import { useNavigate } from "react-router-dom";
 export default function MyDetails(props) {
   // console.log(props.formfields)
   const { register, handleSubmit } = useForm();
   // const [data, setData] = useState("");
-
+ const navigate = useNavigate();
+   const nextPage = () => {
+   navigate("/aboutme");
+ }
 
   const customFunction = (d) => {
     sessionStorage.setItem("mydetails", JSON.stringify(d))
@@ -49,7 +52,7 @@ export default function MyDetails(props) {
           <div className="topSectionMyDetails">
             <input className="buttons" type="button" name="mydetails" value="Cancel" />
             <input className="buttons" type="submit" name="mydetails" value="Save" />
-            <input className="buttons" type="button" name="mydetails" value="->" />
+            <input className="buttons" type="button" name="mydetails" value="->" onClick={nextPage} />
           </div>
           <div className="bottomSection">
             <div className="circle"></div>

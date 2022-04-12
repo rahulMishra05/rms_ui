@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from "react";
 // import Calendar from 'react-calendar'
 import { useForm } from "react-hook-form";
+import {useNavigate} from "react-router-dom";
 import Calendar from 'react-calendar'
 // import TextField from '@material-ui/core/TextField';
 import '../../css/WorkExp.css'
@@ -9,6 +10,11 @@ export default function WorkExp(props) {
   // console.log(props.formfields)
   const { register, handleSubmit } = useForm();
   // const [data, setData] = useState("");
+
+  const navigate = useNavigate();
+  const nextPage = () => {
+    navigate("/education");
+}
   const [workList, setworkList] = useState([{ work: "" }]);
 
   const handleServiceAdd = () => {
@@ -42,6 +48,7 @@ export default function WorkExp(props) {
 
   }
 
+
   return (
     <>
       <div className="WorkExp">
@@ -49,7 +56,9 @@ export default function WorkExp(props) {
           <div className="topSection">
             <input className="buttons" type="button" name="mydetails" value="Cancel" />
             <input className="buttons" type="submit" name="mydetails" value="Save" />
-            <input className="buttons" type="button" name="mydetails" value="->" />
+
+            <input className="buttons" type="button" name="mydetails" value="->" onClick={nextPage} />
+
           </div>
           {workList.map((singlework, index) => (
             <div className="FormFeilds">

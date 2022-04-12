@@ -1,11 +1,29 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import '../../css/AboutMe.css'
+import { useNavigate } from "react-router-dom";
 
 function AboutMe() {
 
   const { register, handleSubmit } = useForm();
   const [data, setData] = useState("");
+  const navigate = useNavigate();
+  const nextPage = () => {
+    navigate("/skills");
+}
+
+  const [keyList, setKeyList] = useState([{ key: "" }]);
+  
+  const handleServiceAdd =()=> {
+    setKeyList([...keyList ,{key: ""}]);
+  };
+
+  const handleServiceChange = (e,index) =>{
+    const {name,value} = e.target
+    const list =[...keyList];
+    list[index][name]=value; 
+    setKeyList(list);
+  };
 
   const [keyList, setKeyList] = useState([{ key: "" }]);
   
@@ -47,7 +65,7 @@ function AboutMe() {
       <div className="topSectionAboutMe">
         <input className="buttons" type="button" name="mydetails" value="Cancel" />
         <input className="buttons" type="submit" name="mydetails" value="Save" />
-        <input className="buttons" type="button" name="mydetails" value="->" />
+        <input className="buttons" type="button" name="mydetails" value="->" onClick={nextPage}/>
       </div>
          
           <div className="textareaDiv">
