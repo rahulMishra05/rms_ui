@@ -7,7 +7,7 @@ import {useNavigate} from "react-router-dom";
 // import {fa-search} from "@fortawesome/free-solid-svg-icons";
 function Skills() {
 
-    const navigate = useNavigate();
+   const navigate = useNavigate();
   const nextPage = () => {
     navigate("/workexp");
 }

@@ -4,15 +4,15 @@ import '../resumeBuilder.css'
 import '../../css/MyDetails.css'
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import axios, {setTerm} from "axios";
-import { useNavigate } from "react-router-dom";
+ import { useNavigate } from "react-router-dom";
 export default function MyDetails(props) {
   // console.log(props.formfields)
   const { register, handleSubmit } = useForm();
   // const [data, setData] = useState("");
-  const navigate = useNavigate();
-  const nextPage = () => {
-    navigate("/aboutme");
-}
+ const navigate = useNavigate();
+   const nextPage = () => {
+   navigate("/aboutme");
+ }
 
   const customFunction = (d) => {
     sessionStorage.setItem("mydetails", JSON.stringify(d))
