@@ -11,7 +11,7 @@
 }*/
 .WorkExp {
     width: 40vw;
-
+    overflow: scroll;
 }
 .labelWorkExp {
     color: rgb(85, 84, 84);
