@@ -10,6 +10,7 @@ export default function WorkExp(props) {
   // console.log(props.formfields)
   const { register, handleSubmit } = useForm();
   // const [data, setData] = useState("");
+
   const navigate = useNavigate();
   const nextPage = () => {
     navigate("/education");
@@ -47,7 +48,7 @@ export default function WorkExp(props) {
 
   }
 
-	
+
   return (
     <>
       <div className="WorkExp">
@@ -55,7 +56,9 @@ export default function WorkExp(props) {
           <div className="topSection">
             <input className="buttons" type="button" name="mydetails" value="Cancel" />
             <input className="buttons" type="submit" name="mydetails" value="Save" />
+
             <input className="buttons" type="button" name="mydetails" value="->" onClick={nextPage} />
+
           </div>
           {workList.map((singlework, index) => (
             <div className="FormFeilds">
