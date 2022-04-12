@@ -35,6 +35,8 @@
 .bulletPoints {
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
+    margin-left: 8rem;
 }
 .topSectionAboutMe {
     margin: 2px;
