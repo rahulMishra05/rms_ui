@@ -122,3 +122,10 @@
 .duration  {
 color: #000000;
 }
+
+.Validation_we{
+    color: red;
+    position:relative;
+    left:300px;
+    top: -20px;
+}

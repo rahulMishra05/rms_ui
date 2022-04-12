@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 function AboutMe() {
 
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit,formState:{errors} } = useForm();
   const [data, setData] = useState("");
   const navigate = useNavigate();
   const nextPage = () => {
@@ -68,28 +68,43 @@ function AboutMe() {
         <input className="buttons" type="button" name="mydetails" value="->" onClick={nextPage}/>
       </div>
          
+          <form>
           <div className="textareaDiv">
             <label className="labelAbout" for="aboutme">About Me:</label>
-            <textarea {...register('about')} name="about" placeholder="Write something about yourself" id="about" cols="30" rows="10" className="textField"></textarea> 
+            <textarea {...register('about',{required:true,maxLength:{value:200,message:"Only 200 characters are allowed"}})}
+             name="about" placeholder="Write something about yourself" id="about" cols="30" rows="10" className="textField"></textarea> 
           </div>
+          </form>
+          {errors.about && <small className="Validation_am">{errors.about.message}</small>}
+
+          
           <div className="bulletPoints">
             
             <label className="labelAbout" for="subaboutme"></label>
             {keyList.map((singleKey, index) => (
-            <div className="subPoints">
-              <input {...register('points')} type="text" name="points" placeholder="Additional information..." className="textField" 
-              value= {singleKey.key}
-              onChange = {(e) => handleServiceChange(e,index)}/>
-              {
-               keyList.length-1 ===index && keyList.length < 5 &&
-              <input className="buttons" type="button" 
-              onClick={handleServiceAdd}
-              name="mydetails" value="+" />
-              }
-
-            </div>
-            ))};
-          </div>   
+                
+                <div className="subPoints">
+                  <input {...register('points',{maxLength:{value:50,message:"Only 50 characters are allowed"}})}
+                  type="text" name="points" placeholder="Additional information..." className="textField" 
+                   value= {singleKey.key}
+                   onChange = {(e) => handleServiceChange(e,index)}/>
+                  {
+                  keyList.length-1 ===index && keyList.length < 5 &&
+                 <input className="buttons" type="button" 
+                  onClick={handleServiceAdd}
+                  name="mydetails" value="+" />
+                  }
+                  </div>
+                  
+                  
+                
+                
+                
+            ))
+                };
+          </div>
+          
+           
       </form>
     </div>
   );

@@ -7,7 +7,7 @@ import axios, {setTerm} from "axios";
  import { useNavigate } from "react-router-dom";
 export default function MyDetails(props) {
   // console.log(props.formfields)
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit,formState:{errors} } = useForm();
   // const [data, setData] = useState("");
  const navigate = useNavigate();
    const nextPage = () => {
@@ -57,11 +57,15 @@ export default function MyDetails(props) {
           <div className="bottomSection">
             <div className="circle"></div>
 
-
+            <form>
             <div className="labelInput">
               <label className="labelMyDetails" for="name">Name:</label>
-              <input {...register("name")} placeholder="Your name" name="name" id="name" className="inputs" />
+              <input {...register("name",{required:true,maxLength:{value:20,message:"Only 20 Charcters are allowed"}
+            ,pattern:{value:(/^[A-Za-z ]+$/),message:"Alphabets are allowed"}})} placeholder="Your name" name="name" id="name" className="inputs" />
             </div>
+            </form>
+            {errors.name && <small className="Validation">{errors.name.message}</small>}
+            
 
 
 
@@ -74,14 +78,27 @@ export default function MyDetails(props) {
 
             </div>
 
+            <form>
             <div className="labelInput">
               <label className="labelMyDetails" for="experience">Experience:</label>
-              <input {...register("experience")} placeholder="Total Experience" name="experience" id="experience" className="inputs" />
+              <input {...register("experience",{required:true,maxLength:{value:2,message:"Maximum 2 digits"},
+             pattern:{value:/^[0-9]*$/,message:"Only numbers are allowed"}
+               })}
+           placeholder="Total Experience" name="experience" id="experience" className="inputs" />
             </div>
-          </div>
-        </form>
-      </div>
-    </>
+
+            </form>
+            {errors.experience && <small className="Validation">{errors.experience.message}</small>}
+            
+
+            
+            </div>
+            </form>
+            </div>
+        
+        
+          
+      </>
   );
 }
 

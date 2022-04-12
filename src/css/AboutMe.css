@@ -49,3 +49,10 @@
     border: 1px solid #C0C0C0;
     color: black;;
 }
+
+.Validation_am{
+    position: relative;
+    left: 200px;
+    color: red;
+    top: -20px;
+}
