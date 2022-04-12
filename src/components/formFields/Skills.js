@@ -2,11 +2,15 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import '../../css/Skills.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {useNavigate} from "react-router-dom";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import {fa-search} from "@fortawesome/free-solid-svg-icons";
 function Skills() {
 
-
+    const navigate = useNavigate();
+  const nextPage = () => {
+    navigate("/workexp");
+}
 
     const { register, handleSubmit } = useForm();
     const [data, setData] = useState("");
@@ -32,7 +36,7 @@ function Skills() {
                 <div className="topSectionSkills">
                     <input className="buttons" type="button" name="mydetails" value="Cancel" />
                     <input className="buttons" type="submit" name="mydetails" value="Save" />
-                    <input className="buttons" type="button" name="mydetails" value="->" />
+                    <input className="buttons" type="button" name="mydetails" value="->" onClick={nextPage}/>
                 </div>
 
                 <div className="skillsList">

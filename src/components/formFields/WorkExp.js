@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from "react";
 // import Calendar from 'react-calendar'
 import { useForm } from "react-hook-form";
+import {useNavigate} from "react-router-dom";
 import Calendar from 'react-calendar'
 // import TextField from '@material-ui/core/TextField';
 import '../../css/WorkExp.css'
@@ -9,7 +10,10 @@ import '../../css/WorkExp.css'
   // console.log(props.formfields)
   const { register, handleSubmit } = useForm();
   // const [data, setData] = useState("");
-  
+  const navigate = useNavigate();
+  const nextPage = () => {
+    navigate("/education");
+}
 
   const customFunction = (d) => {
     sessionStorage.setItem("workexp", JSON.stringify(d))
@@ -45,7 +49,7 @@ import '../../css/WorkExp.css'
       <div className="topSection">
         <input className="buttons" type="button" name="mydetails" value="Cancel" />
         <input className="buttons" type="submit" name="mydetails" value="Save" />
-        <input className="buttons" type="button" name="mydetails" value="->" />
+        <input className="buttons" type="button" name="mydetails" value="->" onClick={nextPage}/>
       </div>
       <div className="FormFeilds">
         
