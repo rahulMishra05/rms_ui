@@ -21,6 +21,13 @@
     font-size: 1rem;
     margin-bottom: 5px;
 }
+.textField1{
+    width: 330px;
+    border-radius: 0.7rem;
+    padding: 5px;
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
 .aboutParentDiv {
     display: flex;
     flex-direction: column;
@@ -35,6 +42,8 @@
 .bulletPoints {
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
+    margin-left: 8rem;
 }
 .topSectionAboutMe {
     margin: 2px;
@@ -46,4 +55,11 @@
     background-color: #C0C0C0;
     border: 1px solid #C0C0C0;
     color: black;;
+}
+
+.Validation_am{
+    position: relative;
+    left: 200px;
+    color: red;
+    top: -20px;
 }

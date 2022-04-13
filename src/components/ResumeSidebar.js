@@ -1,5 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { fas ,faCoffee,faPenToSquare,faShareFromSquare,faFloppyDisk, faDownload, faEllipsisVertical, faCircleInfo, faGears, faBriefcase, faGraduationCap, faTrophy, faIdCard, faCircleNodes} from '@fortawesome/free-solid-svg-icons'
 // import DetailsIcon from '@mui/icons-material/Details';
 // import InfoIcon from '@mui/icons-material/Info';
 // import StarIcon from '@mui/icons-material/Star';
@@ -17,43 +19,75 @@ function Sidebar(props) {
 		<aside className="sidebar">
 
 			<div className='row'>
-				<FaArrowCircleLeft className='backArrow col-sm-3'/>
+				<FaArrowCircleLeft className='backArrow col-sm-2'/>
 				<h1 className="projectName col-sm-8">Resume Builder</h1>
 			</div>
+
+			<div className="fonts">
+			<button className="iconbuttons"><FontAwesomeIcon className="edit"  icon={faPenToSquare}/></button>
+			<button className='iconbuttons'><FontAwesomeIcon className="share" icon={faShareFromSquare}/></button>
+			<button className='iconbuttons'><FontAwesomeIcon className="clone" icon={faFloppyDisk}/></button>
+			<button className='iconbuttons'><FontAwesomeIcon className="download" icon={faDownload}/></button>
+			<button className='iconbuttons'><FontAwesomeIcon className="menu" icon={faEllipsisVertical}/></button>
 			
+			
+			</div>
 			
 			<ul className="listMenu">
 
 			
-				
+			<Link to="mydetails">
 				<div className="menuDiv">
-					{/* <span className="icon"><DetailsIcon /></span> */}
-					<li className="listItem"><Link to="mydetails">My Details</Link></li>
+					
+						<FontAwesomeIcon className="icon" icon={faIdCard}/>
+						<p className="listItem">My Details</p>
+					
 				</div>
+			</Link>
+			<Link to="aboutme">
 				<div className="menuDiv">
-					{/* <span className="icon"><InfoIcon /></span> */}
-					<li className="listItem"><Link to="aboutme">About Me</Link></li>
+					
+						<FontAwesomeIcon className="icon" icon={faCircleInfo}/>
+						<p className="listItem">About Me </p>
+					
 				</div>
+			</Link>
+			<Link to="skills">
 				<div className="menuDiv">
-					{/* <span className="icon"><StarIcon /></span> */}
-					<li className="listItem"><Link to="skills">Skills & Proficiencies</Link></li>
+					
+						<FontAwesomeIcon className="icon" icon={faGears}/>
+						<p className="listItem">Skills & Proficiencies</p>
+					
 				</div>
+			</Link>
+			<Link to="workexp">
 				<div className="menuDiv">
-					{/* <span className="icon"><WorkIcon /></span> */}
-					<li className="listItem"><Link to="workexp">Work Experience</Link></li>
+					
+						<FontAwesomeIcon className="icon" icon={faBriefcase}/>
+						<p className="listItem">Work Experience</p>
+					
 				</div>
+			</Link>
+			<Link to="education">
 				<div className="menuDiv">
-					{/* <span className="icon"><SchoolIcon /></span> */}
-					<li className="listItem"><Link to="education">Educational Background</Link></li>
+					
+						<FontAwesomeIcon className="icon" icon={faGraduationCap}/>
+						<p className="listItem">Educational Background</p>
+					
 				</div>
+			</Link>
+			<Link to="">
 				<div className="menuDiv">
-					{/* <span className="icon"><EmojiEventsIcon /></span> */}
-					<li className="listItem"><Link to="">Achievements</Link></li>
+					<FontAwesomeIcon className="icon" icon={faTrophy}/>
+					<p className="listItem">Achievements</p>
 				</div>
+			</Link>
+			<Link to="">
 				<div className="menuDiv">
-					{/* <span className="icon"><CardMembershipIcon /></span> */}
-					<li className="listItem"><Link to="">Memberships</Link></li>
+					<FontAwesomeIcon className="icon" icon={faCircleNodes}/>
+					<p className="listItem">Memberships</p>
 				</div>
+			</Link>
 			</ul>
 		</aside>
 	)
