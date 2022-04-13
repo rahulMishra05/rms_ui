@@ -24,11 +24,13 @@ function Sidebar(props) {
 			</div>
 
 			<div className="fonts">
-			<FontAwesomeIcon className="edit"  icon={faPenToSquare}/>
-			<FontAwesomeIcon className="share" icon={faShareFromSquare}/>
-			<FontAwesomeIcon className="clone" icon={faFloppyDisk}/>
-			<FontAwesomeIcon className="download" icon={faDownload}/>
-			<FontAwesomeIcon className="menu" icon={faEllipsisVertical}/>
+			<button className="iconbuttons"><FontAwesomeIcon className="edit"  icon={faPenToSquare}/></button>
+			<button className='iconbuttons'><FontAwesomeIcon className="share" icon={faShareFromSquare}/></button>
+			<button className='iconbuttons'><FontAwesomeIcon className="clone" icon={faFloppyDisk}/></button>
+			<button className='iconbuttons'><FontAwesomeIcon className="download" icon={faDownload}/></button>
+			<button className='iconbuttons'><FontAwesomeIcon className="menu" icon={faEllipsisVertical}/></button>
+			
+			
 			</div>
 			
 			<ul className="listMenu">

@@ -23,7 +23,7 @@ export default function MyDetails(props) {
     const exp = data.experience;
     const roles = data.role;
     document.querySelector(".nameHead").innerHTML = name;
-    document.querySelector(".expLabel").innerHTML = exp;
+    document.querySelector(".expLabel").innerHTML = exp+" Years";
     document.querySelector(".roleLabel").innerHTML = roles;
 
     axios.post('http://localhost:7258/api/user', {
