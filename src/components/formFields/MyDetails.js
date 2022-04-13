@@ -26,23 +26,36 @@ export default function MyDetails(props) {
     document.querySelector(".expLabel").innerHTML = exp;
     document.querySelector(".roleLabel").innerHTML = roles;
 
-    axios.post('http://localhost:7258/api/user', {
+    const dateTime = new Date();
 
-      userName: d.name,
-      userRole: d.role,
-      // exp: d.experience,
-      // image: d.image,
-      // userId: 3
+    axios.post('https://localhost:7258/api/Resume', {
+
+      resumeId: 0,
+      resumeTitle: "Resume My",
+
+      resumeStatus: "Draft",
+
+      creationDate: "2022-04-13T07:36:16.41",
+      updationDate: "2022-04-13T07:36:16.41",
+
+      myDetails: [
+        {
+          profilePicture: "",
+          totalExp: d.experience,
+          userName: d.name,
+          role: d.role
+        }
+      ]
     })
 
       .then(res => {
         // console.log(res);
-        // console.log(res.data);
-        sessionStorage.setItem("userId", res.data);
+        sessionStorage.setItem("resumeId", res.data['resumeId']);
+        sessionStorage.setItem("resumeStatus", res.data['resumeStatus']);
 
       })
 
-    setTerm(5);
+    // setTerm(5);
   }
 
   return (

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import '../../css/AboutMe.css'
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function AboutMe() {
 
@@ -24,7 +25,15 @@ function AboutMe() {
   };
 
   const customFunction = (d) => {
-
+    var resumeObject = sessionStorage.getItem("resume");
+    // alert(resumeObject["ResumeId"]);
+    // alert(resumeObject["ResumeStatus"]);
+    // console.log(resumeObject.resumeId);
+    // console.log(resumeObject.resumeStatus);
+    // console.log(sessionStorage.getItem('resumeId'));
+    // console.log(sessionStorage.getItem('resumeStatus'));
+    var rIdAbout = sessionStorage.getItem('resumeId');
+    var rStatusAbout = sessionStorage.getItem('resumeStatus');
     const addpoint = document.querySelectorAll('.textField1');
     const subaboutme = [];
     addpoint.forEach((e) => {
@@ -37,13 +46,31 @@ function AboutMe() {
       return `<li key={index}>${current}</li>`;
 
     })
-
     sessionStorage.setItem("aboutme", JSON.stringify(d))
     const data = JSON.parse(sessionStorage.getItem('aboutme'))
     const aboutMe = data.about;
     const subAboutMe = data.points;
     document.querySelector(".aboutMeText").innerHTML = aboutMe;
     document.querySelector(".subaboutme").innerHTML = `<ul>${something.join("")}</ul>`;
+
+    var keyList = something.toString();
+    console.log(keyList);
+
+    axios.put(`https://localhost:7258/api/Resume/${rIdAbout}`, {
+      
+      resumeId: rIdAbout,
+      resumeTitle: "Resume My",
+      resumeStatus: rStatusAbout,
+      creationDate: "2022-04-13T06:33:42.151Z",
+      updationDate: "2022-04-13T06:33:42.151Z",
+
+      aboutMes: [
+        {
+          mainDescription: d.about,
+          keyPoints: d.keyList
+        }
+      ]
+    })
   }
   return (
     <div className="aboutParentDiv">
