@@ -18,7 +18,7 @@ h5 {
     /* overflow: scroll; */
 }
 .aboutMeDiv{
-    width: 50px;
+    /*width: 50px;*/
     word-wrap: break-word;
     /* margin-bottom: -500px; */
 }
@@ -26,6 +26,7 @@ h5 {
     position: relative;
     bottom: 50px;
     left: 49px;
+    font-size: 1rem;
 }
 .skillsText{
     position: relative;
@@ -48,19 +49,22 @@ h5 {
     height: 125px;
     border-radius: 50%;
     background-color: lightgray;
-    margin-left: 10px;
-    margin-top: 20px;
+    position: fixed;
+    top: 23px;
+    right: 472px;
 }
 .nameInfo {
     display: flex;
     flex-direction: column;
     margin-top: 35px;
-    margin-left: 50px;
+    margin-left: 118px;
+
 }
 .resumeDetailsDiv {
-    margin-top: 30px;
+    margin-top: 100px;
     margin-bottom: 40px;
     /* margin-left: 30px; */
+    /*position: fixed;*/
     display: flex;
     flex-wrap: wrap;
     width: 100%;
@@ -79,12 +83,17 @@ h5 {
 .client_country{
     display: flex;
     justify-content: space-between;
+    font-size: 1rem;
 }
 .client_country .countryText{
     margin-right: 50px;
 }
-.workHistoryDiv .roleText{
-    font-size: 15px;
+/*.workHistoryDiv p{
+    font-size: 1.2rem;
+}*/
+
+.clientText{
+    font-size: 20px;
 }
 /* .workHistoryDiv .technologyText{
     border: 2px solid black;
@@ -105,6 +114,11 @@ h5 {
     position: relative;
     left: 47px;
     top: -53px;
+}
+
+.nameHead{
+    font-size: 1.6rem;
+    font-weight: 500;
 }
 
 .roleLabel{

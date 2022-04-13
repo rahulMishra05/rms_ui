@@ -18,7 +18,7 @@ export default function MyDetails(props) {
     sessionStorage.setItem("mydetails", JSON.stringify(d))
     const data = JSON.parse(sessionStorage.getItem('mydetails'))
     console.log(sessionStorage.key(0))
-    console.log(data)
+    // console.log(data)
     const name = data.name;
     const exp = data.experience;
     const roles = data.role;

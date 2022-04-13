@@ -48,6 +48,7 @@ function AboutMe() {
     })
     sessionStorage.setItem("aboutme", JSON.stringify(d))
     const data = JSON.parse(sessionStorage.getItem('aboutme'))
+
     const aboutMe = data.about;
     const subAboutMe = data.points;
     document.querySelector(".aboutMeText").innerHTML = aboutMe;
@@ -74,6 +75,7 @@ function AboutMe() {
   }
   return (
     <div className="aboutParentDiv">
+
       <form onSubmit={handleSubmit((data) => customFunction(data))} className="formAbout">
         <div className="topSectionAboutMe">
           <input className="buttons" type="button" name="mydetails" value="Cancel" />
@@ -82,6 +84,7 @@ function AboutMe() {
         </div>
 
         <form>
+
           <div className="textareaDiv">
             <label className="labelAbout" for="aboutme">About Me:</label>
             <textarea {...register('about', { required: true, maxLength: { value: 200, message: "Only 200 characters are allowed" } })}
