@@ -39,13 +39,18 @@ function Template() {
 				<h5 className="resumeHeadings">Skills & Proficiencies</h5>
 				<p className="skillsText"></p>
 			</div>
-			<div className="certificationDiv">
-				<h5 className="resumeHeadings">Certification & Volunteer Work</h5>
-				<p className="certificationText"></p>
-			</div>
 			<div className="educationalDiv">
 				<h5 className="resumeHeadings">Educational Background</h5>
 				<p className="educationText"></p>
+			</div>
+			<div className="certificationDiv">
+				<h5 className="resumeHeadings">Certification</h5>
+				<p className="certificationText"></p>
+			</div>
+			
+			<div className="membershipDiv">
+				<h5 className="resumeHeadings">Memberships & Achievements</h5>
+				<p className="membershipText"></p>
 			</div>
 		</div>
 		</section>
