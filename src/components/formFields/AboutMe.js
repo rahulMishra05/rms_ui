@@ -55,7 +55,8 @@ function AboutMe() {
     document.querySelector(".subaboutme").innerHTML = `<ul>${something.join("")}</ul>`;
 
     var keyList = something.toString();
-    console.log(keyList);
+    console.log(d.points);
+    
 
     axios.put(`https://localhost:7258/api/Resume/${rIdAbout}`, {
       
@@ -68,7 +69,7 @@ function AboutMe() {
       aboutMes: [
         {
           mainDescription: d.about,
-          keyPoints: d.keyList
+          keyPoints: d.points
         }
       ]
     })

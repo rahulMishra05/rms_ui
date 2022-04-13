@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import '../../css/Skills.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {useNavigate} from "react-router-dom";
+import axios from "axios";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import {fa-search} from "@fortawesome/free-solid-svg-icons";
 function Skills() {
@@ -26,6 +27,23 @@ function Skills() {
         // console.log(data)
         const skills = data.skill;
         document.querySelector(".skillsText").innerHTML = skills;
+
+        var rIdSkill = sessionStorage.getItem('resumeId');
+        var rStatusSkills = sessionStorage.getItem('resumeStatus');
+
+        axios.put(`https://localhost:7258/api/Resume/${rIdSkill}`, {
+            resumeId: rIdSkill,
+            resumeTitle: "Resume My",
+            resumeStatus: rStatusSkills,
+            creationDate: "2022-04-13T13:51:34.029Z",
+            updationDate: "2022-04-13T13:51:34.029Z",
+
+            skillList: [
+                {
+                  category: d.skill,
+                }
+              ]
+        })
     }
 
     return (
