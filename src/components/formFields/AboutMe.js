@@ -10,8 +10,8 @@ function AboutMe() {
   const customFunction = (d) => {
     sessionStorage.setItem("aboutme", JSON.stringify(d))
     const data = JSON.parse(sessionStorage.getItem('aboutme'))
-    console.log(sessionStorage.key(0))
-    console.log(data)
+    // console.log(sessionStorage.key(0))
+    // console.log(data)
     const aboutMe = data.about;
     const subAboutMe = data.points;
     document.querySelector(".aboutMeText").innerHTML = aboutMe;
@@ -30,7 +30,7 @@ function AboutMe() {
 
 	return (
     <div className="aboutParentDiv">
-      <form onSubmit={handleSubmit((data) => customFunction(data))} className="formAbout">
+      <form onChange={handleSubmit((data) => customFunction(data))} className="formAbout">
       <div className="topSectionAboutMe">
         <input className="buttons" type="button" name="mydetails" value="Cancel" />
         <input className="buttons" type="submit" name="mydetails" value="Save" />
