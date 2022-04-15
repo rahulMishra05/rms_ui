@@ -8,7 +8,8 @@
 .labelAbout {
     color: rgb(85, 84, 84);
     font-weight: bold;
-    font-size: medium;
+    font-size: 16px;
+    position: absolute;
 }
 .formAbout {
     margin-top: 100px;
@@ -24,11 +25,13 @@
     margin-bottom: 5px;
 }
 .textField1{
-    width: 330px;
+    width: 224px;
     border-radius: 0.7rem;
     padding: 5px;
     font-size: 1rem;
-    margin-bottom: 5px;
+    margin-bottom: 11px;
+    margin-left: 144px;
+    padding-left: 15px;
 }
 .aboutParentDiv {
     display: flex;
@@ -44,8 +47,9 @@
 .bulletPoints {
     display: flex;
     justify-content: space-between;
-    flex-direction: column;
+    /* flex-direction: column; */
     margin-left: 8rem;
+    padding-bottom: 90px;
 }
 .topSectionAboutMe {
     margin: 2px;
@@ -67,4 +71,9 @@
 }
 .bothDiv{
     margin-top:50px;
+    margin-left: -108px;
+}
+.subPoints{
+    display: flex;
+    flex-direction: row;
 }

@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import '../../css/CertificationTraining.css'
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css' 
 
 function CertificationTraining() {
 
@@ -80,7 +81,7 @@ function CertificationTraining() {
 
     const certificationTraining = data.about;
     const subCertificationTraining = data.points;
-    document.querySelector(".certificationTrainingText").innerHTML = certificationTraining;
+    // document.querySelector(".certificationTrainingText").innerHTML = certificationTraining;
     document.querySelector(".subcertificationtraining").innerHTML = `<ul>${something.join("")}</ul>`;
 
     var keyList = something.toString();
@@ -124,21 +125,19 @@ function CertificationTraining() {
         {errors.about && <small className="Validation_am">{errors.about.message}</small>} */}
     
         <div className="bothDiv">
-        <div className="bulletPoints">
+        <div className="bulletPoints row">
 
-          <label className="labelAbout" for="subcertificationtraining">Enter Certificate Name</label>
+          <label className="labelAbout" for="subcertificationtraining">Certificate Name:</label>
 
           <div>
-
             <div className="wordExpDiv">
               <div className="subPoints">
 
-                <input {...register('points', { maxLength: { value: 50, message: "Only 50 characters are allowed" } })}
-                  type="text" name="points" placeholder="Enter Certificate Name..." className="textField1"
+                <input {...register('about', { maxLength: { value: 50, message: "Only 50 characters are allowed" } })}
+                  type="text" name="about" placeholder="Enter Certificate Name..." className="textField1"
                 // value={singleKey.key}
                 // onChange={(e) => handleServiceChange(e, index)}
                 />
-
               </div>
             </div>
           </div>
@@ -146,7 +145,7 @@ function CertificationTraining() {
         </div>
         <div className="bulletPoints">
 
-          <label className="labelAbout" for="subcertificationtraining">Enter Training Name</label>
+          <label className="labelAbout" for="subcertificationtraining">Training Name:</label>
 
           <div>
 
