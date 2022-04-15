@@ -76,16 +76,16 @@ function Sidebar(props) {
 					
 				</div>
 			</Link>
-			<Link to="">
+			<Link to="certificationtraining">
 				<div className="menuDiv">
 					<FontAwesomeIcon className="icon" icon={faTrophy}/>
-					<p className="listItem">Achievements</p>
+					<p className="listItem">Certification & Training</p>
 				</div>
 			</Link>
-			<Link to="">
+			<Link to="achievementmembership">
 				<div className="menuDiv">
 					<FontAwesomeIcon className="icon" icon={faCircleNodes}/>
-					<p className="listItem">Memberships</p>
+					<p className="listItem">Achievement & Memberships</p>
 				</div>
 			</Link>
 			</ul>
