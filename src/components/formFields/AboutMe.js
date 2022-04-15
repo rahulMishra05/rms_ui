@@ -62,7 +62,7 @@ function AboutMe() {
     console.log(d.points);
     
 
-    axios.put(`https://localhost:44358/api/Resume/${rIdAbout}`, {
+    axios.put(`https://localhost:7258/api/Resume/${rIdAbout}`, {
       
       resumeId: rIdAbout,
       resumeTitle: "Resume My",

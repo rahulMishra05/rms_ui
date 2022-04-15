@@ -35,7 +35,7 @@ export default function MyDetails(props) {
 
     const dateTime = new Date();
 
-    axios.post('https://localhost:44385/api/Resume', {
+    axios.post('https://localhost:7258/api/Resume', {
 
       resumeId: 0,
       resumeTitle: "Resume My",
