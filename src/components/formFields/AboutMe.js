@@ -8,6 +8,7 @@ function AboutMe() {
 
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [data, setData] = useState("");
+  const [textareaError, setTextareaerror] = useState(false);
   const navigate = useNavigate();
   const nextPage = () => {
     navigate("/skills");
@@ -78,6 +79,14 @@ function AboutMe() {
       ]
     })
   }
+
+  const checkCharLength = (e) => {
+    if(e.target.value.length == 200)
+      setTextareaerror(true);
+    else
+      setTextareaerror(false);
+  }
+
   return (
     <div className="aboutParentDiv">
 
@@ -92,11 +101,11 @@ function AboutMe() {
 
           <div className="textareaDiv">
             <label className="labelAbout" for="aboutme">About Me:</label>
-            <textarea {...register('about', { required: true, maxLength: { value: 200, message: "Only 200 characters are allowed" } })}
-              name="about" placeholder="Write something about yourself" id="about" cols="30" rows="10" className="textField"></textarea>
+            <textarea {...register('about', { required: true} )}
+              name="about" placeholder="Write something about yourself" id="about" cols="30" rows="10" className="textField" onChange={checkCharLength} maxLength="200"></textarea>
           </div>
         </form>
-        {errors.about && <small className="Validation_am">{errors.about.message}</small>}
+        {textareaError && <small className="Validation_am">200 characters only</small>}
 
 
         <div className="bulletPoints">
