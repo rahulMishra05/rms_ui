@@ -111,16 +111,21 @@
     margin-left: 180px;
     width: 90vw;
     height: 8vh;
+    
 }
 .duration_start{
-    margin-right:20px;
+    margin-right:10px;
+    width: 125px;
+    
 }
 
 .duration_end{
-    margin-left:20px;
+    margin-left:-10px;
+    width: 125px;
 }
 .duration  {
 color: #000000;
+
 }
 
 .Validation_we{
@@ -128,4 +133,18 @@ color: #000000;
     position:relative;
     left:300px;
     top: -20px;
+}
+
+.td{
+    position: relative;
+    left: 5px;
+    bottom: 2px;
+    color: #000000;
+    
+}
+
+.td label{
+    margin-left: 2px;
+    position: relative;
+    top: 4px;
 }

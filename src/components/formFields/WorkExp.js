@@ -35,8 +35,13 @@ export default function WorkExp(props) {
     const projectRes = data.projectRes;
     const Startdate = data.startdate;
     const Enddate = data.enddate;
+    const td=data.tilldate;
 
-    if (Startdate === Enddate) {
+    if(td=="till date")
+    {
+      document.querySelector('.durationText').innerHTML = Startdate.slice(0, 7) + " - " + td;
+    }
+   else if (Startdate === Enddate) {
       window.alert("Start date and end date are same");
     }
     else if (Startdate > Enddate) {
@@ -114,18 +119,24 @@ export default function WorkExp(props) {
               <div className="labelInputWorkExp">
                 <label className="labelWorkExp">Duration:</label>
                 <div className="duration">
-                  <span className="duration_start"><input className="fifth"{...register("startdate")} type="date" name="startdate" /></span>
-                  <p>to</p>
-                  <span className="duration_end"><input className="fifth"{...register("enddate")} type="date" name="enddate" /></span>
+                  <span className="duration_start"><input className="ds"{...register("startdate")} type="date" name="startdate" /></span>
+                  
+                  <span className="duration_end"><input className="de"{...register("enddate")} type="date" name="enddate" /></span>
 
-                  <div className="Date Validation_we " ></div>
-
+                  <span className='td'>
+                <input type='checkbox'  id="tds" name="tilldate"  value='till date' {...register("tilldate")} ></input>
+                  <label for='tds'>till date</label>
+                  
+                </span>
 
                 </div>
+                
+                    
 
               </div>
+              
 
-              {/* <Calendar /> */}
+             
 
               <div className="labelInputWorkExp">
                 <label className="labelWorkExp" for="">Business Solution:</label>
