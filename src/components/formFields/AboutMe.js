@@ -13,6 +13,11 @@ function AboutMe() {
     navigate("/skills");
   }
 
+  const deleteContent = () =>{
+    document.querySelector("div.textareaDiv textarea[name='about']").value = "";
+    document.querySelector("div.subPoints input[name='points']").value = "";
+    }
+
   const [keyList, setKeyList] = useState([{ key: "" }]);
 
   const handleServiceAdd = (e) => {
@@ -40,7 +45,6 @@ function AboutMe() {
       subaboutme.push(e.value);
     })
 
-
     const something = subaboutme.map((current, index) => {
 
       return `<li key={index}>${current}</li>`;
@@ -58,7 +62,7 @@ function AboutMe() {
     console.log(d.points);
     
 
-    axios.put(`https://localhost:7258/api/Resume/${rIdAbout}`, {
+    axios.put(`https://localhost:44358/api/Resume/${rIdAbout}`, {
       
       resumeId: rIdAbout,
       resumeTitle: "Resume My",
@@ -79,7 +83,7 @@ function AboutMe() {
 
       <form onSubmit={handleSubmit((data) => customFunction(data))} className="formAbout">
         <div className="topSectionAboutMe">
-          <input className="buttons" type="button" name="mydetails" value="Cancel" />
+          <input className="buttons" type="button" name="mydetails" value="Cancel" onClick={deleteContent}/>
           <input className="buttons" type="submit" name="mydetails" value="Save" />
           <input className="buttons" type="button" name="mydetails" value="->" onClick={nextPage} />
         </div>

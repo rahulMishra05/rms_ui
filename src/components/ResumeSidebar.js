@@ -85,7 +85,9 @@ function Sidebar(props) {
 			<Link to="achievementmembership">
 				<div className="menuDiv">
 					<FontAwesomeIcon className="icon" icon={faCircleNodes}/>
-					<p className="listItem">Achievement & Memberships</p>
+
+					<p className="listItem">Achievements & Memberships</p>
+
 				</div>
 			</Link>
 			</ul>
