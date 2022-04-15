@@ -1,0 +1,70 @@
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.labelAbout {
+    color: rgb(85, 84, 84);
+    font-weight: bold;
+    font-size: medium;
+}
+.formAbout {
+    margin-top: 100px;
+    margin-left: 100px;
+    width: 450px;
+    word-wrap: wrap;
+}
+.textField{
+    width: 330px;
+    border-radius: 0.7rem;
+    padding: 5px;
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+.textField1{
+    width: 330px;
+    border-radius: 0.7rem;
+    padding: 5px;
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+.aboutParentDiv {
+    display: flex;
+    flex-direction: column;
+    width: 40vw;
+}
+.textareaDiv {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    margin-top: 51px;
+}
+.bulletPoints {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin-left: 8rem;
+}
+.topSectionAboutMe {
+    margin: 2px;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: -10px;
+}
+.topSectionAboutMe .buttons{
+    background-color: #C0C0C0;
+    border: 1px solid #C0C0C0;
+    color: black;;
+}
+
+.Validation_am{
+    position: relative;
+    left: 200px;
+    color: red;
+    top: -20px;
+}
+.bothDiv{
+    margin-top:50px;
+}

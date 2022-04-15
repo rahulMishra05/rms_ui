@@ -42,15 +42,17 @@ function Template() {
 			<div className="educationalDiv">
 				<h5 className="resumeHeadings">Educational Background</h5>
 				<p className="educationText"></p>
-			</div>
-			<div className="certificationDiv">
+
+			<div className="certificationTrainingDiv">
 				<h5 className="resumeHeadings">Certification & Training</h5>
-				<p className="certificationText"></p>
+				<div className="certificationTrainingText"><p></p></div>
+				<p className='subcertificationtraining'></p>
 			</div>
 			
-			<div className="membershipDiv">
+			<div className="achievementMembershipDiv">
 				<h5 className="resumeHeadings">Achievements & Memberships</h5>
-				<p className="membershipText"></p>
+				<div className="achievementMembershipText"><p></p></div>
+
 			</div>
 		</div>
 		</section>
