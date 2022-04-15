@@ -3,17 +3,20 @@ import { useForm } from "react-hook-form";
 import '../../css/AchievementMembership.css'
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css' 
 
-function AchievementMembership() {
+function CertificationTraining() {
 
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [data, setData] = useState("");
   const navigate = useNavigate();
   const nextPage = () => {
-    navigate("/myDetails");
+    navigate("/AchievementMembership");
   }
 
   const [keyList, setKeyList] = useState([{ key: "" }]);
+
+  
   var count=0;
   const handleServiceAdd = (e) => {
     
@@ -29,7 +32,7 @@ function AchievementMembership() {
     }
     else
     {
-      alert("you can enter max 3 achievements");
+      alert("you can enter max 3 certificates");
     }
   };
   var count1=0;
@@ -47,7 +50,7 @@ function AchievementMembership() {
     }
     else
     {
-      alert("you can enter max 3 membership");
+      alert("you can enter max 3 training");
     }
   };
 
@@ -61,25 +64,25 @@ function AchievementMembership() {
     // console.log(sessionStorage.getItem('resumeStatus'));
     var rIdAbout = sessionStorage.getItem('resumeId');
     var rStatusAbout = sessionStorage.getItem('resumeStatus');
-    const addpoint = document.querySelectorAll('.textField1');
-    const subaboutme = [];
+    const addpoint = document.querySelectorAll('.textField2');
+    const subcertificationtraining = [];
     addpoint.forEach((e) => {
-      subaboutme.push(e.value);
+      subcertificationtraining.push(e.value);
     })
 
 
-    const something = subaboutme.map((current, index) => {
+    const something = subcertificationtraining.map((current, index) => {
 
       return `<li key={index}>${current}</li>`;
 
     })
-    sessionStorage.setItem("achievementmembership", JSON.stringify(d))
+    sessionStorage.setItem("aboutme", JSON.stringify(d))
     const data = JSON.parse(sessionStorage.getItem('aboutme'))
 
-    const achievementMembership = data.about;
-    const subAchievementMembership = data.points;
-    document.querySelector(".achievementMembershipText").innerHTML = achievementMembership;
-    document.querySelector(".subachievementmembership").innerHTML = `<ul>${something.join("")}</ul>`;
+    const certificationTraining = data.about;
+    const subCertificationTraining = data.points;
+    // document.querySelector(".certificationTrainingText").innerHTML = certificationTraining;
+    document.querySelector(".subcertificationtraining").innerHTML = `<ul>${something.join("")}</ul>`;
 
     var keyList = something.toString();
     console.log(d.points);
@@ -102,9 +105,9 @@ function AchievementMembership() {
     // })
   }
   return (
-    <div className="achievementParentDiv">
+    <div className="certificationParentDiv">
 
-      <form onSubmit={handleSubmit((data) => customFunction(data))} className="formAchievement">
+      <form onSubmit={handleSubmit((data) => customFunction(data))} className="formAbout">
         <div className="topSectionAboutMe">
           <input className="buttons" type="button" name="mydetails" value="Cancel" />
           <input className="buttons" type="submit" name="mydetails" value="Save" />
@@ -114,46 +117,43 @@ function AchievementMembership() {
         {/* <form>
 
           <div className="textareaDiv">
-            <label className="labelAbout" for="achievementmembership">Achievement & Membership:</label>
+            <label className="labelAbout" for="certificationtraining">Certification & Training:</label>
             <textarea {...register('about', { required: true, maxLength: { value: 200, message: "Only 200 characters are allowed" } })}
               name="about" placeholder="Write something about yourself" id="about" cols="30" rows="10" className="textField"></textarea>
           </div>
         </form>
         {errors.about && <small className="Validation_am">{errors.about.message}</small>} */}
+    
+        <div className="bothDiv">
+        <div className="bulletPoints row">
 
-        <div className="bothDivs">
-        <div className="bulletPoints">
+          <label className="labelAbout" for="subcertificationtraining">Achievements Name:</label>
 
-          
-          <label className="labelAbout" for="achievementmembership">Enter Achivements</label>
           <div>
-
             <div className="wordExpDiv">
               <div className="subPoints">
-               
-                <input {...register('points', { maxLength: { value: 50, message: "Only 50 characters are allowed" } })}
-                  type="text" name="points" placeholder="Enter Achievements..." className="textField1"
+
+                <input {...register('about', { maxLength: { value: 50, message: "Only 50 characters are allowed" } })}
+                  type="text" name="about" placeholder="Enter Achievements Name..." className="textField2"
                 // value={singleKey.key}
                 // onChange={(e) => handleServiceChange(e, index)}
                 />
-
               </div>
             </div>
           </div>
           <input className="buttons" type="button" onClick={handleServiceAdd} name="mydetails" value="+" />
         </div>
-
         <div className="bulletPoints">
 
-        <label className="labelAbout" for="achievementmembership">Enter Membership</label>
+          <label className="labelAbout" for="subcertificationtraining">Memberships Name:</label>
 
           <div>
 
             <div className="wordExpDiv">
               <div className="subPoints">
-                
+
                 <input {...register('points', { maxLength: { value: 50, message: "Only 50 characters are allowed" } })}
-                  type="text" name="points" placeholder="Enter Memberships..." className="textField1"
+                  type="text" name="points" placeholder="Enter Memberships Name..." className="textField2"
                 // value={singleKey.key}
                 // onChange={(e) => handleServiceChange(e, index)}
                 />
@@ -170,9 +170,10 @@ function AchievementMembership() {
 
 
 
+
       </form>
     </div>
   );
 }
 
-export default AchievementMembership
+export default CertificationTraining

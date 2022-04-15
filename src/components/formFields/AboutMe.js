@@ -21,14 +21,33 @@ function AboutMe() {
 
   const [keyList, setKeyList] = useState([{ key: "" }]);
 
+  // const handleServiceAdd = (e) => {
+  //   e.preventDefault();
+  //   const aboutMeDiv = e.target.previousElementSibling.children[0].cloneNode(true);
+
+  //   aboutMeDiv.children[0].children[0].value = "";
+
+  //   e.target.previousElementSibling.appendChild(aboutMeDiv)
+  // };
+
+  var count=0;
   const handleServiceAdd = (e) => {
+    
+    if(count<4)
+    {
     e.preventDefault();
     const aboutMeDiv = e.target.previousElementSibling.children[0].cloneNode(true);
 
     aboutMeDiv.children[0].children[0].value = "";
 
     e.target.previousElementSibling.appendChild(aboutMeDiv)
-  };
+    count++;
+    }
+    else
+    {
+      alert("you can enter max 5 achievements");
+    }
+  };  
 
   const customFunction = (d) => {
     var resumeObject = sessionStorage.getItem("resume");
@@ -63,7 +82,7 @@ function AboutMe() {
     console.log(d.points);
     
 
-    axios.put(`https://localhost:44358/api/Resume/${rIdAbout}`, {
+    axios.put(`https://localhost:7258/api/Resume/${rIdAbout}`, {
       
       resumeId: rIdAbout,
       resumeTitle: "Resume My",

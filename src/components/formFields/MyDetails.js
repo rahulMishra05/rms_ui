@@ -35,15 +35,18 @@ export default function MyDetails(props) {
 
     const dateTime = new Date();
 
-    axios.post('https://localhost:44385/api/Resume', {
+    const todayDate = JSON.stringify(new Date());
+    const updateDate = JSON.stringify(new Date());
+
+    axios.post('https://localhost:7258/api/Resume', {
 
       resumeId: 0,
-      resumeTitle: "Resume My",
+      resumeTitle: "Date Test",
 
       resumeStatus: "Draft",
 
-      creationDate: "2022-04-13T07:36:16.41",
-      updationDate: "2022-04-13T07:36:16.41",
+      creationDate: "2022-04-13T06:33:42.15",
+      updationDate: "2022-04-13T06:33:42.15",
 
       myDetails: [
         {
@@ -81,7 +84,7 @@ export default function MyDetails(props) {
             <div className="labelInput">
               <label className="labelMyDetails" for="name">Name:</label>
               <input {...register("name",{required:true,maxLength:{value:20,message:"Only 20 Charcters are allowed"}
-            ,pattern:{value:(/^[A-Za-z ]+$/),message:"Alphabets are allowed"}})} placeholder="Your name" name="name" id="name" className="inputs" />
+            ,pattern:{value:(/^[A-Za-z ]+$/),message:"Alphabets are allowed"}})} placeholder="Your name: Characters Only!" name="name" id="name" className="inputs" />
             </div>
             </form>
             {errors.name && <small className="Validation">{errors.name.message}</small>}
@@ -104,7 +107,7 @@ export default function MyDetails(props) {
               <input {...register("experience",{required:true,maxLength:{value:2,message:"Maximum 2 digits"},
              pattern:{value:/^[0-9]*$/,message:"Only numbers are allowed"}
                })}
-           placeholder="Total Experience" name="experience" id="experience" className="inputs" />
+           placeholder="Experience: 2 Numeric Digits Only!" name="experience" id="experience" className="inputs" />
             </div>
 
             </form>
