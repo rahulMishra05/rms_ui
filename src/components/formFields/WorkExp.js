@@ -11,6 +11,14 @@ export default function WorkExp(props) {
   const { register, handleSubmit, formState: { errors } } = useForm();
   // const [data, setData] = useState("");
 
+  const deleteContent = () =>{
+    document.querySelector("div.labelInputWorkExp input[name='client']").value = "";
+    document.querySelector("div.labelInputWorkExp input[name='country']").value = "";
+    document.querySelector("div.labelInputWorkExp input[name='project']").value = "";
+    document.querySelector("div.labelInputWorkExp input[name='businessSolution']").value = "";
+    document.querySelector("div.labelInputWorkExp input[name='projectRes']").value = "";
+  }
+
   const navigate = useNavigate();
   const nextPage = () => {
     navigate("/education");
@@ -58,10 +66,7 @@ export default function WorkExp(props) {
     document.querySelector('.businessSolutionText').innerHTML = businessSoulution;
     document.querySelector('.technologyText').innerHTML = technology;
     document.querySelector('.projectResText').innerHTML = projectRes;
-
-
-
-  }
+    }
 
 
   return (
@@ -69,7 +74,7 @@ export default function WorkExp(props) {
       <div className="WorkExp">
         <form onSubmit={handleSubmit((data) => customFunction(data))} id="formWorkExp">
           <div className="topSection">
-            <input className="buttons" type="button" name="mydetails" value="Cancel" />
+            <input className="buttons" type="button" name="mydetails" value="Cancel" onClick={deleteContent}/>
             <input className="buttons" type="submit" name="mydetails" value="Save" />
 
             <input className="buttons" type="button" name="mydetails" value="->" onClick={nextPage} />
@@ -140,7 +145,7 @@ export default function WorkExp(props) {
 
               <div className="labelInputWorkExp">
                 <label className="labelWorkExp" for="">Business Solution:</label>
-                <input {...register("businessSoulution", { maxLength: { value: 100, message: "100 Characters are allowed" } })} placeholder="Business Solution" name="businessSoulution" id="businessSolution" className="inputsWorkExp" />
+                <input {...register("businessSoulution", { maxLength: { value: 100, message: "100 Characters are allowed" } })} placeholder="Business Solution" name="businessSolution" id="businessSolution" className="inputsWorkExp" />
               </div>
               {errors.businessSoulution && <small className="Validation_we">{errors.businessSoulution.message}</small>}
 

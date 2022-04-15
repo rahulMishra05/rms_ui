@@ -6,6 +6,9 @@ import AboutMe from './components/formFields/AboutMe'
 import Education from './components/formFields/Education'
 import Skills from './components/formFields/Skills'
 import WorkExp from './components/formFields/WorkExp'
+import AchievementMembership from './components/formFields/AchievementMembership'
+import CertificationTraining from './components/formFields/CertificationTraining'
+
 import './index.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -20,6 +23,9 @@ ReactDOM.render(
           <Route path="skills" element={<Skills />} />
           <Route path="workexp" element={<WorkExp />} />
           <Route path="education" element={<Education />} />
+          <Route path="achievementmembership" element={<AchievementMembership />} />
+          <Route path="certificationtraining" element={<CertificationTraining />} />
+
            {/* <Route path="mydetails" element={<MyDetails />} /> */}
           {/* <Route path="mydetails" element={<MyDetails />} /> */}
         </Route>

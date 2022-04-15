@@ -134,7 +134,7 @@ h5 {
     font-size: 1.2rem;
     font-weight: 400;
 }
-.certificationText{
+.certificationTrainingText{
     position: relative;
     bottom: 50px;
     left: 49px;
@@ -152,7 +152,7 @@ h5 {
     padding-top: 5px;
     padding-bottom: 5px;
 }
-.membershipText{
+.achievementMembershipText{
     position: relative;
     bottom: 50px;
     left: 49px;
@@ -163,4 +163,10 @@ h5 {
 }
 .certificationDiv{
     margin-top: 20px;
+}
+.skillsDiv{
+    margin-top: -50px;
+}
+.educationalDiv{
+    margin-top: -50px;
 }
