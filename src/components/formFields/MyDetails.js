@@ -5,6 +5,7 @@ import '../../css/MyDetails.css'
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import axios, {setTerm} from "axios";
  import { useNavigate } from "react-router-dom";
+
 export default function MyDetails(props) {
   // console.log(props.formfields)
   const { register, handleSubmit,formState:{errors} } = useForm();
@@ -13,6 +14,12 @@ export default function MyDetails(props) {
    const nextPage = () => {
    navigate("/aboutme");
  }
+
+  const deleteContent = () =>{
+    document.querySelector("div.labelInput input[name='name']").value = "";
+    document.querySelector("div.labelInput input[name='role']").value = "";
+    document.querySelector("div.labelInput input[name='experience']").value = "";
+  }
 
   const customFunction = (d) => {
     sessionStorage.setItem("mydetails", JSON.stringify(d))
@@ -28,7 +35,7 @@ export default function MyDetails(props) {
 
     const dateTime = new Date();
 
-    axios.post('https://localhost:7258/api/Resume', {
+    axios.post('https://localhost:44385/api/Resume', {
 
       resumeId: 0,
       resumeTitle: "Resume My",
@@ -63,7 +70,7 @@ export default function MyDetails(props) {
       <div className="detailsSection">
         <form onSubmit={handleSubmit((data) => customFunction(data))} id="formMyDetails">
           <div className="topSectionMyDetails">
-            <input className="buttons" type="button" name="mydetails" value="Cancel" />
+            <input className="buttons" type="button" name="mydetails" value="Cancel" onClick={deleteContent}/>
             <input className="buttons" type="submit" name="mydetails" value="Save" />
             <input className="buttons" type="button" name="mydetails" value="->" onClick={nextPage} />
           </div>
