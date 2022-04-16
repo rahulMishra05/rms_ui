@@ -7,7 +7,7 @@ import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 
 function AchievementMembership() {
 
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit,reset, formState: { errors } } = useForm();
   const [data, setData] = useState("");
   const navigate = useNavigate();
   const nextPage = () => {
@@ -109,7 +109,9 @@ function AchievementMembership() {
 
       <form onSubmit={handleSubmit((data) => customFunction(data))} className="formAbout">
         <div className="topSectionAboutMe">
-          <input className="buttons" type="button" name="mydetails" value="Cancel" />
+          <input className="buttons" type="button" name="mydetails" value="Cancel" onClick={()=>{
+            reset();
+          }}/>
           <input className="buttons" type="submit" name="mydetails" value="Save" />
           <input className="buttons" type="button" name="mydetails" value="->" onClick={nextPage} />
         </div>

@@ -13,7 +13,7 @@ function Skills() {
     navigate("/workexp");
 }
 
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit ,reset} = useForm();
     const [data, setData] = useState("");
 
 
@@ -52,7 +52,9 @@ function Skills() {
             <form className="rightSideVisibility" class onSubmit={handleSubmit((data) => customFunction(data))}>
 
                 <div className="topSectionSkills">
-                    <input className="buttons" type="button" name="mydetails" value="Cancel" />
+                    <input className="buttons" type="button" name="mydetails" value="Cancel" onClick={()=>{
+            reset();
+          }}  />
                     <input className="buttons" type="submit" name="mydetails" value="Save" />
                     <input className="buttons" type="button" name="mydetails" value="->" onClick={nextPage}/>
                 </div>

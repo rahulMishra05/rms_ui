@@ -6,7 +6,7 @@ import axios from "axios";
 
 function AboutMe() {
 
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit,reset, formState: { errors } } = useForm();
   const [data, setData] = useState("");
   const [textareaError, setTextareaerror] = useState(false);
   const navigate = useNavigate();
@@ -111,19 +111,21 @@ function AboutMe() {
 
       <form onSubmit={handleSubmit((data) => customFunction(data))} className="formAbout">
         <div className="topSectionAboutMe">
-          <input className="buttons" type="button" name="mydetails" value="Cancel" onClick={deleteContent}/>
+          <input className="buttons" type="button" name="mydetails" value="Cancel" onClick={()=>{
+            reset();
+          }}/>
           <input className="buttons" type="submit" name="mydetails" value="Save" />
           <input className="buttons" type="button" name="mydetails" value="->" onClick={nextPage} />
         </div>
 
-        <form>
+       
 
           <div className="textareaDiv">
             <label className="labelAbout" for="aboutme">About Me:</label>
             <textarea {...register('about', { required: true} )}
               name="about" placeholder="Write something about yourself" id="about" cols="30" rows="10" className="textField" onChange={checkCharLength} maxLength="200"></textarea>
           </div>
-        </form>
+        
         {textareaError && <small className="Validation_am">200 characters only</small>}
 
 

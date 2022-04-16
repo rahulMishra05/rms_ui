@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import '../../css/Education.css'
 function Education() {
-	const { register, handleSubmit } = useForm();
+	const { register, handleSubmit ,reset} = useForm();
 	const customFunction = (d) => {
 		sessionStorage.setItem("education", JSON.stringify(d))
 		const data = JSON.parse(sessionStorage.getItem('education'))
@@ -37,7 +37,9 @@ function Education() {
 		  <div className="education">
         <form onSubmit={handleSubmit((data) => customFunction(data))} id="formEducation">
           <div className="topSection">
-            <input className="buttons" type="button" name="education" value="Cancel" />
+            <input className="buttons" type="button" name="education" value="Cancel" onClick={()=>{
+            reset();
+          }} />
             <input className="buttons" type="submit" name="education" value="Save" />
             <input className="buttons" type="button" name="education" value="->" onClick={nextPage} />
           </div>
