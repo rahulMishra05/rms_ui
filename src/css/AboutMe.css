@@ -20,13 +20,16 @@
     padding: 5px;
     font-size: 1rem;
     margin-bottom: 5px;
+    margin-left: 136px;
 }
 .textField1{
-    width: 330px;
+    width: 246px;
     border-radius: 0.7rem;
     padding: 5px;
     font-size: 1rem;
-    margin-bottom: 5px;
+    margin-bottom: 11px;
+    margin-left: 60px;
+    padding-left: 15px;
 }
 .aboutParentDiv {
     display: flex;
