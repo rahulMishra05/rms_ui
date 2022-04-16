@@ -17,7 +17,7 @@ h5 {
     position: fixed;
     right: 0;
     top: 0;
-    /* overflow: scroll; */
+    overflow: scroll;
 }
 .aboutMeDiv{
     /*width: 50px;*/
@@ -57,9 +57,10 @@ h5 {
     height: 125px;
     border-radius: 50%;
     background-color: lightgray;
-    position: fixed;
+    /* position: fixed; */
     top: 23px;
     right: 472px;
+    margin-top: 24px;
 }
 .nameInfo {
     display: flex;
@@ -144,24 +145,27 @@ h5 {
     border-top: 4px solid #73C5E5;
     padding-top: 5px;
     padding-bottom: 5px;
+    margin-bottom: -60px;
 }
 .educationText{
     position: relative;
     bottom: 50px;
-    left: 49px;
+    left: 50px;
     font-size: 1rem;
     border-top: 4px solid #73C5E5;
     padding-top: 5px;
-    padding-bottom: 5px;
+    
 }
+
 .achievementMembershipText{
     position: relative;
-    bottom: 50px;
+    bottom: 5x;
     left: 49px;
     font-size: 1rem;
     border-top: 4px solid #73C5E5;
     padding-top: 5px;
     padding-bottom: 5px;
+    margin-top: -50px;
 }
 .certificationDiv{
     margin-top: 20px;
@@ -171,4 +175,11 @@ h5 {
 }
 .educationalDiv{
     margin-top: -50px;
+}
+.educationDiv{
+    margin-top: -50px;
+    margin-left: 50px;
+}
+.subcertificationtraining{
+    margin-left: 50px;
 }

@@ -5,13 +5,13 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css' 
 
-function CertificationTraining() {
+function AchievementMembership() {
 
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [data, setData] = useState("");
   const navigate = useNavigate();
   const nextPage = () => {
-    navigate("/AchievementMembership");
+    navigate("/MyDetails");
   }
 
   const [keyList, setKeyList] = useState([{ key: "" }]);
@@ -32,7 +32,7 @@ function CertificationTraining() {
     }
     else
     {
-      alert("you can enter max 3 certificates");
+      alert("you can enter max 3 Achievements");
     }
   };
   var count1=0;
@@ -50,7 +50,7 @@ function CertificationTraining() {
     }
     else
     {
-      alert("you can enter max 3 training");
+      alert("you can enter max 3 Memberships");
     }
   };
 
@@ -176,4 +176,4 @@ function CertificationTraining() {
   );
 }
 
-export default CertificationTraining
+export default AchievementMembership
