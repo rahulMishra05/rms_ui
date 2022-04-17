@@ -52,14 +52,6 @@ function Sidebar(props) {
 					
 				</div>
 			</Link>
-			<Link to="skills">
-				<div className="menuDiv">
-					
-						<FontAwesomeIcon className="icon" icon={faGears}/>
-						<p className="listItem">Skills & Proficiencies</p>
-					
-				</div>
-			</Link>
 			<Link to="workexp">
 				<div className="menuDiv">
 					
@@ -68,6 +60,15 @@ function Sidebar(props) {
 					
 				</div>
 			</Link>
+			<Link to="skills">
+				<div className="menuDiv">
+					
+						<FontAwesomeIcon className="icon" icon={faGears}/>
+						<p className="listItem">Skills & Proficiencies</p>
+					
+				</div>
+			</Link>
+			
 			<Link to="education">
 				<div className="menuDiv">
 					

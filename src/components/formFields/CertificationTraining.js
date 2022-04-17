@@ -107,7 +107,7 @@ function CertificationTraining() {
   return (
     <div className="certificationParentDiv">
 
-      <form onSubmit={handleSubmit((data) => customFunction(data))} className="formAbout">
+      <form onSubmit={handleSubmit((data) => customFunction(data))} className="formCertification">
         <div className="topSectionAboutMe">
           <input className="buttons" type="button" name="mydetails" value="Cancel" onClick={()=>{
             reset();

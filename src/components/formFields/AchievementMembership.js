@@ -15,6 +15,7 @@ function AchievementMembership() {
   }
 
   const [keyList, setKeyList] = useState([{ key: "" }]);
+  
 
   
   var count=0;
@@ -62,27 +63,27 @@ function AchievementMembership() {
     // console.log(resumeObject.resumeStatus);
     // console.log(sessionStorage.getItem('resumeId'));
     // console.log(sessionStorage.getItem('resumeStatus'));
-    var rIdAbout = sessionStorage.getItem('resumeId');
-    var rStatusAbout = sessionStorage.getItem('resumeStatus');
+    var rIdAchievement = sessionStorage.getItem('resumeId');
+    var rStatusAchievement = sessionStorage.getItem('resumeStatus');
     const addpoint = document.querySelectorAll('.textField2');
-    const subcertificationtraining = [];
+    const subachievementmembership = [];
     addpoint.forEach((e) => {
-      subcertificationtraining.push(e.value);
+      subachievementmembership.push(e.value);
     })
 
 
-    const something = subcertificationtraining.map((current, index) => {
+    const something = subachievementmembership.map((current, index) => {
 
       return `<li key={index}>${current}</li>`;
 
     })
-    sessionStorage.setItem("aboutme", JSON.stringify(d))
-    const data = JSON.parse(sessionStorage.getItem('aboutme'))
+    sessionStorage.setItem("achievementmembership", JSON.stringify(d))
+    const data = JSON.parse(sessionStorage.getItem('achievementmembership'))
 
-    const certificationTraining = data.about;
-    const subCertificationTraining = data.points;
-    // document.querySelector(".certificationTrainingText").innerHTML = certificationTraining;
-    document.querySelector(".subcertificationtraining").innerHTML = `<ul>${something.join("")}</ul>`;
+    const achievementMembership = data.achievement;
+    const subAchievementMembership = data.points;
+    //document.querySelector(".achievementMembershipText").innerHTML = achievementMembership;
+    document.querySelector(".subachievementmembership").innerHTML = `<ul>${something.join("")}</ul>`;
 
     var keyList = something.toString();
     console.log(d.points);
@@ -105,9 +106,9 @@ function AchievementMembership() {
     // })
   }
   return (
-    <div className="certificationParentDiv">
+    <div className="achievementParentDiv">
 
-      <form onSubmit={handleSubmit((data) => customFunction(data))} className="formAbout">
+      <form onSubmit={handleSubmit((data) => customFunction(data))} className="formAchievement">
         <div className="topSectionAboutMe">
           <input className="buttons" type="button" name="mydetails" value="Cancel" onClick={()=>{
             reset();
@@ -129,13 +130,13 @@ function AchievementMembership() {
         <div className="bothDiv">
         <div className="bulletPoints row">
 
-          <label className="labelAbout" for="subcertificationtraining">Achievements Name:</label>
+          <label className="labelAbout" for="subachievementmembership">Achievements Name:</label>
 
           <div>
             <div className="wordExpDiv">
               <div className="subPoints">
 
-                <input {...register('about', { maxLength: { value: 50, message: "Only 50 characters are allowed" } })}
+                <input {...register('achievement', { maxLength: { value: 50, message: "Only 50 characters are allowed" } })}
                   type="text" name="about" placeholder="Enter Achievements Name..." className="textField2"
                 // value={singleKey.key}
                 // onChange={(e) => handleServiceChange(e, index)}
@@ -145,9 +146,9 @@ function AchievementMembership() {
           </div>
           <input className="buttons" type="button" onClick={handleServiceAdd} name="mydetails" value="+" />
         </div>
-        <div className="bulletPoints">
+        <div className="bulletPoints row">
 
-          <label className="labelAbout" for="subcertificationtraining">Memberships Name:</label>
+          <label className="labelAbout" for="subachievementmembership">Memberships Name:</label>
 
           <div>
 

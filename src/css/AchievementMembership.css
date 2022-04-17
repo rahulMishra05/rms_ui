@@ -6,6 +6,7 @@
     box-sizing: border-box;
 }
 .labelAbout {
+    width: fit-content;
     color: rgb(85, 84, 84);
     font-weight: bold;
     font-size: 16px;
@@ -45,14 +46,16 @@
     margin-top: 51px;
 }
 .bulletPoints {
+    padding-left: 8rem;
+    padding-top: 2rem;
     display: flex;
     justify-content: space-between;
     /* flex-direction: column; */
     margin-left: 8rem;
-    padding-bottom: 90px;
+    padding-bottom: 40px;
 }
 .topSectionAboutMe {
-    margin: 2px;
+    margin: 50px;
     display: flex;
     justify-content: flex-end;
     margin-bottom: -10px;
