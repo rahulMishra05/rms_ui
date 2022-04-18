@@ -14,10 +14,10 @@ function AboutMe() {
     navigate("/workexp");
   }
 
-  const deleteContent = () =>{
-    document.querySelector("div.textareaDiv textarea[name='about']").value = "";
-    document.querySelector("div.subPoints input[name='points']").value = "";
-    }
+  // const deleteContent = () =>{
+  //   document.querySelector("div.textareaDiv textarea[name='about']").value = "";
+  //   document.querySelector("div.subPoints input[name='points']").value = "";
+  //   }
 
   const [keyList, setKeyList] = useState([{ key: "" }]);
 
@@ -97,7 +97,7 @@ function AboutMe() {
     }
 
     console.log(aboutMeObj);
-    axios.put(`https://localhost:7258/api/Resume/${rIdAbout}`, aboutMeObj);
+    axios.put(`https://localhost:44385/api/Resume/${rIdAbout}`, aboutMeObj);
 
   }
 
@@ -141,7 +141,7 @@ function AboutMe() {
               <div className="subPoints">
 
                 <input {...register('points', { maxLength: { value: 50, message: "Only 50 characters are allowed" } })}
-                  type="text" name="points" placeholder="Additional information..." className="textField1"
+                  type="text" name="points" placeholder="Additional information..." className="textField1" style={{marginLeft:"0px"}}
                 // value={singleKey.key}
                 // onChange={(e) => handleServiceChange(e, index)}
                 />

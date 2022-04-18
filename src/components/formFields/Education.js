@@ -40,7 +40,7 @@ function Education() {
 		}
 
 		console.log(EduObj);
-		axios.put(`https://localhost:7258/api/Resume/${rIdEdu}`, EduObj);
+		axios.put(`https://localhost:44385/api/Resume/${rIdEdu}`, EduObj);
 
 	}
 	const navigate = useNavigate();

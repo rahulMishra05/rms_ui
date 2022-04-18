@@ -128,7 +128,7 @@ function CertificationTraining() {
     }
 
     console.log(CertiObj);
-    axios.put(`https://localhost:7258/api/Resume/${rIdCerti}`, CertiObj);
+    axios.put(`https://localhost:44385/api/Resume/${rIdCerti}`, CertiObj);
   }
   return (
     <div className="certificationParentDiv">

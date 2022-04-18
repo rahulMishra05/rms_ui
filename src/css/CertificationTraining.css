@@ -11,6 +11,7 @@
     font-weight: bold;
     font-size: 16px;
     position: absolute;
+    padding:0px;
 }
 .formAbout {
     margin-top: 100px;
@@ -31,7 +32,7 @@
     padding: 5px;
     font-size: 1rem;
     margin-bottom: 11px;
-    margin-left: 144px;
+    margin-left: 172px;
     padding-left: 15px;
 }
 .aboutParentDiv {
