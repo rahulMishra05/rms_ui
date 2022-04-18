@@ -79,24 +79,26 @@ function AboutMe() {
     document.querySelector(".subaboutme").innerHTML = `<ul>${something.join("")}</ul>`;
 
     var keyList = something.toString();
-    console.log(d.points);
+   
     
-
-    axios.put(`https://localhost:7258/api/Resume/${rIdAbout}`, {
-      
+    var aboutMeObj = {
       resumeId: rIdAbout,
       resumeTitle: "Resume My",
       resumeStatus: rStatusAbout,
       creationDate: "2022-04-13T06:33:42.151Z",
       updationDate: "2022-04-13T06:33:42.151Z",
 
-      aboutMes: [
+      aboutMe: [
         {
-          mainDescription: d.about,
-          keyPoints: d.points
+          MainDescription: aboutMe,
+          KeyPoints: subaboutme.join(",")
         }
       ]
-    })
+    }
+
+    console.log(aboutMeObj);
+    axios.put(`https://localhost:7258/api/Resume/${rIdAbout}`, aboutMeObj);
+
   }
 
   const checkCharLength = (e) => {

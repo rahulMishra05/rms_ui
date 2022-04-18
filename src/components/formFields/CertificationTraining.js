@@ -62,47 +62,73 @@ function CertificationTraining() {
     // console.log(resumeObject.resumeStatus);
     // console.log(sessionStorage.getItem('resumeId'));
     // console.log(sessionStorage.getItem('resumeStatus'));
-    var rIdAbout = sessionStorage.getItem('resumeId');
-    var rStatusAbout = sessionStorage.getItem('resumeStatus');
-    const addpoint = document.querySelectorAll('.textField1');
-    const subcertificationtraining = [];
-    addpoint.forEach((e) => {
-      subcertificationtraining.push(e.value);
+    var rIdCerti = sessionStorage.getItem('resumeId');
+    var rStatusCerti = sessionStorage.getItem('resumeStatus');
+
+    const addpoint1 = document.querySelectorAll('.textField1');
+    const subcertificationtraining1 = [];
+    addpoint1.forEach((e) => {
+      subcertificationtraining1.push(e.value);
+    })
+
+    const addpoint2 = document.querySelectorAll('.textField2');
+    const subcertificationtraining2 = [];
+    addpoint2.forEach((e) => {
+      subcertificationtraining2.push(e.value);
     })
 
 
-    const something = subcertificationtraining.map((current, index) => {
+    const something1 = subcertificationtraining1.map((current, index) => {
 
       return `<li key={index}>${current}</li>`;
 
     })
-    sessionStorage.setItem("aboutme", JSON.stringify(d))
-    const data = JSON.parse(sessionStorage.getItem('aboutme'))
 
-    const certificationTraining = data.about;
-    const subCertificationTraining = data.points;
+    const something2 = subcertificationtraining2.map((current, index) => {
+
+      return `<li key={index}>${current}</li>`;
+
+    })
+
+    sessionStorage.setItem("subcertificationtraining", JSON.stringify(d))
+    const data = JSON.parse(sessionStorage.getItem('subcertificationtraining1'))
+
+    // const certificationTraining = data.about;
+    // const subCertificationTraining = data.points;
     // document.querySelector(".certificationTrainingText").innerHTML = certificationTraining;
-    document.querySelector(".subcertificationtraining").innerHTML = `<ul>${something.join("")}</ul>`;
+    document.querySelector(".subcertificationtraining1").innerHTML = `<ul>${something1.join("")}</ul>`;
+    document.querySelector(".subcertificationtraining2").innerHTML = `<ul>${something2.join("")}</ul>`;
 
-    var keyList = something.toString();
-    console.log(d.points);
-    
+   
+    console.log("subcertificationtraining1")
+    console.log("subcertificationtraining2")
 
-    // axios.put(`https://localhost:7258/api/Resume/${rIdAbout}`, {
-      
-    //   resumeId: rIdAbout,
-    //   resumeTitle: "Resume My",
-    //   resumeStatus: rStatusAbout,
-    //   creationDate: "2022-04-13T06:33:42.151Z",
-    //   updationDate: "2022-04-13T06:33:42.151Z",
+    var rIdCerti = sessionStorage.getItem('resumeId');
+    var rStatusCerti = sessionStorage.getItem('resumeStatus');
 
-    //   aboutMes: [
-    //     {
-    //       mainDescription: d.about,
-    //       keyPoints: d.points
-    //     }
-    //   ]
-    // })
+    var CertiObj = {
+      resumeId: rIdCerti,
+      resumeTitle: "Resume My",
+      resumeStatus: rStatusCerti,
+      creationDate: "2022-04-13T06:33:42.151Z",
+      updationDate: "2022-04-13T06:33:42.151Z",
+
+      certifications: [
+        {
+          certificationId: 0,
+          certificationName: subcertificationtraining1.join(",")
+        }
+      ],
+      trainings: [
+        {
+          trainingId: 0,
+          trainingname: subcertificationtraining2.join(",")
+        }
+      ]
+    }
+
+    console.log(CertiObj);
+    axios.put(`https://localhost:7258/api/Resume/${rIdCerti}`, CertiObj);
   }
   return (
     <div className="certificationParentDiv">
@@ -129,7 +155,7 @@ function CertificationTraining() {
         <div className="bothDiv">
         <div className="bulletPoints row">
 
-          <label className="labelAbout" for="subcertificationtraining">Certificate Name:</label>
+          <label className="labelAbout" for="subcertificationtraining1">Certificate Name:</label>
 
           <div>
             <div className="wordExpDiv">
@@ -147,7 +173,7 @@ function CertificationTraining() {
         </div>
         <div className="bulletPoints">
 
-          <label className="labelAbout" for="subcertificationtraining">Training Name:</label>
+          <label className="labelAbout" for="subcertificationtraining2">Training Name:</label>
 
           <div>
 
@@ -155,7 +181,7 @@ function CertificationTraining() {
               <div className="subPoints">
 
                 <input {...register('points', { maxLength: { value: 50, message: "Only 50 characters are allowed" } })}
-                  type="text" name="points" placeholder="Enter Training Name..." className="textField1"
+                  type="text" name="points" placeholder="Enter Training Name..." className="textField2"
                 // value={singleKey.key}
                 // onChange={(e) => handleServiceChange(e, index)}
                 />

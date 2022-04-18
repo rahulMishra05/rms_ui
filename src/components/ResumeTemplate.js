@@ -47,6 +47,7 @@ function Template() {
 				
 				<p className="specializationText"></p>
 				<p className="instituteText"></p>
+				<p className='university'></p>
 				<p className="yearText"></p>
 				<p className="marksText"></p>
 				</div>
@@ -54,13 +55,15 @@ function Template() {
 			<div className="certificationTrainingDiv">
 				<h5 className="resumeHeadings">Certification & Training</h5>
 				<div className="certificationTrainingText"><p></p></div>
-				<p className='subcertificationtraining'></p>
+				<p className='subcertificationtraining1'></p>
+				<p className='subcertificationtraining2'></p>
 			</div>
 			
 			<div className="achievementMembershipDiv">
 				<h5 className="resumeHeadings">Achievement & Membership</h5>
 				<div className="achievementMembershipText"></div>
-				<p className='subachievementmembership'></p>
+				<p className='subachievementmembership1'></p>
+				<p className='subachievementmembership2'></p>
 			</div>
 		</div>
 		</section>
