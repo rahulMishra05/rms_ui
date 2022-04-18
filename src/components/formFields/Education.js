@@ -16,7 +16,7 @@ function Education() {
 	}
 	const navigate = useNavigate();
    const nextPage = () => {
-   navigate("/aboutme");
+   navigate("/certificationtraining");
    }
  const addMore = (e) => {
 	e.preventDefault();
