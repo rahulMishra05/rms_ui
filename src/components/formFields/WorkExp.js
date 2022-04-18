@@ -21,7 +21,7 @@ export default function WorkExp(props) {
 
   const navigate = useNavigate();
   const nextPage = () => {
-    navigate("/education");
+    navigate("/skills");
   }
   const [workList, setworkList] = useState([{ work: "" }]);
 

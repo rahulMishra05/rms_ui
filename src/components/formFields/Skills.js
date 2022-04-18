@@ -10,7 +10,7 @@ function Skills() {
 
    const navigate = useNavigate();
   const nextPage = () => {
-    navigate("/workexp");
+    navigate("/education");
 }
 
     const { register, handleSubmit ,reset} = useForm();
