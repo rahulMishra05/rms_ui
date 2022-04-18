@@ -11,7 +11,7 @@ function AboutMe() {
   const [textareaError, setTextareaerror] = useState(false);
   const navigate = useNavigate();
   const nextPage = () => {
-    navigate("/skills");
+    navigate("/workexp");
   }
 
   const deleteContent = () =>{

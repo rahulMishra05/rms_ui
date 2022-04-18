@@ -44,23 +44,24 @@ function Education() {
 
 	}
 	const navigate = useNavigate();
-	const nextPage = () => {
-		navigate("/aboutme");
-	}
-	const addMore = (e) => {
-		e.preventDefault();
-		const allowedNodeNames = ['INPUT', 'TEXTAREA', 'SELECT'];
-		const educationDiv = e.target.previousElementSibling.cloneNode(true);
-		Array.from(educationDiv.children).forEach((current, index) => {
-			if (current.nodeName === 'DIV') {
-				Array.from(current.children).forEach((current) => {
-					if (allowedNodeNames.includes(current.nodeName))
-						current.value = '';
-				})
-			}
-		})
-		e.target.previousElementSibling.appendChild(educationDiv);
-	}
+
+   const nextPage = () => {
+   navigate("/certificationtraining");
+   }
+ const addMore = (e) => {
+	e.preventDefault();
+	const allowedNodeNames = ['INPUT', 'TEXTAREA','SELECT'];
+	const educationDiv = e.target.previousElementSibling.cloneNode(true);
+	Array.from(educationDiv.children).forEach((current, index) => {
+		if(current.nodeName === 'DIV'){
+			Array.from(current.children).forEach((current) => {
+				if(allowedNodeNames.includes(current.nodeName))
+					current.value = '';
+			})
+		}				
+	})		
+	e.target.previousElementSibling.appendChild(educationDiv);
+}
 	return (
 		<>
 			<div className="education">
