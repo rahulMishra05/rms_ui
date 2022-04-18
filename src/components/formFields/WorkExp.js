@@ -32,29 +32,20 @@ export default function WorkExp(props) {
 
   const addWorkExp = (e) => {
 		e.preventDefault();
-    
 		const allowedNodeNames = ['INPUT', 'TEXTAREA','SELECT'];
-    console.log(e.target.previousElementSibling);
-		// const workExpDiv = e.target.previousElementSibling.children[0].cloneNode(true);
-		// Array.from(workExpDiv.children).forEach((current, index) => {
-		// 	if(current.nodeName === 'DIV'){
-		// 		Array.from(current.children).forEach((current) => {
-		// 			if(allowedNodeNames.includes(current.nodeName))
-		// 				current.value = '';
-		// 		})
-		// 	}				
-		// })		
-		// e.target.previousElementSibling.appendChild(workExpDiv);
+		const workExpDiv = e.target.previousElementSibling.children[0].cloneNode(true);
+		Array.from(workExpDiv.children).forEach((current, index) => {
+			if(current.nodeName === 'DIV'){
+				Array.from(current.children).forEach((current) => {
+					if(allowedNodeNames.includes(current.nodeName))
+						current.value = '';
+				})
+			}				
+		})		
+		e.target.previousElementSibling.appendChild(workExpDiv);
 	}
 
   const customFunction = (d) => {
-    
-    const projectRespString = document.querySelectorAll('.inputsWorkExp');
-		const projectRespList = [];
-		projectRespString.forEach((ele) => {
-			projectRespList.push(ele.value);
-		});
-
     sessionStorage.setItem("workexp", JSON.stringify(d))
     const data = JSON.parse(sessionStorage.getItem('workexp'))
     console.log(sessionStorage.key(0))
@@ -101,7 +92,7 @@ export default function WorkExp(props) {
           <div className="topSection">
             <input className="buttons" type="button" name="mydetails" value="Cancel" onClick={deleteContent}/>
             <input className="buttons" type="submit" name="mydetails" value="Save" />
-
+            
             <input className="buttons" type="button" name="mydetails" value="->" onClick={nextPage} />
 
           </div>
@@ -206,10 +197,9 @@ export default function WorkExp(props) {
                 workList.length - 1 === index && workList.length < 3 &&
 
                 <div className="footer">
-                  {/* <input className="button2" type="submit" name="WorkExp"
+                  <input className="button2" type="submit" name="WorkExp"
                     value="Add Work Experience"
-                    onClick={addWorkExp} /> */}
-                    <a href="" onClick={addWorkExp}>Add Work Exp</a>
+                    onClick={handleServiceAdd} />
                 </div>
               }
 
@@ -226,6 +216,18 @@ export default function WorkExp(props) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 // import React from 'react'
 // import { useState } from "react";
 // // import Calendar from 'react-calendar'
@@ -237,7 +239,7 @@ export default function WorkExp(props) {
 // export default function WorkExp(props) {
 //   // console.log(props.formfields)
 //   const { register, handleSubmit, formState: { errors } } = useForm();
-//   // const [data, setData] = useState("");
+//    const [data, setData] = useState("");
   
 
 //   const navigate = useNavigate();
@@ -252,20 +254,29 @@ export default function WorkExp(props) {
 
 //   const addWorkExp = (e) => {
 // 		e.preventDefault();
+    
 // 		const allowedNodeNames = ['INPUT', 'TEXTAREA','SELECT'];
-// 		const workExpDiv = e.target.previousElementSibling.children[0].cloneNode(true);
-// 		Array.from(workExpDiv.children).forEach((current, index) => {
-// 			if(current.nodeName === 'DIV'){
-// 				Array.from(current.children).forEach((current) => {
-// 					if(allowedNodeNames.includes(current.nodeName))
-// 						current.value = '';
-// 				})
-// 			}				
-// 		})		
-// 		e.target.previousElementSibling.appendChild(workExpDiv);
+//     console.log(e.target.previousElementSibling);
+// 		// const workExpDiv = e.target.previousElementSibling.children[0].cloneNode(true);
+// 		// Array.from(workExpDiv.children).forEach((current, index) => {
+// 		// 	if(current.nodeName === 'DIV'){
+// 		// 		Array.from(current.children).forEach((current) => {
+// 		// 			if(allowedNodeNames.includes(current.nodeName))
+// 		// 				current.value = '';
+// 		// 		})
+// 		// 	}				
+// 		// })		
+// 		// e.target.previousElementSibling.appendChild(workExpDiv);
 // 	}
 
 //   const customFunction = (d) => {
+    
+//     const projectRespString = document.querySelectorAll('.inputsWorkExp');
+// 		const projectRespList = [];
+// 		projectRespString.forEach((ele) => {
+// 			projectRespList.push(ele.value);
+// 		});
+
 //     sessionStorage.setItem("workexp", JSON.stringify(d))
 //     const data = JSON.parse(sessionStorage.getItem('workexp'))
 //     console.log(sessionStorage.key(0))
@@ -310,7 +321,7 @@ export default function WorkExp(props) {
 //           <div className="topSection">
 //             <input className="buttons" type="button" name="mydetails" value="Cancel" />
 //             <input className="buttons" type="submit" name="mydetails" value="Save" />
-            
+
 //             <input className="buttons" type="button" name="mydetails" value="->" onClick={nextPage} />
 
 //           </div>
@@ -325,7 +336,7 @@ export default function WorkExp(props) {
 //               </div>
 //               {errors.client && <small className="Validation_we">{errors.client.message}</small>}
 
-//               <form>
+//               {/* <form> */}
 //                 <div className="labelInputWorkExp">
 //                   <label className="labelWorkExp" for="Country">Country:</label>
 //                   <input {...register("country", {
@@ -333,7 +344,7 @@ export default function WorkExp(props) {
 //                     pattern: { value: /^[A-Z]+$/, message: "Capital alphabets are allowed" }
 //                   })} placeholder="Country" name="country" id="country" className="inputsWorkExp" />
 //                 </div>
-//               </form>
+//               {/* </form> */}
 //               {errors.country && <small className="Validation_we">{errors.country.message}</small>}
 
 
@@ -409,9 +420,10 @@ export default function WorkExp(props) {
 //                 workList.length - 1 === index && workList.length < 3 &&
 
 //                 <div className="footer">
-//                   <input className="button2" type="submit" name="WorkExp"
+//                   {/* <input className="button2" type="submit" name="WorkExp"
 //                     value="Add Work Experience"
-//                     onClick={handleServiceAdd} />
+//                     onClick={addWorkExp} /> */}
+//                     <a href="" onClick={addWorkExp}>Add Work Exp</a>
 //                 </div>
 //               }
 
@@ -424,5 +436,10 @@ export default function WorkExp(props) {
 
 //   );
 // }
+
+
+
+
+
 
 
