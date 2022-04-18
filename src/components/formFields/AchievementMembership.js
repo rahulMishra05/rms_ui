@@ -63,47 +63,66 @@ function AchievementMembership() {
     // console.log(resumeObject.resumeStatus);
     // console.log(sessionStorage.getItem('resumeId'));
     // console.log(sessionStorage.getItem('resumeStatus'));
-    var rIdAchievement = sessionStorage.getItem('resumeId');
-    var rStatusAchievement = sessionStorage.getItem('resumeStatus');
-    const addpoint = document.querySelectorAll('.textField2');
-    const subachievementmembership = [];
-    addpoint.forEach((e) => {
-      subachievementmembership.push(e.value);
+    
+
+    const addpoint1 = document.querySelectorAll('.textField1');
+    const subachievementmembership1 = [];
+    addpoint1.forEach((e) => {
+      subachievementmembership1.push(e.value);
+    })
+
+    const addpoint2 = document.querySelectorAll('.textField2');
+    const subachievementmembership2 = [];
+    addpoint2.forEach((e) => {
+      subachievementmembership2.push(e.value);
     })
 
 
-    const something = subachievementmembership.map((current, index) => {
+    const something1 = subachievementmembership1.map((current, index) => {
 
       return `<li key={index}>${current}</li>`;
 
     })
-    sessionStorage.setItem("achievementmembership", JSON.stringify(d))
-    const data = JSON.parse(sessionStorage.getItem('achievementmembership'))
 
-    const achievementMembership = data.achievement;
-    const subAchievementMembership = data.points;
-    //document.querySelector(".achievementMembershipText").innerHTML = achievementMembership;
-    document.querySelector(".subachievementmembership").innerHTML = `<ul>${something.join("")}</ul>`;
-
-    var keyList = something.toString();
-    console.log(d.points);
     
+    const something2 = subachievementmembership2.map((current, index) => {
 
-    // axios.put(`https://localhost:7258/api/Resume/${rIdAbout}`, {
-      
-    //   resumeId: rIdAbout,
-    //   resumeTitle: "Resume My",
-    //   resumeStatus: rStatusAbout,
-    //   creationDate: "2022-04-13T06:33:42.151Z",
-    //   updationDate: "2022-04-13T06:33:42.151Z",
+      return `<li key={index}>${current}</li>`;
 
-    //   aboutMes: [
-    //     {
-    //       mainDescription: d.about,
-    //       keyPoints: d.points
-    //     }
-    //   ]
-    // })
+    })
+    // sessionStorage.setItem("achievementmembership", JSON.stringify(d))
+    // const data = JSON.parse(sessionStorage.getItem('achievementmembership'))
+
+    // const achievementMembership = data.achievement;
+    // const subAchievementMembership = data.points;
+    //document.querySelector(".achievementMembershipText").innerHTML = achievementMembership;
+    document.querySelector(".subachievementmembership1").innerHTML = `<ul>${something1.join("")}</ul>`;
+    document.querySelector(".subachievementmembership2").innerHTML = `<ul>${something2.join("")}</ul>`;
+
+    var rIdAchi = sessionStorage.getItem('resumeId');
+    var rStatusAchi = sessionStorage.getItem('resumeStatus');
+
+    var ArchObj = {
+      resumeId: rIdAchi,
+      resumeTitle: "Resume My",
+      resumeStatus: rStatusAchi,
+      creationDate: "2022-04-13T06:33:42.151Z",
+      updationDate: "2022-04-13T06:33:42.151Z",
+
+      achivements: [
+        {
+          achievementName:subachievementmembership1.join(",")
+        }
+      ],
+      memberships: [
+        {
+          membershipName: subachievementmembership2.join(",")
+        }
+      ]
+    }
+
+    console.log(ArchObj);
+    axios.put(`https://localhost:7258/api/Resume/${rIdAchi}`, ArchObj);
   }
   return (
     <div className="achievementParentDiv">
@@ -130,14 +149,14 @@ function AchievementMembership() {
         <div className="bothDiv">
         <div className="bulletPoints row">
 
-          <label className="labelAbout" for="subachievementmembership">Achievements Name:</label>
+          <label className="labelAbout" for="subachievementmembership1">Achievements Name:</label>
 
           <div>
             <div className="wordExpDiv">
               <div className="subPoints">
 
                 <input {...register('achievement', { maxLength: { value: 50, message: "Only 50 characters are allowed" } })}
-                  type="text" name="about" placeholder="Enter Achievements Name..." className="textField2"
+                  type="text" name="about" placeholder="Enter Achievements Name..." className="textField1"
                 // value={singleKey.key}
                 // onChange={(e) => handleServiceChange(e, index)}
                 />
@@ -148,7 +167,7 @@ function AchievementMembership() {
         </div>
         <div className="bulletPoints row">
 
-          <label className="labelAbout" for="subachievementmembership">Memberships Name:</label>
+          <label className="labelAbout" for="subachievementmembership2">Memberships Name:</label>
 
           <div>
 
