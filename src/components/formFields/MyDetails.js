@@ -38,7 +38,7 @@ export default function MyDetails(props) {
     const todayDate = JSON.stringify(new Date());
     const updateDate = JSON.stringify(new Date());
 
-    axios.post('https://localhost:7258/api/Resume', {
+    axios.post('https://localhost:44385/api/Resume', {
 
       resumeId: 0,
       resumeTitle: "Date Test",

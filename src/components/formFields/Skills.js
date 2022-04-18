@@ -31,7 +31,7 @@ function Skills() {
         var rIdSkill = sessionStorage.getItem('resumeId');
         var rStatusSkills = sessionStorage.getItem('resumeStatus');
 
-        axios.put(`https://localhost:7258/api/Resume/${rIdSkill}`, {
+        axios.put(`https://localhost:44385/api/Resume/${rIdSkill}`, {
             resumeId: rIdSkill,
             resumeTitle: "Resume My",
             resumeStatus: rStatusSkills,
