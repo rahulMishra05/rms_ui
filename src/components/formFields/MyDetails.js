@@ -5,7 +5,7 @@ import '../../css/MyDetails.css'
 import '../../../node_modules/bootstrap/dist/js/bootstrap.bundle.js';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import axios, { setTerm } from "axios";
-import Dropdown from 'react-bootstrap/Dropdown';
+// import Dropdown from 'react-bootstrap/Dropdown';
 // import Popper from "popper";
 
 import { useNavigate } from "react-router-dom";
