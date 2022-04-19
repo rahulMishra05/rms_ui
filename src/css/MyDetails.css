@@ -27,6 +27,15 @@
     width: 250px;
     padding: 10px;
 }
+.role_dropdown select{
+    margin-right: 180px;
+    margin-bottom: 30px;
+    border:1.5px solid gray;
+    border-radius: 0.5rem;
+    width: 250px;
+    padding: 10px;
+}
+
 #name {
     height: 40px;
     width: 250px;

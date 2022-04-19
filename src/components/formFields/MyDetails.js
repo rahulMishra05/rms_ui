@@ -1,21 +1,25 @@
-import { useState } from "react";
+import { useState , useEffect } from "react";
 import { useForm } from "react-hook-form";
 import '../resumeBuilder.css'
 import '../../css/MyDetails.css'
+import '../../../node_modules/bootstrap/dist/js/bootstrap.bundle.js';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import axios, {setTerm} from "axios";
- import { useNavigate } from "react-router-dom";
+import axios, { setTerm } from "axios";
+import Dropdown from 'react-bootstrap/Dropdown';
+// import Popper from "popper";
+
+import { useNavigate } from "react-router-dom";
 
 export default function MyDetails(props) {
   // console.log(props.formfields)
-  const { register, handleSubmit,formState:{errors} } = useForm();
+  const { register, handleSubmit, formState: { errors } } = useForm();
   // const [data, setData] = useState("");
- const navigate = useNavigate();
-   const nextPage = () => {
-   navigate("/aboutme");
- }
+  const navigate = useNavigate();
+  const nextPage = () => {
+    navigate("/aboutme");
+  }
 
-  const deleteContent = () =>{
+  const deleteContent = () => {
     document.querySelector("div.labelInput input[name='name']").value = "";
     document.querySelector("div.labelInput input[name='role']").value = "";
     document.querySelector("div.labelInput input[name='experience']").value = "";
@@ -30,7 +34,7 @@ export default function MyDetails(props) {
     const exp = data.experience;
     const roles = data.role;
     document.querySelector(".nameHead").innerHTML = name;
-    document.querySelector(".expLabel").innerHTML = exp+" Years";
+    document.querySelector(".expLabel").innerHTML = exp + " Years";
     document.querySelector(".roleLabel").innerHTML = roles;
 
     const dateTime = new Date();
@@ -38,7 +42,7 @@ export default function MyDetails(props) {
     const todayDate = JSON.stringify(new Date());
     const updateDate = JSON.stringify(new Date());
 
-    axios.post('https://localhost:44385/api/Resume', {
+    axios.post('https://localhost:7258/api/Resume', {
 
       resumeId: 0,
       resumeTitle: "Date Test",
@@ -57,23 +61,42 @@ export default function MyDetails(props) {
         }
       ]
     })
-
       .then(res => {
         // console.log(res);
         sessionStorage.setItem("resumeId", res.data['resumeId']);
         sessionStorage.setItem("resumeStatus", res.data['resumeStatus']);
 
       })
-
-    // setTerm(5);
   }
+  const roleList = [];
+  // const getRoles = (r) => {
+  //   const axios = require('axios');
+
+  //   axios.get('https://localhost:7258/api/RoleMaster/GetActiveRoles').then(res => {roleList.push(res.data.roleName) });
+
+  // }
+  // console.log(roleList);
+
+  const [result, getData] = useState([]);
+
+  useEffect(() => {
+    fetch('https://localhost:7258/api/RoleMaster/GetActiveRoles' , {
+      method:'GET',
+      headers:{
+        'content-type':'application/json',
+      }
+    }).then(res =>res.json())
+    .then(res => getData(res))
+  },[]);
+
+ 
 
   return (
     <>
       <div className="detailsSection">
         <form onSubmit={handleSubmit((data) => customFunction(data))} id="formMyDetails">
           <div className="topSectionMyDetails">
-            <input className="buttons" type="button" name="mydetails" value="Cancel" onClick={deleteContent}/>
+            <input className="buttons" type="button" name="mydetails" value="Cancel" onClick={deleteContent} />
             <input className="buttons" type="submit" name="mydetails" value="Save" />
             <input className="buttons" type="button" name="mydetails" value="->" onClick={nextPage} />
           </div>
@@ -81,47 +104,59 @@ export default function MyDetails(props) {
             <div className="circle"></div>
 
             <form>
-            <div className="labelInput">
-              <label className="labelMyDetails" for="name">Name:</label>
-              <input {...register("name",{required:true,maxLength:{value:20,message:"Only 20 Charcters are allowed"}
-            ,pattern:{value:(/^[A-Za-z ]+$/),message:"Alphabets are allowed"}})} placeholder="Your name: Characters Only!" name="name" id="name" className="inputs" />
-            </div>
+              <div className="labelInput">
+                <label className="labelMyDetails" for="name">Name:</label>
+                <input {...register("name", {
+                  required: true, maxLength: { value: 20, message: "Only 20 Charcters are allowed" }
+                  , pattern: { value: (/^[A-Za-z ]+$/), message: "Alphabets are allowed" }
+                })} placeholder="Your name: Characters Only!" name="name" id="name" className="inputs" />
+              </div>
             </form>
             {errors.name && <small className="Validation">{errors.name.message}</small>}
-            
-
-
 
 
             <div className="labelInput">
 
               <label className="labelMyDetails" for="role">Role:</label>
 
-              <input {...register("role")} className="inputs" name="role" id="name" placeholder="Enter role" />
-
+              <div className="role_dropdown">
+                  <select  name="role" id="role" {...register("role")}>
+                  <option value="">Select Role</option>
+                    {  
+                      result.map(items => {
+                        return(
+                            <option>{items.roleName}</option>
+                          
+                          
+                        );
+                      })
+                    }           
+                  </select>
+              </div>
             </div>
-
             <form>
-            <div className="labelInput">
-              <label className="labelMyDetails" for="experience">Experience:</label>
-              <input {...register("experience",{required:true,maxLength:{value:2,message:"Maximum 2 digits"},
-             pattern:{value:/^[0-9]*$/,message:"Only numbers are allowed"}
-               })}
-           placeholder="Experience: 2 Numeric Digits Only!" name="experience" id="experience" className="inputs" />
-            </div>
+              <div className="labelInput">
+                <label className="labelMyDetails" for="experience">Experience:</label>
+                <input {...register("experience", {
+                  required: true, maxLength: { value: 2, message: "Maximum 2 digits" },
+                  pattern: { value: /^[0-9]*$/, message: "Only numbers are allowed" }
+                })}
+                  placeholder="Experience: 2 Numeric Digits Only!" name="experience" id="experience" className="inputs" />
+              </div>
 
             </form>
             {errors.experience && <small className="Validation">{errors.experience.message}</small>}
-            
 
-            
-            </div>
-            </form>
-            </div>
-        
-        
-          
-      </>
+
+
+          </div>
+        </form>
+
+      </div>
+
+
+
+    </>
   );
 }
 
