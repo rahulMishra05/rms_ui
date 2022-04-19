@@ -8,6 +8,7 @@ import Skills from './components/formFields/Skills'
 import WorkExp from './components/formFields/WorkExp'
 import AchievementMembership from './components/formFields/AchievementMembership'
 import CertificationTraining from './components/formFields/CertificationTraining'
+import CreateResume from './components/CreateResume'
 
 import './index.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -33,6 +34,9 @@ ReactDOM.render(
     
 
   </BrowserRouter>,
+  // <React.StrictMode>
+  //   <CreateResume/>
+  // </React.StrictMode>,
   
   document.getElementById('root')
 );

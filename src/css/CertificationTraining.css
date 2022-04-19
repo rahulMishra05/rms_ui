@@ -34,6 +34,17 @@
     margin-bottom: 11px;
     margin-left: 172px;
     padding-left: 15px;
+    border:1.5px solid black;
+}
+.textField2{
+    width: 224px;
+    border-radius: 0.7rem;
+    padding: 5px;
+    font-size: 1rem;
+    margin-bottom: 11px;
+    margin-left: 172px;
+    padding-left: 15px;
+    border:1.5px solid black;
 }
 .aboutParentDiv {
     display: flex;
