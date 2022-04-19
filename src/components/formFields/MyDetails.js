@@ -53,7 +53,7 @@ export default function MyDetails(props) {
           profilePicture: "",
           totalExp: d.experience,
           userName: d.name,
-          role: d.role
+          userRole: d.role
         }
       ]
     })

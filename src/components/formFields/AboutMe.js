@@ -90,8 +90,8 @@ function AboutMe() {
 
       aboutMe: [
         {
-          MainDescription: aboutMe,
-          KeyPoints: subaboutme.join(",")
+          mainDescription: aboutMe,
+          keyPoints: subaboutme.join(",")
         }
       ]
     }
