@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState } from "react";
+import { useState, useEffect } from "react";
 // import Calendar from 'react-calendar'
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
@@ -37,7 +37,7 @@ export default function WorkExp(props) {
     const clientName = data.client;
     const country = data.country;
     const project = data.project;
-    const role = data.role;
+    const role = data.designation;
     const businessSoulution = data.businessSoulution;
     const technology = data.technology;
     const projectRes = data.projectRes;
@@ -67,6 +67,18 @@ export default function WorkExp(props) {
     document.querySelector('.technologyText').innerHTML = technology;
     document.querySelector('.projectResText').innerHTML = projectRes;
     }
+
+    const [result, getData] = useState([]);
+
+  useEffect(() => {
+    fetch('https://localhost:7258/api/DesignationMaster/GetActiveDesignation' , {
+      method:'GET',
+      headers:{
+        'content-type':'application/json',
+      }
+    }).then(res =>res.json())
+    .then(res => getData(res))
+  },[]);
 
 
   return (
@@ -111,14 +123,21 @@ export default function WorkExp(props) {
 
 
               <div className="labelInputWorkExp">
-                <label className="labelWorkExp" for="role">Role:</label>
-                <select className="inputsWorkExp" name="role" id="role" {...register("role")} multiple>
-                  <option value="">Select...</option>
-                  <option value="business analyst">Business Analyst</option>
-                  <option value="developer">Developer</option>
-                  <option value="designer">Designer</option>
-                  <option value="qa">QA</option>
-                </select>
+                <label className="labelWorkExp" for="role">Designation:</label>
+                <div className="designationDropDown">
+                  <select  name="designation" id="designation" {...register("designation")}>
+                  <option value="">Select Designation</option>
+                    {  
+                      result.map(items => {
+                        return(
+                            <option>{items.desginationName}</option>
+                          
+                          
+                        );
+                      })
+                    }           
+                  </select>
+              </div>
               </div>
 
               <div className="labelInputWorkExp">
