@@ -16,27 +16,27 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // ReactDOM.render(<Layout2Home />, document.querySelector("#root"));
 ReactDOM.render(
-   <BrowserRouter>
-   <Routes>
-        <Route path="/" element={<ResumeHome />}>
-          <Route path="mydetails" element={<MyDetails />} />
-          <Route path="aboutme" element={<AboutMe />} />
-          <Route path="skills" element={<Skills />} />
-          <Route path="workexp" element={<WorkExp />} />
-          <Route path="education" element={<Education />} />
-          <Route path="achievementmembership" element={<AchievementMembership />} />
-          <Route path="certificationtraining" element={<CertificationTraining />} />
+  //  <BrowserRouter>
+  //  <Routes>
+  //       <Route path="/" element={<ResumeHome />}>
+  //         <Route path="mydetails" element={<MyDetails />} />
+  //         <Route path="aboutme" element={<AboutMe />} />
+  //         <Route path="skills" element={<Skills />} />
+  //         <Route path="workexp" element={<WorkExp />} />
+  //         <Route path="education" element={<Education />} />
+  //         <Route path="achievementmembership" element={<AchievementMembership />} />
+  //         <Route path="certificationtraining" element={<CertificationTraining />} />
 
-           {/* <Route path="mydetails" element={<MyDetails />} /> */}
-          {/* <Route path="mydetails" element={<MyDetails />} /> */}
-        </Route>
-   </Routes>
+  //          {/* <Route path="mydetails" element={<MyDetails />} /> */}
+  //         {/* <Route path="mydetails" element={<MyDetails />} /> */}
+  //       </Route>
+  //  </Routes>
     
 
-  </BrowserRouter>,
-  // <React.StrictMode>
-  //   <CreateResume/>
-  // </React.StrictMode>,
+  // </BrowserRouter>,
+  <React.StrictMode>
+    <CreateResume/>
+  </React.StrictMode>,
   
   document.getElementById('root')
 );

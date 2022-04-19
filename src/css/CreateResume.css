@@ -7,33 +7,55 @@
 .header {
     width: 100%;
     height: 20vh;
-    background-color: lightgray;
+    background-color: white;
     display: flex;
     justify-content: space-between;
+    border-bottom: 1px solid gray;
 
 }
 
 .psLogo {
     width: 20%;
     height: 100%;
-    ;
+    
+}
+.psLogo img{
+    width:110%;
+    height: 99%;
+    margin-left:15px;
+}
+.left h1{
+    width:350px;
+    text-align: center;
+    margin-top:10px;
+    font-weight: 700;
+    color:gray;
+   
 }
 
 .left {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .header .search input {
-    width: 150%;
-    height: 40px;
+    width: 1700%;
+    height: 50px;
     margin: 0;
+    border: none;
+    background-color:lightgray;
 }
 
 .header .search {
     margin: 0;
     width: 20%;
     margin-left: -16%;
+}
+.searchIcon{
+    font-size:20px;
+    margin-left:-40px;
+    color:gray;
 }
 
 .header .profile {
@@ -51,6 +73,7 @@
 
 .notification {
     display: flex;
+    width: 110%;
     justify-content: space-between;
     align-items: center;
 }
@@ -62,16 +85,18 @@
 
 .notificationCount {
     border: 1px solid black;
-    width: 20px;
-    height: 30%;
+    width: 30px;
+    height: 10%;
     border-radius: 30%;
-    padding-left: 3px;
+    padding-left: 4px;
 }
 
 .header .profile .image img {
-    width: 50%;
+    width: 90px;
+    height: 90px;
     margin: 25% 0;
     border: 1px solid black;
+    border-radius: 50%;
 
 }
 
