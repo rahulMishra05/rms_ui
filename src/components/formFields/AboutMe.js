@@ -97,7 +97,7 @@ function AboutMe() {
     }
 
     console.log(aboutMeObj);
-    axios.put(`https://localhost:44385/api/Resume/${rIdAbout}`, aboutMeObj);
+    axios.put(`https://localhost:7258/api/Resume/${rIdAbout}`, aboutMeObj);
 
   }
 
