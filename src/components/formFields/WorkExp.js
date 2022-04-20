@@ -11,7 +11,7 @@ export default function WorkExp(props) {
   const { register, handleSubmit, formState: { errors } } = useForm();
   // const [data, setData] = useState("");
 
-  const deleteContent = () =>{
+  const deleteContent = () => {
     document.querySelector("div.labelInputWorkExp input[name='client']").value = "";
     document.querySelector("div.labelInputWorkExp input[name='country']").value = "";
     document.querySelector("div.labelInputWorkExp input[name='project']").value = "";
@@ -37,19 +37,18 @@ export default function WorkExp(props) {
     const clientName = data.client;
     const country = data.country;
     const project = data.project;
-    const role = data.designation;
+    const designation = data.designation;
     const businessSoulution = data.businessSoulution;
-    const technology = data.technology;
+    const tech = data.tech;
     const projectRes = data.projectRes;
     const Startdate = data.startdate;
     const Enddate = data.enddate;
-    const td=data.tilldate;
+    const td = data.tilldate;
 
-    if(td=="till date")
-    {
+    if (td == "till date") {
       document.querySelector('.durationText').innerHTML = Startdate.slice(0, 7) + " - " + td;
     }
-   else if (Startdate === Enddate) {
+    else if (Startdate === Enddate) {
       window.alert("Start date and end date are same");
     }
     else if (Startdate > Enddate) {
@@ -62,40 +61,62 @@ export default function WorkExp(props) {
     document.querySelector('.clientText').innerHTML = clientName;
     document.querySelector('.countryText').innerHTML = country;
     document.querySelector('.projectText').innerHTML = project;
-    document.querySelector('.roleText').innerHTML = role;
+    document.querySelector('.roleText').innerHTML = designation;
     document.querySelector('.businessSolutionText').innerHTML = businessSoulution;
-    document.querySelector('.technologyText').innerHTML = technology;
+    document.querySelector('.technologyText').innerHTML = tech;
     document.querySelector('.projectResText').innerHTML = projectRes;
-    }
+  }
 
-    const [result, getData] = useState([]);
+  const [result, getData] = useState([]);
 
   useEffect(() => {
     fetch('https://localhost:7258/api/DesignationMaster/GetActiveDesignation', {
-      method:'GET',
-      headers:{
-        'content-type':'application/json',
+      method: 'GET',
+      headers: {
+        'content-type': 'application/json',
       }
-    }).then(res =>res.json())
-    .then(res => getData(res))
-  },[]);
+    }).then(res => res.json())
+      .then(res => getData(res))
+  }, []);
 
-  const[project,getProject] = useState([]);
+  const [project, getProject] = useState([]);
   useEffect(() => {
-    fetch('https://localhost:7258/api/ProjectMaster', {
-      method:'GET',
-      headers:{
-        'content-type':'application/json',
+    fetch('https://localhost:7258/api/ProjectMaster/GetActiveProjects', {
+      method: 'GET',
+      headers: {
+        'content-type': 'application/json',
       }
-    }).then(res =>res.json())
-    .then(res => getProject(res))
-  },[]);
+    }).then(res => res.json())
+      .then(res => getProject(res))
+  }, []);
+
+  const [tech, getTech] = useState([]);
+  useEffect(() => {
+    fetch('https://localhost:7258/api/TechSatckMaster', {
+      method: 'GET',
+      headers: {
+        'content-type': 'application/json',
+      }
+    }).then(res => res.json())
+      .then(res => getTech(res))
+  }, []);
+console.log(tech);
+  const [techval, getTechval] = useState([]);
+  useEffect(() => {
+    fetch('https://localhost:7258/api/TechSatckValue', {
+      method: 'GET',
+      headers: {
+        'content-type': 'application/json',
+      }
+    }).then(res => res.json())
+      .then(res => getTechval(res))
+  }, []);
   return (
     <>
       <div className="WorkExp">
         <form onSubmit={handleSubmit((data) => customFunction(data))} id="formWorkExp">
           <div className="topSection">
-            <input className="buttons" type="button" name="mydetails" value="Cancel" onClick={deleteContent}/>
+            <input className="buttons" type="button" name="mydetails" value="Cancel" onClick={deleteContent} />
             <input className="buttons" type="submit" name="mydetails" value="Save" />
 
             <input className="buttons" type="button" name="mydetails" value="->" onClick={nextPage} />
@@ -127,19 +148,19 @@ export default function WorkExp(props) {
               <div className="labelInputWorkExp">
                 <label className="labelWorkExp" for="Project">Project Name:</label>
                 <div className="projectDropDown">
-                  <select  name="project" id="project" {...register("project")}>
-                  <option value="">Select Project</option>
-                    {  
+                  <select name="project" id="project" {...register("project")}>
+                    <option value="">Select Project</option>
+                    {
                       project.map(items => {
-                        return(
-                            <option>{items.projectName}</option>
-                          
-                          
+                        return (
+                          <option>{items.projectName}</option>
+
+
                         );
                       })
-                    }           
+                    }
                   </select>
-              </div>
+                </div>
               </div>
               {errors.project && <small className="Validation_we">{errors.project.message}</small>}
 
@@ -147,42 +168,42 @@ export default function WorkExp(props) {
               <div className="labelInputWorkExp">
                 <label className="labelWorkExp" for="role">Designation:</label>
                 <div className="designationDropDown">
-                  <select  name="designation" id="designation" {...register("designation")}>
-                  <option value="">Select Designation</option>
-                    {  
+                  <select name="designation" id="designation" {...register("designation")}>
+                    <option value="">Select Designation</option>
+                    {
                       result.map(items => {
-                        return(
-                            <option>{items.designationName}</option>
-                          
-                          
+                        return (
+                          <option>{items.designationName}</option>
+
+
                         );
                       })
-                    }           
+                    }
                   </select>
-              </div>
+                </div>
               </div>
 
               <div className="labelInputWorkExp">
                 <label className="labelWorkExp">Duration:</label>
                 <div className="duration">
                   <span className="duration_start"><input className="ds"{...register("startdate")} type="date" name="startdate" /></span>
-                  
+
                   <span className="duration_end"><input className="de"{...register("enddate")} type="date" name="enddate" /></span>
 
                   <span className='td'>
-                <input type='checkbox'  id="tds" name="tilldate"  value='till date' {...register("tilldate")} ></input>
-                  <label for='tds'>till date</label>
-                  
-                </span>
+                    <input type='checkbox' id="tds" name="tilldate" value='till date' {...register("tilldate")} ></input>
+                    <label for='tds'>till date</label>
+
+                  </span>
 
                 </div>
-                
-                    
+
+
 
               </div>
-              
 
-             
+
+
 
               <div className="labelInputWorkExp">
                 <label className="labelWorkExp" for="">Business Solution:</label>
@@ -193,13 +214,20 @@ export default function WorkExp(props) {
 
               <div className="labelInputWorkExp">
                 <label className="labelWorkExp" for="role">Technology</label>
-                <select className="inputsWorkExp" name="technology" id="technology" {...register("technology")} multiple>
-                  <option value="">Select...</option>
-                  <option value="python">Python</option>
-                  <option value="Java">java</option>
-                  <option value="React">React</option>
-                  <option value="sql">SQL</option>
-                </select>
+                <div className="techDropDown" >
+                  <select name="tech" id="tech" {...register("tech")}>
+                    <option value="">Select Technology</option>
+                    {   
+                      tech.map(items => {
+                        return (
+                          <option>{items.category} &raquo;</option>
+                        );
+                      })
+                    }
+
+                 
+                  </select>
+                </div>
               </div>
               <div className="labelInputWorkExp">
                 <label className="labelWorkExp" for="">Project Responsibilities:</label>
