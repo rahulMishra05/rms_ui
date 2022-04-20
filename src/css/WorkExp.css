@@ -159,3 +159,11 @@ color: #000000;
     width: 307px;
     padding: 10px;
 }
+.projectDropDown select{
+    margin-right: 210px;
+    margin-bottom: 30px;
+    border:1.5px solid gray;
+    border-radius: 0.5rem;
+    width: 307px;
+    padding: 10px;
+}
