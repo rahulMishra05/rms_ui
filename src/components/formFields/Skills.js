@@ -99,7 +99,7 @@ function Skills() {
                             result.map(items => {
                                 return (
                             <tr key={0}>
-                                <td><input {...register('skill')} type="checkbox" name='skill' value="Agile" /></td>
+                                <td><input {...register('skill')} type="checkbox" name='skill' value={items.skillCategory} /></td>
                                 <td>{items.skillName}</td>
                                 <td>{items.skillCategory}</td>
                             </tr>
