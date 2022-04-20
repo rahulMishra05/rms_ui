@@ -100,10 +100,10 @@ export default function WorkExp(props) {
     }).then(res => res.json())
       .then(res => getTech(res))
   }, []);
-console.log(tech);
+  console.log(tech);
   const [techval, getTechval] = useState([]);
   useEffect(() => {
-    fetch('https://localhost:7258/api/TechSatckValue', {
+    fetch('https://localhost:7258/api/TechStackValues/GetActiveTechs', {
       method: 'GET',
       headers: {
         'content-type': 'application/json',
@@ -215,17 +215,31 @@ console.log(tech);
               <div className="labelInputWorkExp">
                 <label className="labelWorkExp" for="role">Technology</label>
                 <div className="techDropDown" >
-                  <select name="tech" id="tech" {...register("tech")}>
+                  <select name="tech" id="tech" {...register("tech")}> 
                     <option value="">Select Technology</option>
-                    {   
+                    {
                       tech.map(items => {
                         return (
-                          <option>{items.category} &raquo;</option>
+                          <option>{items.category} ;
+                            <div className='dropdowm-menu'>
+                              <select name="subtechnology" id="subtechnology" {...register("subtechnology")} >
+                                {/* <option value="">Select Designation</option> */}
+                                {
+                                  techval.filter(subitems => subitems.techStackId == items.techStackId).map(filtereditems => {
+                                    return (
+
+                                      <option>{filtereditems.valueName}</option>
+                                    );
+                                  })
+                                }
+                              </select>
+                            </div>
+                          </option>
                         );
                       })
                     }
 
-                 
+
                   </select>
                 </div>
               </div>
