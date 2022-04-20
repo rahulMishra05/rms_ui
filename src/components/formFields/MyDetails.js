@@ -1,4 +1,4 @@
-import { useState , useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import '../resumeBuilder.css'
 import '../../css/MyDetails.css'
@@ -7,8 +7,10 @@ import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import axios, { setTerm } from "axios";
 // import Dropdown from 'react-bootstrap/Dropdown';
 // import Popper from "popper";
-
+import $ from 'jquery';
 import { useNavigate } from "react-router-dom";
+import logo from '../../images/green-tick.gif';
+import { faBridgeLock } from "@fortawesome/free-solid-svg-icons";
 
 export default function MyDetails(props) {
   // console.log(props.formfields)
@@ -24,6 +26,8 @@ export default function MyDetails(props) {
     document.querySelector("div.labelInput input[name='role']").value = "";
     document.querySelector("div.labelInput input[name='experience']").value = "";
   }
+  
+  var responseStatus;
 
   const customFunction = (d) => {
     sessionStorage.setItem("mydetails", JSON.stringify(d))
@@ -62,11 +66,28 @@ export default function MyDetails(props) {
       ]
     })
       .then(res => {
-        // console.log(res);
+        // console.log(res)
         sessionStorage.setItem("resumeId", res.data['resumeId']);
         sessionStorage.setItem("resumeStatus", res.data['resumeStatus']);
 
+        if (res.status == 200) {
+          saveSuccess();
+        }
+        else {
+          saveError();
+        }
       })
+  }
+
+  const saveSuccess = () => {
+    console.log("Yes! it worked.....");
+    // alert("Saved!!")
+    var result = document.querySelector('.greenTick')
+    result.style = {display:"flex"};
+  }
+
+  const saveError = () => {
+
   }
   const roleList = [];
   // const getRoles = (r) => {
@@ -80,16 +101,16 @@ export default function MyDetails(props) {
   const [result, getData] = useState([]);
 
   useEffect(() => {
-    fetch('https://localhost:7258/api/RoleMaster/GetActiveRoles' , {
-      method:'GET',
-      headers:{
-        'content-type':'application/json',
+    fetch('https://localhost:7258/api/RoleMaster/GetActiveRoles', {
+      method: 'GET',
+      headers: {
+        'content-type': 'application/json',
       }
-    }).then(res =>res.json())
-    .then(res => getData(res))
-  },[]);
+    }).then(res => res.json())
+      .then(res => getData(res))
+  }, []);
 
- 
+
 
   return (
     <>
@@ -120,18 +141,18 @@ export default function MyDetails(props) {
               <label className="labelMyDetails" for="role">Role:</label>
 
               <div className="role_dropdown">
-                  <select  name="role" id="role" {...register("role")}>
+                <select name="role" id="role" {...register("role")}>
                   <option value="">Select Role</option>
-                    {  
-                      result.map(items => {
-                        return(
-                            <option>{items.roleName}</option>
-                          
-                          
-                        );
-                      })
-                    }           
-                  </select>
+                  {
+                    result.map(items => {
+                      return (
+                        <option>{items.roleName}</option>
+
+
+                      );
+                    })
+                  }
+                </select>
               </div>
             </div>
             <form>
@@ -153,6 +174,14 @@ export default function MyDetails(props) {
         </form>
 
       </div>
+
+
+      {/*  Save Animation */  }
+
+      <div className="greenTick">
+      <img src={logo} alt="loading..." />
+      </div>
+      
 
 
 
