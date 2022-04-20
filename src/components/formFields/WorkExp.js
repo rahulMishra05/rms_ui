@@ -71,7 +71,7 @@ export default function WorkExp(props) {
     const [result, getData] = useState([]);
 
   useEffect(() => {
-    fetch('https://localhost:7258/api/DesignationMaster/GetActiveDesignation' , {
+    fetch('https://localhost:7258/api/DesignationMaster/GetActiveDesignation', {
       method:'GET',
       headers:{
         'content-type':'application/json',
@@ -80,7 +80,16 @@ export default function WorkExp(props) {
     .then(res => getData(res))
   },[]);
 
-
+  const[project,getProject] = useState([]);
+  useEffect(() => {
+    fetch('https://localhost:7258/api/ProjectMaster', {
+      method:'GET',
+      headers:{
+        'content-type':'application/json',
+      }
+    }).then(res =>res.json())
+    .then(res => getProject(res))
+  },[]);
   return (
     <>
       <div className="WorkExp">
@@ -117,7 +126,20 @@ export default function WorkExp(props) {
 
               <div className="labelInputWorkExp">
                 <label className="labelWorkExp" for="Project">Project Name:</label>
-                <input {...register("project", { maxLength: { value: 40, message: "40 Characters are allowed" } })} placeholder="Project Name" name="project" id="projectName" className="inputsWorkExp" />
+                <div className="projectDropDown">
+                  <select  name="project" id="project" {...register("project")}>
+                  <option value="">Select Project</option>
+                    {  
+                      project.map(items => {
+                        return(
+                            <option>{items.projectName}</option>
+                          
+                          
+                        );
+                      })
+                    }           
+                  </select>
+              </div>
               </div>
               {errors.project && <small className="Validation_we">{errors.project.message}</small>}
 
@@ -130,7 +152,7 @@ export default function WorkExp(props) {
                     {  
                       result.map(items => {
                         return(
-                            <option>{items.desginationName}</option>
+                            <option>{items.designationName}</option>
                           
                           
                         );
