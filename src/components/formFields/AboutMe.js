@@ -45,7 +45,7 @@ function AboutMe() {
     }
     else
     {
-      alert("you can enter max 5 achievements");
+      alert("you can enter max 5 key points");
     }
   };  
 
@@ -78,7 +78,7 @@ function AboutMe() {
     document.querySelector(".aboutMeText").innerHTML = aboutMe;
     document.querySelector(".subaboutme").innerHTML = `<ul>${something.join("")}</ul>`;
 
-    var keyList = something.toString();
+    //var keyList = something.toString();
    
     
     var aboutMeObj = {
