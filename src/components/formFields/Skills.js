@@ -1,19 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import '../../css/Skills.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import {fa-search} from "@fortawesome/free-solid-svg-icons";
 function Skills() {
 
-   const navigate = useNavigate();
-  const nextPage = () => {
-    navigate("/education");
-}
+    const navigate = useNavigate();
+    const nextPage = () => {
+        navigate("/education");
+    }
 
-    const { register, handleSubmit ,reset} = useForm();
+    const { register, handleSubmit, reset } = useForm();
     const [data, setData] = useState("");
 
 
@@ -40,11 +40,23 @@ function Skills() {
 
             skillList: [
                 {
-                  category: d.skill,
+                    category: d.skill,
                 }
-              ]
+            ]
         })
     }
+
+    const [result, getData] = useState([]);
+
+    useEffect(() => {
+        fetch('https://localhost:7258/api/SkillsMaster/GetActiveSkill', {
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json',
+            }
+        }).then(res => res.json())
+            .then(res => getData(res))
+    }, []);
 
     return (
 
@@ -52,11 +64,11 @@ function Skills() {
             <form className="rightSideVisibility" class onSubmit={handleSubmit((data) => customFunction(data))}>
 
                 <div className="topSectionSkills">
-                    <input className="buttons" type="button" name="mydetails" value="Cancel" onClick={()=>{
-            reset();
-          }}  />
+                    <input className="buttons" type="button" name="mydetails" value="Cancel" onClick={() => {
+                        reset();
+                    }} />
                     <input className="buttons" type="submit" name="mydetails" value="Save" />
-                    <input className="buttons" type="button" name="mydetails" value="->" onClick={nextPage}/>
+                    <input className="buttons" type="button" name="mydetails" value="->" onClick={nextPage} />
                 </div>
 
                 <div className="skillsList">
@@ -83,12 +95,19 @@ function Skills() {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr key={0}>
-                            <td><input {...register('skill')} type="checkbox" name='skill' value="Agile" /></td>
-                            <td>Business Analysis</td>
-                            <td>Agile</td>
-                        </tr>
-                        <tr key={1}>
+                        {
+                            result.map(items => {
+                                return (
+                            <tr key={0}>
+                                <td><input {...register('skill')} type="checkbox" name='skill' value="Agile" /></td>
+                                <td>{items.skillCategory}</td>
+                                <td>{items.skillName}</td>
+                            </tr>
+                            );
+                            })
+                        }
+
+                        {/* <tr key={1}>
                             <td><input {...register('skill')} type="checkbox" name='skill' value="Business Requirement Doc" /></td>
                             <td>Business Analysis</td>
                             <td>Business Requirement Doc</td>
@@ -107,7 +126,7 @@ function Skills() {
                             <td><input {...register('skill')} type="checkbox" name='skill' value="Other" /></td>
                             <td>Business Analysis</td>
                             <td>Other</td>
-                        </tr>
+                        </tr> */}
                     </tbody>
                 </table>
 
