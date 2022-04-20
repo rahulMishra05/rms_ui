@@ -100,33 +100,12 @@ function Skills() {
                                 return (
                             <tr key={0}>
                                 <td><input {...register('skill')} type="checkbox" name='skill' value="Agile" /></td>
-                                <td>{items.skillCategory}</td>
                                 <td>{items.skillName}</td>
+                                <td>{items.skillCategory}</td>
                             </tr>
                             );
                             })
                         }
-
-                        {/* <tr key={1}>
-                            <td><input {...register('skill')} type="checkbox" name='skill' value="Business Requirement Doc" /></td>
-                            <td>Business Analysis</td>
-                            <td>Business Requirement Doc</td>
-                        </tr>
-                        <tr key={2}>
-                            <td><input {...register('skill')} type="checkbox" name='skill' value="Flow Diagrams" /></td>
-                            <td>Business Analysis</td>
-                            <td>Flow Diagrams</td>
-                        </tr>
-                        <tr key={3}>
-                            <td><input {...register('skill')} type="checkbox" name='skill' value="Wireframe" /></td>
-                            <td>Business Analysis</td>
-                            <td>Wireframe</td>
-                        </tr>
-                        <tr key={4}>
-                            <td><input {...register('skill')} type="checkbox" name='skill' value="Other" /></td>
-                            <td>Business Analysis</td>
-                            <td>Other</td>
-                        </tr> */}
                     </tbody>
                 </table>
 
