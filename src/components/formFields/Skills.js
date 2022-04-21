@@ -20,13 +20,36 @@ function Skills() {
 
     const customFunction = (d) => {
         // var data1 = sessionStorage.getItem('mydetails');
-        console.log(d.name);
+        // console.log(d.name);
+        // console.log(d);
         sessionStorage.setItem("skills", JSON.stringify(d))
         const data = JSON.parse(sessionStorage.getItem('skills'))
         // console.log(sessionStorage.key(0))
         // console.log(data)
         const skills = data.skill;
-        document.querySelector(".skillsText").innerHTML = skills;
+        console.log(skills)
+        let finalSkill = [];
+        skills.forEach((skill) => {
+            let temp = skill.split("::");
+            temp.forEach((current) => {
+                finalSkill.push("<li>"+current+"</li>");
+            })
+        })
+
+        let skillList = [];
+        skills.forEach((current) => {
+            const temp = current.split("::");
+            let x= {};
+            x.category = temp[1];
+            x.skillName = temp[0];
+            skillList.push(x)
+        })
+        
+        // console.log(JSON.stringify(skillList))
+
+        // console.log(skillList)
+        
+        document.querySelector(".skillsText").innerHTML = finalSkill.join("");
 
         var rIdSkill = sessionStorage.getItem('resumeId');
         var rStatusSkills = sessionStorage.getItem('resumeStatus');
@@ -38,11 +61,7 @@ function Skills() {
             creationDate: "2022-04-13T13:51:34.029Z",
             updationDate: "2022-04-13T13:51:34.029Z",
 
-            skillList: [
-                {
-                    category: d.skill,
-                }
-            ]
+            skillList: skillList
         })
     }
 
@@ -57,6 +76,8 @@ function Skills() {
         }).then(res => res.json())
             .then(res => getData(res))
     }, []);
+
+    // console.log(result)
 
     return (
 
@@ -97,11 +118,13 @@ function Skills() {
                     <tbody>
                         {
                             result.map(items => {
+                                
                                 return (
                             <tr key={0}>
-                                <td><input {...register('skill')} type="checkbox" name='skill' value={items.skillCategory} /></td>
-                                <td>{items.skillName}</td>
+                                <td><input {...register('skill')} type="checkbox" name='skill' value={items.skillName+"::"+items.skillCategory} /></td>
                                 <td>{items.skillCategory}</td>
+                                <td>{items.skillName}</td>
+                                
                             </tr>
                             );
                             })

@@ -37,8 +37,8 @@ function Template() {
 			</div>
 			<div className="skillsDiv">
 				<h5 className="resumeHeadings">Skills & Proficiencies</h5>
-				<p className="category"></p>
-				<p className="skillname"></p>
+				<p className="skillsText"></p>
+			
 			</div>
 			<div className="educationalDiv">
 				
