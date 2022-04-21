@@ -18,8 +18,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 ReactDOM.render(
    <BrowserRouter>
    <Routes>
-     <Route path="createresume" element={<CreateResume/>} />
-        <Route path="/" element={<ResumeHome />}>
+     <Route path="/" element={<CreateResume/>} />
+        <Route path="/home" element={<ResumeHome />}>
           <Route path="mydetails" element={<MyDetails />} />
           <Route path="aboutme" element={<AboutMe />} />
           <Route path="skills" element={<Skills />} />

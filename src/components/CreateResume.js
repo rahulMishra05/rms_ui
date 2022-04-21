@@ -13,7 +13,7 @@ const CreateResume = () => {
 
     const navigate = useNavigate();
     const nextPage = () => {
-        navigate("/");
+        navigate("/home");
     }
 
     return (
