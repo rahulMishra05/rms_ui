@@ -11,7 +11,7 @@ function AchievementMembership() {
   const [data, setData] = useState("");
   const navigate = useNavigate();
   const nextPage = () => {
-    navigate("/MyDetails");
+    navigate("/home/MyDetails");
   }
 
   const [keyList, setKeyList] = useState([{ key: "" }]);

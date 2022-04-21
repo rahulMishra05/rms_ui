@@ -16,7 +16,7 @@ export default function MyDetails(props) {
   // const [data, setData] = useState("");
   const navigate = useNavigate();
   const nextPage = () => {
-    navigate("/aboutme");
+    navigate("/home/aboutme");
   }
 
   const deleteContent = () => {

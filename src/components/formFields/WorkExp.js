@@ -21,7 +21,7 @@ export default function WorkExp(props) {
 
   const navigate = useNavigate();
   const nextPage = () => {
-    navigate("/skills");
+    navigate("/home/skills");
   }
   const [workList, setworkList] = useState([{ work: "" }]);
 
@@ -38,7 +38,7 @@ export default function WorkExp(props) {
     const country = data.country;
     const project = data.project;
     const designation = data.designation;
-    const businessSoulution = data.businessSoulution;
+    const businessSolution = data.businessSolution;
     const tech = data.tech;
     const projectRes = data.projectRes;
     const Startdate = data.startdate;
@@ -62,7 +62,7 @@ export default function WorkExp(props) {
     document.querySelector('.countryText').innerHTML = country;
     document.querySelector('.projectText').innerHTML = project;
     document.querySelector('.roleText').innerHTML = designation;
-    document.querySelector('.businessSolutionText').innerHTML = businessSoulution;
+    document.querySelector('.businessSolutionText').innerHTML = businessSolution;
     document.querySelector('.technologyText').innerHTML = tech;
     document.querySelector('.projectResText').innerHTML = projectRes;
   }
@@ -207,7 +207,7 @@ export default function WorkExp(props) {
 
               <div className="labelInputWorkExp">
                 <label className="labelWorkExp" for="">Business Solution:</label>
-                <input {...register("businessSoulution", { maxLength: { value: 100, message: "100 Characters are allowed" } })} placeholder="Business Solution" name="businessSolution" id="businessSolution" className="inputsWorkExp" />
+                <input {...register("businessSolution", { maxLength: { value: 100, message: "100 Characters are allowed" } })} placeholder="Business Solution" name="businessSolution" id="businessSolution" className="inputsWorkExp" />
               </div>
               {errors.businessSoulution && <small className="Validation_we">{errors.businessSoulution.message}</small>}
 

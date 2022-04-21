@@ -11,7 +11,7 @@ function CertificationTraining() {
   const [data, setData] = useState("");
   const navigate = useNavigate();
   const nextPage = () => {
-    navigate("/AchievementMembership");
+    navigate("/home/AchievementMembership");
   }
 
   const [keyList, setKeyList] = useState([{ key: "" }]);
