@@ -45,7 +45,7 @@ function AboutMe() {
     }
     else
     {
-      alert("you can enter max 5 achievements");
+      alert("you can enter max 5 Key Points");
     }
   };  
 
