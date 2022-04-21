@@ -47,7 +47,7 @@ const CreateResume = () => {
             <div className="section">
                 <div className="create">
                     <FontAwesomeIcon className="icon" icon={faPlusCircle} onClick={nextPage}/>
-                    <h2>Create New</h2>
+                    <h5>Create New</h5>
                 </div>
 
             </div>
