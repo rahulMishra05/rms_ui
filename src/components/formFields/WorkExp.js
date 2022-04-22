@@ -167,7 +167,7 @@ export default function WorkExp(props) {
                   <input {...register("country", {
                     maxLength: { value: 3, message: "Only 3 characters are allowed" },
                     pattern: { value: /^[A-Z]+$/, message: "Capital alphabets are allowed" }
-                  })} placeholder="Country" name="country" id="country" className="inputsWorkExp" />
+                  })} placeholder="Country : First 3 Alphabets (All Caps) !" name="country" id="country" className="inputsWorkExp" />
                 </div>
               </form>
               {errors.country && <small className="Validation_we">{errors.country.message}</small>}
