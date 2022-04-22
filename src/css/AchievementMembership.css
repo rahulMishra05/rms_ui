@@ -12,12 +12,12 @@
     font-size: 16px;
     position: absolute;
 }
-.formAbout {
+/* .formAbout {
     margin-top: 100px;
     margin-left: 100px;
     width: 450px;
     word-wrap: wrap;
-}
+} */
 .textField{
     width: 330px;
     border-radius: 0.7rem;
@@ -55,7 +55,7 @@
     padding-bottom: 40px;
 }
 .topSectionAboutMe {
-    margin: 50px;
+    /* margin: 20px; */
     display: flex;
     justify-content: flex-end;
     margin-bottom: -10px;
@@ -63,7 +63,7 @@
 .topSectionAboutMe .buttons{
     background-color: #C0C0C0;
     border: 1px solid #C0C0C0;
-    color: black;;
+    color: black;
 }
 
 .Validation_am{
@@ -79,4 +79,7 @@
 .subPoints{
     display: flex;
     flex-direction: row;
+}
+.achievementParentDiv{
+    width:40vw;
 }
