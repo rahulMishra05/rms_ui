@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import Calendar from 'react-calendar'
 // import TextField from '@material-ui/core/TextField';
 import '../../css/WorkExp.css'
+import axios from 'axios';
 export default function WorkExp(props) {
   // console.log(props.formfields)
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -65,7 +66,33 @@ export default function WorkExp(props) {
     document.querySelector('.businessSolutionText').innerHTML = businessSolution;
     document.querySelector('.technologyText').innerHTML = tech;
     document.querySelector('.projectResText').innerHTML = projectRes;
+
+
+    var rIdWork = sessionStorage.getItem('resumeId');
+    var rStatusWork = sessionStorage.getItem('resumeStatus');
+    var WorkObj = {
+      resumeId: rIdWork,
+      resumeTitle: "Resume My",
+      resumeStatus: rStatusWork,
+      creationDate: "2022-04-13T06:33:42.151Z",
+      updationDate: "2022-04-13T06:33:42.151Z",
+      workExperience: [
+        {
+          clientDescription: clientName,
+          country:country,
+          projectName: project,
+          projectRole: designation,
+          startDate: "2022-04-22T08:11:06.418Z",
+          endDate: "2022-04-22T08:11:06.418Z",
+          businessSolution: businessSolution,
+          technologyStack: tech,
+          projectResponsibilities: projectRes
+        }
+      ]
   }
+  console.log(WorkObj);
+  axios.put(`https://localhost:7258/api/Resume/${rIdWork}`,WorkObj);
+}
 
   const [result, getData] = useState([]);
 
@@ -218,23 +245,9 @@ export default function WorkExp(props) {
                   <select name="tech" id="tech" {...register("tech")}> 
                     <option value="">Select Technology</option>
                     {
-                      tech.map(items => {
+                      techval.map(items => {
                         return (
-                          <option>{items.category} ;
-                            <div className='dropdowm-menu'>
-                              <select name="subtechnology" id="subtechnology" {...register("subtechnology")} >
-                                {/* <option value="">Select Designation</option> */}
-                                {
-                                  techval.filter(subitems => subitems.techStackId == items.techStackId).map(filtereditems => {
-                                    return (
-
-                                      <option>{filtereditems.valueName}</option>
-                                    );
-                                  })
-                                }
-                              </select>
-                            </div>
-                          </option>
+                          <option>{items.valueName}</option>
                         );
                       })
                     }

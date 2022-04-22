@@ -14,7 +14,7 @@
     display: flex;
     width: 535px;
     justify-content: space-between;
-    
+   
 }
 
 .inputs {
@@ -25,6 +25,7 @@
     border-radius: 0.5rem;
     width: 250px;
     padding: 10px;
+   
 }
 .role_dropdown select{
     margin-right: 180px;
@@ -81,14 +82,7 @@
     text-align: center;
     height: 100vh;
 }
-.circle {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    background-color: lightgray;
-    margin-left: 105px;
-    margin-bottom: 30px;
-}
+
 .subPoints {
     display: flex;
     flex-direction: column;
@@ -118,4 +112,15 @@
     left: -35px;
     top: -25px;
     
+}
+
+.insert-image-input{
+    display: none;
+}
+
+.profileImage .resumeImage{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: lightgray;
 }
