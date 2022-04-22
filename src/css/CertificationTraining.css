@@ -13,12 +13,12 @@
     position: absolute;
     padding:0px;
 }
-.formAbout {
+/* .formAbout {
     margin-top: 100px;
     margin-left: 100px;
     width: 450px;
     word-wrap: wrap;
-}
+} */
 .textField{
     width: 330px;
     border-radius: 0.7rem;
@@ -63,12 +63,12 @@
     display: flex;
     justify-content: space-between;
     /* flex-direction: column; */
-    margin-left: 8rem;
+    /* margin-left: 8rem; */
     padding-bottom: 40px;
 }
 .topSectionAboutMe {
-    margin-top: 50px;
-    margin-right:25px;
+    /* margin-top: 50px; */
+    /* margin-right:15px; */
     display: flex;
     justify-content: flex-end;
     margin-bottom: -10px;
@@ -92,4 +92,7 @@
 .subPoints{
     display: flex;
     flex-direction: row;
+}
+.certificationParentDiv{
+    width:40vw;
 }
