@@ -118,9 +118,15 @@
     display: none;
 }
 
+.profileImage{
+    position: relative;
+    right:33px;
+}
 .profileImage .resumeImage{
     width: 200px;
     height: 200px;
     border-radius: 50%;
     background-color: lightgray;
+    margin-bottom: 20px;
+   
 }
