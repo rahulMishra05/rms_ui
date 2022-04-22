@@ -6,7 +6,9 @@ function Template() {
 	return (
 		<section className="template">
 		<div className="userInfoDiv">
-			<div className="circleProfile"></div>
+			<div className="circleProfile">
+				<img></img>
+			</div>
 			<div className="nameInfo">
 				<h1 className="nameHead">PSI Resume</h1>
 				<label className="roleLabel" for="name">Software Engineer Trainee</label>

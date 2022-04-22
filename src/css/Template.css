@@ -52,27 +52,18 @@ h5 {
     margin-left: 20px;
     margin-bottom: -70px;
 }
-.circleProfile {
-    width: 125px;
-    height: 125px;
-    border-radius: 50%;
-    background-color: lightgray;
-    /* position: fixed; */
-    top: 23px;
-    right: 472px;
-    margin-top: 24px;
-}
+
 .nameInfo {
     display: flex;
     flex-direction: column;
     margin-top: 35px;
-    margin-left: 118px;
+    margin-left: 40px;
 
 }
 .resumeDetailsDiv {
     margin-top: 100px;
     margin-bottom: 40px;
-    /* margin-left: 30px; */
+    margin-left: -30px;
     /*position: fixed;*/
     display: flex;
     flex-wrap: wrap;
@@ -196,4 +187,12 @@ h5 {
 
     margin-left:50px;
 }
-
+.circleProfile img{
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    background-color: lightgray;
+    top: 2px;
+    right: 472px;
+    margin-top: 24px;
+}
