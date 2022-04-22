@@ -60,7 +60,7 @@ export default function WorkExp(props) {
     }
 
     document.querySelector('.clientText').innerHTML = `Client:${clientName}`;
-    document.querySelector('.countryText').innerHTML =country ;
+    document.querySelector('.countryText').innerHTML = "&nbsp; &#127988       " + country ;
     document.querySelector('.projectText').innerHTML =`Project:${project}`;
     document.querySelector('.roleText').innerHTML = `Role:${designation}`;
     document.querySelector('.businessSolutionText').innerHTML = `Business Solution:${businessSolution}`;
