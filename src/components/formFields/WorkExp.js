@@ -56,16 +56,17 @@ export default function WorkExp(props) {
       window.alert("Start and End date conflicts");
     }
     else {
-      document.querySelector('.durationText').innerHTML = Startdate.slice(0, 7) + " to " + Enddate.slice(0, 7);
+      document.querySelector('.durationText').innerHTML =`Duration:${Startdate.slice(0, 7) + " to " + Enddate.slice(0, 7)}`;
     }
 
-    document.querySelector('.clientText').innerHTML = clientName;
-    document.querySelector('.countryText').innerHTML = country;
-    document.querySelector('.projectText').innerHTML = project;
-    document.querySelector('.roleText').innerHTML = designation;
-    document.querySelector('.businessSolutionText').innerHTML = businessSolution;
-    document.querySelector('.technologyText').innerHTML = tech;
-    document.querySelector('.projectResText').innerHTML = projectRes;
+    document.querySelector('.clientText').innerHTML = `Client:${clientName}`;
+    document.querySelector('.countryText').innerHTML =country ;
+    document.querySelector('.projectText').innerHTML =`Project:${project}`;
+    document.querySelector('.roleText').innerHTML = `Role:${designation}`;
+    document.querySelector('.businessSolutionText').innerHTML = `Business Solution:${businessSolution}`;
+    document.querySelector('.technologyText').innerHTML = `Technology:${tech}`;
+    document.querySelector('.projectResText').innerHTML = `Responsibility:${projectRes}`;
+
 
 
     var rIdWork = sessionStorage.getItem('resumeId');
