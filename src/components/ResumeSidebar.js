@@ -11,15 +11,20 @@ import { fas ,faCoffee,faPenToSquare,faShareFromSquare,faFloppyDisk, faDownload,
 // import CardMembershipIcon from '@mui/icons-material/CardMembership';
 import '../css/Sidebar.css';
 import { FaArrowCircleLeft } from 'react-icons/fa';
+import { useNavigate } from "react-router-dom";
 
 
 function Sidebar(props) {
+	const navigate = useNavigate();
+const BackPage = () => {
+  navigate("/");
+}
 	return (
 		
 		<aside className="sidebar">
 
 			<div className='row'>
-				<FaArrowCircleLeft className='backArrow col-sm-2'/>
+				<FaArrowCircleLeft className='backArrow col-sm-2' onClick={BackPage} />
 				<h1 className="projectName col-sm-8">Resume Builder</h1>
 			</div>
 
