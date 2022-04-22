@@ -97,6 +97,23 @@ const BackPage = () => {
 				</div>
 			</Link>
 			</ul>
+
+			<div className='lastItems'>
+				<div className='lastModified'>
+					<p>Last Modified</p>
+					<p>DD/MM/YYYY HH:MM</p>
+				</div>
+
+				<div className='reviewer'>
+					<p>Reviewer</p>
+					<p>Rahul Mishra <span></span></p>
+				</div>
+				
+				<div className='status'>
+					<p>Status</p>
+					<p className='reviewStatus'>Review</p>
+				</div>
+			</div>
 		</aside>
 	)
 }

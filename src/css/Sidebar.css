@@ -132,4 +132,31 @@ a{
 a:hover{
     color:black;
 }
-
+.lastItems{
+    margin-top: 50px;
+}
+.lastModified{
+    display: flex;
+    justify-content: space-between;
+    width: 273px;
+    margin-left: 18px;
+}
+.reviewer{
+    display: flex;
+    justify-content: space-between;
+    width: 273px;
+    margin-left: 18px;
+}
+.status{
+    display: flex;
+    justify-content: space-between;
+    width: 273px;
+    margin-left: 18px;
+}
+.lastItems .status .reviewStatus{
+    border: 1px solid #d3ecf1;
+    border-radius: 10px;
+    width: 77px;
+    padding-left: 14px;
+    background: #d3ecf1;
+}
