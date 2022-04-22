@@ -47,7 +47,7 @@ export default function WorkExp(props) {
     const td = data.tilldate;
 
     if (td == "till date") {
-      document.querySelector('.durationText').innerHTML = Startdate.slice(0, 7) + " - " + td;
+      document.querySelector('.durationText').innerHTML = `Duration:${Startdate.slice(0, 7) + " - " + td}`;
     }
     else if (Startdate === Enddate) {
       window.alert("Start date and end date are same");
