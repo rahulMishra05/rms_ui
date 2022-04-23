@@ -26,7 +26,7 @@ export default function MyDetails(props) {
     document.querySelector("div.labelInput input[name='role']").value = "";
     document.querySelector("div.labelInput input[name='experience']").value = "";
   }
-  
+
   var responseStatus;
 
   const customFunction = (d) => {
@@ -82,11 +82,20 @@ export default function MyDetails(props) {
   const saveSuccess = () => {
     // console.log("Yes! it worked.....");
     // alert("Saved!!")
-    let result = document.querySelector('.greenTick');
-    
-    result.style.display = "flex";
-  }
+    let setIntervalValue = setInterval(save, 1000)
+    function save(){
+        let result = document.querySelector('.greenTick');
+        result.style.display = "flex";
+        stop();
+    }
+    ;
 
+    function stop(){
+      clearInterval(setIntervalValue);
+      console.log("Stop is Calling you....")
+    }
+  }
+  
   const saveError = () => {
 
   }
@@ -177,12 +186,12 @@ export default function MyDetails(props) {
       </div>
 
 
-      {/*  Save Animation */  }
+      {/*  Save Animation */}
 
       <div className="greenTick">
-      <img src={logo} alt="loading..." />
+        <img src={logo} alt="loading..." />
       </div>
-      
+
 
 
 
