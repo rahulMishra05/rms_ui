@@ -18,7 +18,15 @@ const CreateResume = () => {
 
     const [result, getData] = useState([]);
 
+const toggleOptions = () => {
+    let result = document.querySelector('.optionsDiv');
+    result.style.display = "flex";
+}
 
+const editResume = () => {}
+const cloneResume = () => {}
+const shareResume = () => {}
+const exportResume = () => {}
 
 useEffect(() => {
 fetch('https://localhost:7258/api/Resume', {
@@ -91,7 +99,8 @@ headers:{
                                         <div className="reviewShelf"> Draft </div>
                                         <div className="resumeNameShelf">
                                             <p className="resumeName">{current.resumeTitle}</p>
-                                            <p className="resumeOptions">&#8278;</p>
+                                            {/* <p className="resumeOptions">&#8278;</p> */}
+                                            <button className="resumeOptions" onClick={toggleOptions}>&#8278;</button>
                                         </div>
 
 
@@ -112,15 +121,16 @@ headers:{
                             )
                         })
                     }
-                </div>
-                <div className="optionsDiv">
+                    <div className="optionsDiv">
                     <ul>
-                        <li>Edit</li>
-                        <li>Clone</li>
-                        <li>Share</li>
-                        <li>Export</li>
+                        <li onClick={editResume}>Edit</li>
+                        <li onClick={cloneResume}>Clone</li>
+                        <li onClick={shareResume}>Share</li>
+                        <li onClick={exportResume}>Export</li>
                     </ul>
                 </div>
+                </div>
+                
 
             </div>
         </>
