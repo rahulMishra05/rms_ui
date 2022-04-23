@@ -136,3 +136,140 @@
 .signout{
     margin-bottom:20%;
 }
+.createdResumes{
+    display: flex;
+    padding: 10px;
+    flex-wrap: wrap;
+    }
+    
+    
+    
+    .resume{
+    border: 1px solid black;
+    width: 300px;
+    margin: 10px;
+    }
+    
+    
+    
+    .shelf1 img{
+    width: 45px;
+    padding-left: 5px ;
+    }
+    
+    
+    
+    .shelf1 p {
+    font-size: 10px;
+    padding: 13px;
+    }
+    
+    
+    
+    .shelf1{
+    display: flex;
+    justify-content: space-between;
+    }
+    
+    
+    
+    .shelf2 p {
+    margin: -4px 7px;
+    }
+    
+    
+    
+    .shelf3 p {
+    height: 45px;
+    overflow: hidden;
+    font-size: 10px;
+    padding: 5px 8px;
+    }
+    
+    
+    
+    .top{
+    border-bottom: 1px solid black;
+    }
+    
+    
+    
+    .finalBottom{
+    font-size: 6px;
+    margin-left: 5px
+    }
+    
+    
+    
+    .resumeNameShelf{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 4px;
+    }
+    
+    
+    
+    .bottom{
+    margin: 0 17px
+    }
+    
+    
+    
+    .reviewShelf {
+    margin-left: 4px;
+    position: relative;
+    top: 6px;
+    border: 1px solid black;
+    width: 50px;
+    /* align-items: center; */
+    border-radius: 8px;
+    background: gray;
+    padding-left: 9px;
+    }
+    
+    
+    
+    .resumeOptions{
+    font-size: 2rem;
+    cursor: pointer;
+    }
+    
+    
+    
+    .resumeName {
+    font-weight: bold;
+    font-size: 1rem;
+    position: relative;
+    top: 14px;
+    }
+    
+    
+    
+    .resume{
+    border: 1px solid black;
+    }
+    
+    
+    
+    .optionsDiv ul{
+    list-style-type: none;
+    border: 1px solid black;
+    background-color: lightslategrey;
+    width: 100px;
+    border-radius: 6px;
+    }
+    
+    
+    
+    .optionsDiv{
+    position: relative;
+    left: 212px;
+    bottom: 68px;
+    display: none;
+    }
+    
+    
+    
+    .resumeHeading {
+    padding: 6px 78px;
+    }
