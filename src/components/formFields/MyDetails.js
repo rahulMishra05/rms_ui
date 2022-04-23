@@ -80,10 +80,11 @@ export default function MyDetails(props) {
   }
 
   const saveSuccess = () => {
-    console.log("Yes! it worked.....");
+    // console.log("Yes! it worked.....");
     // alert("Saved!!")
-    var result = document.querySelector('.greenTick')
-    result.style = {display:"flex"};
+    let result = document.querySelector('.greenTick');
+    
+    result.style.display = "flex";
   }
 
   const saveError = () => {
