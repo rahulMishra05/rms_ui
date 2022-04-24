@@ -1,12 +1,20 @@
-import React from 'react'
+import { reference } from '@popperjs/core'
+import React,{useRef} from 'react'
 import '../css/Template.css'
+import {useReactToPrint}   from "react-to-print";
+
+
 
 function Template() {
+// 	const componentRef=useRef();
+// const handlePrint=useReactToPrint({content:()=> componentRef.current},
+// {copyStyles:true});
 	// const arr = Array.from(sessionStorage.mydetails)
 	return (
-		<section className="template">
+		<section className="template" ref={componentRef}>
 		<div className="userInfoDiv">
 			<div className="circleProfile">
+          {/* <input className="buttons" type="button" name="mydetails" value="pdf" onClick={handlePrint} ></input> */}
 				<img></img>
 			</div>
 			<div className="nameInfo">

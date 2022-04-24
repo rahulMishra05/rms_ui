@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useState,useRef } from "react";
 import { useForm } from "react-hook-form";
 import '../../css/AboutMe.css'
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import jsPDF from "jspdf"
+import {useReactToPrint}   from "react-to-print";
+import Template from '../ResumeTemplate'
 
 function AboutMe() {
 
@@ -107,6 +110,24 @@ function AboutMe() {
     else
       setTextareaerror(false);
   }
+  const generatePDF=()=>{
+  //   var doc=new jsPDF("p","pt","a4");
+  //   doc.html(document.querySelector(".template"),
+  //   {
+  //     callback:function(pdf){
+  //       var pageCount=doc.internal.getNumberOfPages();
+  //       pdf.deletePage(pageCount);
+  //     pdf.save("MyResume.pdf");
+  //   }
+  // }
+  // );
+    
+    
+  }
+  // <template ref={componentRef}/>
+
+  
+  
 
   return (
     <div className="aboutParentDiv">
@@ -118,6 +139,7 @@ function AboutMe() {
           }}/>
           <input className="buttons" type="submit" name="mydetails" value="Save" />
           <input className="buttons" type="button" name="mydetails" value="->" onClick={nextPage} />
+          
         </div>
 
        
