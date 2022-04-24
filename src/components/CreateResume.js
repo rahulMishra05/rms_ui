@@ -16,28 +16,45 @@ const CreateResume = () => {
         navigate("/home");
     }
 
+
+
+    const toggleOptions = () => {
+        let result = document.querySelector('#optionsDiv');
+        result.style.display = "flex";
+    }
+
+    const editResume = () => { 
+        console.log("Resume Edited")
+    }
+    const cloneResume = () => { 
+        console.log("Resume Clone")
+    }
+    const shareResume = () => { 
+        console.log("Resume Share")
+    }
+    const exportResume = () => { 
+        console.log("Resume Exported")
+    }
+
     const [result, getData] = useState([]);
 
-const toggleOptions = () => {
-    let result = document.querySelector('.optionsDiv');
-    result.style.display = "flex";
-}
+    useEffect(() => {
+        fetch('https://localhost:7258/api/Resume', {
 
-const editResume = () => {}
-const cloneResume = () => {}
-const shareResume = () => {}
-const exportResume = () => {}
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json',
+            }
+        }).then(res => res.json())
+            .then(res => getData(res))
+        // .then(res => {
+        //     setData()
+        // })
+    }, []);
 
-useEffect(() => {
-fetch('https://localhost:7258/api/Resume', {
-
-method:'GET',
-headers:{
-'content-type':'application/json',
-}
-}).then(res =>res.json())
-.then(res => getData(res))
-},[]);
+    console.log(result);
+    // console.log(result[83].myDetails[0].role)
+    // console.log(result[9].myDetails[0].userName);
 
     return (
         <>
@@ -76,7 +93,7 @@ headers:{
                 <div className="resumeHeading"><h3>My Resumes</h3></div>
                 <div className="createdResumes">
                     {
-                        result.map(current => {
+                        result.map((items, index) => {
                             return (
                                 <div className="resume">
                                     <div className="top">
@@ -85,28 +102,38 @@ headers:{
                                             <p>PSI Proprietary & Confidential</p>
                                         </div>
                                         <div className="shelf2">
-                                            <p><strong>{current.role}</strong></p>
-                                            <p>{current.role}</p>
+                                            {/* <p><strong>{items[index].myDetails[0].userName}</strong></p> */}
+                                            <p>{items.role}</p>
 
 
 
                                         </div>
                                         <div className="shelf3">
-                                            <p>{current.aboutme}</p>
+                                            <p>{items.aboutme}</p>
                                         </div>
                                     </div>
                                     <div className="bottom">
                                         <div className="reviewShelf"> Draft </div>
                                         <div className="resumeNameShelf">
-                                            <p className="resumeName">{current.resumeTitle}</p>
+                                            <p className="resumeName">{items.resumeTitle}</p>
                                             {/* <p className="resumeOptions">&#8278;</p> */}
-                                            <button className="resumeOptions" onClick={toggleOptions}>&#8278;</button>
+                                            <div className="dropdownButton">
+                                                <button id="resumeOptions" >&#8278;</button>
+                                                <div id="optionsDiv">
+                                                    <ul>
+                                                        <li onClick={editResume}>Edit</li>
+                                                        <li onClick={cloneResume}>Clone</li>
+                                                        <li onClick={shareResume}>Share</li>
+                                                        <li onClick={exportResume}>Export</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
                                         </div>
 
 
 
                                         <div className="finalBottom">
-                                            <p>PSI Resume {current.designation}</p>
+                                            <p>PSI Resume {items.designation}</p>
                                         </div>
                                     </div>
 
@@ -121,16 +148,10 @@ headers:{
                             )
                         })
                     }
-                    <div className="optionsDiv">
-                    <ul>
-                        <li onClick={editResume}>Edit</li>
-                        <li onClick={cloneResume}>Clone</li>
-                        <li onClick={shareResume}>Share</li>
-                        <li onClick={exportResume}>Export</li>
-                    </ul>
+
                 </div>
-                </div>
-                
+
+
 
             </div>
         </>
