@@ -82,18 +82,35 @@ export default function MyDetails(props) {
   const saveSuccess = () => {
     // console.log("Yes! it worked.....");
     // alert("Saved!!")
-    let setIntervalValue = setInterval(save, 1000)
-    function save(){
-        let result = document.querySelector('.greenTick');
-        result.style.display = "flex";
-        stop();
-    }
+    let result = document.querySelector('.greenTick');
+    result.style.display = "flex";
+    let count = 0;
+    setInterval(() => {
+      if(count == 2)
+        result.style.display = "none";
+      count++;
+    }, 1000);
+    // let setIntervalValue = setInterval(save, 1000)
+    // function save(){
+    //     let result = document.querySelector('.greenTick');
+    //     let count = 0;
+    //     let interval = setInterval(() => {
+    //       if(count == 2){
+    //         clearInterval(interval);
+    //         result.style.display = "none";
+    //       }            
+          
+    //       count++;
+    //     }, 2000);
+        
+    //     // stop();
+    // }
     ;
 
-    function stop(){
-      clearInterval(setIntervalValue);
-      console.log("Stop is Calling you....")
-    }
+    // function stop(){
+    //   clearInterval(setIntervalValue);
+    //   console.log("Stop is Calling you....")
+    // }
   }
   
   const saveError = () => {
