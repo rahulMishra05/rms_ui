@@ -230,11 +230,11 @@
     position: relative;
     top: 6px;
     border: 2px solid #F0FFFF;
-    width: 50px;
+    width: 80px;
     /* align-items: center; */
     border-radius: 8px;
     background: #F0FFFF;
-    padding-left: 9px;
+    text-align: center;
 }
 
 #resumeOptions {

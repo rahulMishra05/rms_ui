@@ -114,7 +114,7 @@ const CreateResume = () => {
                                         </div>
                                     </div>
                                     <div className="bottom">
-                                        <div className="reviewShelf"> Draft </div>
+                                        <div className="reviewShelf">{items.resumeStatus}</div>
                                         <div className="resumeNameShelf">
                                             <p className="resumeName">{items.resumeTitle}</p>
                                             {/* <p className="resumeOptions">&#8278;</p> */}
