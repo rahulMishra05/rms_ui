@@ -17,21 +17,23 @@
 .psLogo {
     width: 20%;
     height: 100%;
-    
+
 }
-.psLogo img{
-    width:130%;
+
+.psLogo img {
+    width: 130%;
     height: 95%;
-    margin-left:15px;
+    margin-left: 15px;
 }
-.left h1{
-    width:350px;
+
+.left h1 {
+    width: 350px;
     text-align: center;
-    margin-top:10px;
+    margin-top: 10px;
     font-weight: 700;
-    color:gray;
-    margin-left:50px;
-   
+    color: gray;
+    margin-left: 50px;
+
 }
 
 .left {
@@ -45,13 +47,14 @@
     height: 40px;
     margin: 0;
     border: none;
-    background-color:whitesmoke;
+    background-color: whitesmoke;
     transition: background-color 2s;
-    border:0.5px solid lightgray;
+    border: 0.5px solid lightgray;
 
 }
-.header .search input:hover{
-    background-color :lightgray ;
+
+.header .search input:hover {
+    background-color: lightgray;
 }
 
 .header .search {
@@ -59,10 +62,11 @@
     width: 20%;
     margin-left: -16%;
 }
-.searchIcon{
-    font-size:20px;
-    margin-left:-40px;
-    color:gray;
+
+.searchIcon {
+    font-size: 20px;
+    margin-left: -40px;
+    color: gray;
 }
 
 .header .profile {
@@ -130,88 +134,90 @@
     font-size: 1.5rem;
 }
 
-.userName{
-    margin-top:20%;
+.userName {
+    margin-top: 20%;
 }
-.signout{
-    margin-bottom:20%;
+
+.signout {
+    margin-bottom: 20%;
 }
-.createdResumes{
+
+.createdResumes {
     display: flex;
     padding: 10px;
     flex-wrap: wrap;
-    }
-    
-.section{
+}
+
+.section {
     margin-left: 40px;
-}    
-    
-.resume{
-border: 5px solid #73C5E5;
-width: 300px;
-margin: 10px;
+}
+
+.resume {
+    border: 5px solid #73C5E5;
+    width: 300px;
+    margin: 10px;
 }
 
 
 
-.shelf1 img{
-width: 45px;
-padding-left: 5px ;
+.shelf1 img {
+    width: 45px;
+    padding-left: 5px;
 }
 
 
 
 .shelf1 p {
-font-size: 10px;
-padding: 13px;
+    font-size: 10px;
+    padding: 13px;
 }
 
 
 
-.shelf1{
-display: flex;
-justify-content: space-between;
+.shelf1 {
+    display: flex;
+    justify-content: space-between;
 }
 
 
 
 .shelf2 p {
-margin: -4px 7px;
+    margin: -4px 7px;
 }
 
 
 
 .shelf3 p {
-height: 45px;
-overflow: hidden;
-font-size: 10px;
-padding: 5px 8px;
+    height: 45px;
+    overflow: hidden;
+    font-size: 10px;
+    padding: 5px 8px;
 }
 
 
 
-.top{
-border-bottom: 3px solid #73C5E5;
+.top {
+    border-bottom: 3px solid #73C5E5;
 }
 
 
 
-.finalBottom{
-font-size: 6px;
-margin-left: 20px
+.finalBottom {
+    font-size: 6px;
+    margin-left: 20px
 }
 
 
 
-.resumeNameShelf{
-display: flex;
-justify-content: space-between;
-margin: 0 20px;
+.resumeNameShelf {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 20px;
 }
 
 
 
-.bottom{
+.bottom {
     background-color: #BBFFFF;
     padding-bottom: 1px;
     padding-top: 8px;
@@ -220,31 +226,31 @@ margin: 0 20px;
 
 
 .reviewShelf {
-margin-left: 20px;
-position: relative;
-top: 6px;
-border: 2px solid #F0FFFF;
-width: 50px;
-/* align-items: center; */
-border-radius: 8px;
-background: #F0FFFF;
-padding-left: 9px;
+    margin-left: 20px;
+    position: relative;
+    top: 6px;
+    border: 2px solid #F0FFFF;
+    width: 50px;
+    /* align-items: center; */
+    border-radius: 8px;
+    background: #F0FFFF;
+    padding-left: 9px;
 }
 
-.resumeOptions{
-font-size: 2rem;
-cursor: pointer;
-background-color: #BBFFFF;
-border: none;
+#resumeOptions {
+    font-size: 2rem;
+    cursor: pointer;
+    background-color: #BBFFFF;
+    border: none;
 }
 
 
 
 .resumeName {
-font-weight: bold;
-font-size: 1.4rem;
-position: relative;
-top: 14px;
+    font-weight: bold;
+    font-size: 1.4rem;
+    position: relative;
+    top: 14px;
 }
 
 
@@ -255,23 +261,27 @@ border: 1px solid black;
 
 
 
-.optionsDiv ul{
-list-style-type: none;
-border: 1px solid #73C5E5;
-background-color: lightslategrey;
-width: 100px;
-border-radius: 6px;
+#optionsDiv ul {
+    list-style-type: none;
+    border: 1px solid #BBFFFF;
+    background-color: #73C5E5;
+    width: 100px;
+    border-radius: 6px;
+    height: 130px;
 }
 
 
 
-.optionsDiv{
-position: relative;
-left: 212px;
-bottom: 68px;
-display: none;
-}
+/* #optionsDiv {
+    position: relative;
+    left: 212px;
+    bottom: 68px;
+    /* display: none; */
+/* opacity: 0; */
 
+/* #resumeOptions:hover~#optionsDiv {
+    /* opacity: 1; */
+    /* display: flex; */
 
 
 .resumeHeading {
@@ -279,8 +289,51 @@ display: none;
     margin-bottom: 10px;
     margin-top: 50px;
 }
-.resumeHeading h3{
+
+.resumeHeading h3 {
     font-size: 35px;
     font-weight: bold;
     color: #00688B;
+}
+
+.dropdownButton {
+    position: relative;
+    display: inline-block;
+}
+
+#optionsDiv {
+    display: none;
+    position: absolute;
+    background-color: #73C5E5;
+    /* min-width: 160px; */
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 10px;
+    /* padding-top: 20px; */
+    height: 130px;
+}
+
+#optionsDiv ul li {
+    color: black;
+    padding: 12px 7px;
+    text-decoration: none;
+    display: block;
+    height: 30px;
+    cursor: pointer;
+    /* border: 1px solid #BBFFFF; */
+}
+/* #optionsDiv ul li:hover{
+    background-color: #BBFFFF;
+
+} */
+#optionsDiv a:hover {
+    background-color: #ddd;
+}
+
+.dropdownButton:hover #optionsDiv {
+    display: block;
+}
+
+.dropdownButton:hover .resumeOptions {
+    background-color: #3e8e41;
 }
