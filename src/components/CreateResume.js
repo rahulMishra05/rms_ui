@@ -23,17 +23,46 @@ const CreateResume = () => {
         result.style.display = "flex";
     }
 
-    const editResume = () => { 
+    const editResume = () => {
         console.log("Resume Edited")
     }
-    const cloneResume = (index) => { 
-        console.log(index)
-        console.log("Clone worked")
+
+    // const [resumeClone, getResumeData] = useState([]);
+
+    // useEffect(() => {
+    //     fetch(`https://localhost:7258/api/Resume/${resumeId}`, {
+
+    //         method: 'GET',
+    //         headers: {
+    //             'content-type': 'application/json',
+    //         }
+    //     }).then(res => res.json())
+    //         .then(res => getResumeData(res))
+    //     // .then(res => {
+    //     //     setData()
+    //     // })
+    // }, []);
+    
+
+    const cloneResume = (index) => {
+        // console.log(index)
+        // console.log("Clone worked")
+        console.log(index);
+        
+        var oldResume = result[index];
+        console.log(oldResume)
+        oldResume.resumeId = 0;
+        console.log(oldResume.resumeId)
+        console.log(oldResume)
+
+
+        axios.post('https://localhost:7258/api/Resume/', oldResume);
+
     }
-    const shareResume = () => { 
+    const shareResume = () => {
         console.log("Resume Share")
     }
-    const exportResume = () => { 
+    const exportResume = () => {
         console.log("Resume Exported")
     }
 
@@ -53,9 +82,14 @@ const CreateResume = () => {
         // })
     }, []);
 
+    // console.log(result);
+
     // console.log(result[9]);
     // console.log(result[83].myDetails[0].role)
     // console.log(result[9].myDetails[0].userName);
+
+    
+
 
     return (
         <>
@@ -123,7 +157,7 @@ const CreateResume = () => {
                                                 <div id="optionsDiv">
                                                     <ul>
                                                         <li onClick={editResume}>Edit</li>
-                                                        <li onClick={cloneResume(items.resumeId)}>Clone</li>
+                                                        <li><a onClick={() => cloneResume(index)}>Clone</a></li>
                                                         <li onClick={shareResume}>Share</li>
                                                         <li onClick={exportResume}>Export</li>
                                                     </ul>
