@@ -26,41 +26,28 @@ const CreateResume = () => {
     const editResume = () => {
         console.log("Resume Edited")
     }
-
-    // const [resumeClone, getResumeData] = useState([]);
-
-    // useEffect(() => {
-    //     fetch(`https://localhost:7258/api/Resume/${resumeId}`, {
-
-    //         method: 'GET',
-    //         headers: {
-    //             'content-type': 'application/json',
-    //         }
-    //     }).then(res => res.json())
-    //         .then(res => getResumeData(res))
-    //     // .then(res => {
-    //     //     setData()
-    //     // })
-    // }, []);
     
-
     const cloneResume = (index) => {
         // console.log(index)
         // console.log("Clone worked")
-        console.log(index);
-        
+        // console.log(index);
+        // console.log(oldResume)
+        // console.log(oldResume.resumeId)
+        // console.log(oldResume)
+
         var oldResume = result[index];
-        console.log(oldResume)
         oldResume.resumeId = 0;
-        console.log(oldResume.resumeId)
-        console.log(oldResume)
-
-
         axios.post('https://localhost:7258/api/Resume/', oldResume);
 
     }
-    const shareResume = () => {
-        console.log("Resume Share")
+
+
+    const shareResume = (index) => {
+        // console.log("Resume Share")
+
+        var oldResume = result[index];
+        oldResume.resumeStatus = "Review"
+        axios.put(`https://localhost:7258/api/Resume/${oldResume.resumeId}`, oldResume)
     }
     const exportResume = () => {
         console.log("Resume Exported")
@@ -158,7 +145,7 @@ const CreateResume = () => {
                                                     <ul>
                                                         <li onClick={editResume}>Edit</li>
                                                         <li><a onClick={() => cloneResume(index)}>Clone</a></li>
-                                                        <li onClick={shareResume}>Share</li>
+                                                        <li><a onClick={() => shareResume(index)}>Share</a></li>
                                                         <li onClick={exportResume}>Export</li>
                                                     </ul>
                                                 </div>
