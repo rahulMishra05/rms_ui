@@ -11,7 +11,8 @@ function Template() {
 // {copyStyles:true});
 	// const arr = Array.from(sessionStorage.mydetails)
 	return (
-		<section className="template" ref={componentRef}>
+		<section className="template" >
+			{/* ref={componentRef} */}
 		<div className="userInfoDiv">
 			<div className="circleProfile">
           {/* <input className="buttons" type="button" name="mydetails" value="pdf" onClick={handlePrint} ></input> */}

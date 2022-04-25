@@ -12,14 +12,35 @@ import { fas ,faCoffee,faPenToSquare,faShareFromSquare,faFloppyDisk, faDownload,
 import '../css/Sidebar.css';
 import { FaArrowCircleLeft } from 'react-icons/fa';
 import { useNavigate } from "react-router-dom";
+import jsPDF from "jspdf"
 
 
 function Sidebar(props) {
 	const navigate = useNavigate();
-const BackPage = () => {
-  navigate("/");
-}
+	const BackPage = () => {
+  	navigate("/");
+	}
+
+	const generatePDF=()=>{
+		var doc=new jsPDF("p","pt","a4");
+		doc.html(document.querySelector(".template"),
+		{
+		  callback:function(pdf){
+			var pageCount=doc.internal.getNumberOfPages();
+			while (pageCount>3)
+			{
+				pdf.deletePage(pageCount);
+				pageCount=pageCount-1;
+			}
+			
+		  pdf.save("MyResume.pdf");
+		}
+	  }
+	  );
+	 } 
+
 	return (
+		
 		
 		<aside className="sidebar">
 
@@ -32,7 +53,7 @@ const BackPage = () => {
 			<button className="iconbuttons"><FontAwesomeIcon className="edit"  icon={faPenToSquare}/></button>
 			<button className='iconbuttons'><FontAwesomeIcon className="share" icon={faShareFromSquare}/></button>
 			<button className='iconbuttons'><FontAwesomeIcon className="clone" icon={faFloppyDisk}/></button>
-			<button className='iconbuttons'><FontAwesomeIcon className="download" icon={faDownload}/></button>
+			<button className='iconbuttons' onClick={generatePDF}><FontAwesomeIcon className="download" icon={faDownload}/></button>
 			<button className='iconbuttons'><FontAwesomeIcon className="menu" icon={faEllipsisVertical}/></button>
 			
 			
