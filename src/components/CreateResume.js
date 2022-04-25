@@ -53,6 +53,8 @@ const CreateResume = () => {
         // })
     }, []);
 
+    console.log(result);
+
     // console.log(result[9]);
     // console.log(result[83].myDetails[0].role)
     // console.log(result[9].myDetails[0].userName);
@@ -123,7 +125,7 @@ const CreateResume = () => {
                                                 <div id="optionsDiv">
                                                     <ul>
                                                         <li onClick={editResume}>Edit</li>
-                                                        <li onClick={cloneResume(items.resumeId)}>Clone</li>
+                                                        <li><a onClick={() => cloneResume(items.resumeId)}>Clone</a></li>
                                                         <li onClick={shareResume}>Share</li>
                                                         <li onClick={exportResume}>Export</li>
                                                     </ul>
