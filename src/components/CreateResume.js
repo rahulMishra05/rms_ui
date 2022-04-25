@@ -26,8 +26,9 @@ const CreateResume = () => {
     const editResume = () => { 
         console.log("Resume Edited")
     }
-    const cloneResume = () => { 
-        console.log("Resume Clone")
+    const cloneResume = (index) => { 
+        console.log(index)
+        console.log("Clone worked")
     }
     const shareResume = () => { 
         console.log("Resume Share")
@@ -52,7 +53,7 @@ const CreateResume = () => {
         // })
     }, []);
 
-    console.log(result);
+    // console.log(result[9]);
     // console.log(result[83].myDetails[0].role)
     // console.log(result[9].myDetails[0].userName);
 
@@ -102,14 +103,14 @@ const CreateResume = () => {
                                             <p>PSI Proprietary & Confidential</p>
                                         </div>
                                         <div className="shelf2">
-                                            {/* <p><strong>{items[index].myDetails[0].userName}</strong></p> */}
-                                            <p>{items.role}</p>
+                                            <p><strong>{items.myDetails.map((subUserName) => (subUserName.userName))}</strong></p>
+                                            <p>{items.myDetails.map((subRole) => (subRole.role))}</p>
 
 
 
                                         </div>
                                         <div className="shelf3">
-                                            <p>{items.aboutme}</p>
+                                            <p>{items.aboutMes.map((subAboutMe) => (subAboutMe.mainDescription))}</p>
                                         </div>
                                     </div>
                                     <div className="bottom">
@@ -122,7 +123,7 @@ const CreateResume = () => {
                                                 <div id="optionsDiv">
                                                     <ul>
                                                         <li onClick={editResume}>Edit</li>
-                                                        <li onClick={cloneResume}>Clone</li>
+                                                        <li onClick={cloneResume(items.resumeId)}>Clone</li>
                                                         <li onClick={shareResume}>Share</li>
                                                         <li onClick={exportResume}>Export</li>
                                                     </ul>
@@ -133,7 +134,7 @@ const CreateResume = () => {
 
 
                                         <div className="finalBottom">
-                                            <p>PSI Resume {items.designation}</p>
+                                            <p>PSI Resume {items.resumeTitle} {items.myDetails.map((footerUserName) => (footerUserName.userName))}</p>
                                         </div>
                                     </div>
 
