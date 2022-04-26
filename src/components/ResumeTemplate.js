@@ -35,6 +35,12 @@ import { jsPDF } from "jspdf";
   	doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
   	heightLeft -= pageHeight;
 		}
+		var pageCount=doc.internal.getNumberOfPages();
+		while (pageCount>3)
+			{
+				doc.deletePage(pageCount);
+				pageCount=pageCount-1;
+			}
 		
 
 
