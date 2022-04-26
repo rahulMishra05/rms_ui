@@ -141,7 +141,7 @@ const CreateResume = () => {
 
                                         </div>
                                         <div className="shelf3">
-                                            <p>{items.aboutMes.map((subAboutMe) => (subAboutMe.mainDescription))}</p>
+                                            <p>{items.aboutMe.map((subAboutMe) => (subAboutMe.mainDescription))}</p>
                                         </div>
                                     </div>
                                     <div className="bottom">
