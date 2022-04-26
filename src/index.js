@@ -10,7 +10,7 @@ import AchievementMembership from './components/formFields/AchievementMembership
 import CertificationTraining from './components/formFields/CertificationTraining'
 
 import './index.css'
-import 'bootstrap/dist/css/bootstrap.min.css';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // ReactDOM.render(<Layout2Home />, document.querySelector("#root"));

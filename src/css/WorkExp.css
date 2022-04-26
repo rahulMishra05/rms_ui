@@ -9,20 +9,24 @@
     margin-top: 40vh;
     margin-left: 125px;
 }*/
-.WorkExp {
+form .WorkExp {
     width: 40vw;
     overflow: scroll;
+    overflow-x: hidden;
+    /* margin-top:3.2rem; */
 }
 .labelWorkExp {
     color: rgb(85, 84, 84);
     width: 150px;
 }
 .topSection {
-    margin: -9px;
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: -10px;
+        /* margin: -9px; */
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 40px;
+        margin-top: 1rem;
 }
+
 #formWorkExp {
     height: 705;
     padding: 10px;
@@ -97,7 +101,7 @@
 .WorkExp .FormFeilds {
     margin-left: 25px;
     width: 40vw;
-    margin-top: 20px;
+    margin-top: 2rem;
 }
 .datesDiv {
     margin: 5px;
@@ -150,4 +154,15 @@ color: #000000;
     margin-left: 2px;
     position: relative;
     top: 4px;
+}
+
+.deleteButton{
+    padding: 8px 20px;
+    border: 1px solid #c0c0c0;
+    background-color: #c0c0c0;
+    border-radius: .7rem;
+    margin-left: 3rem;
+    position:static;
+    margin-top:1.4rem;
+    margin-bottom:1.2rem;
 }

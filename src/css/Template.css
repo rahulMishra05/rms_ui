@@ -52,13 +52,24 @@ h5 {
     margin-left: 20px;
     margin-bottom: -70px;
 }
-.circleProfile {
+/* .circleProfile {
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    background-color: lightgray;
+    /* position: fixed;
+    top: 23px;
+    right: 472px;
+    margin-top: 24px;
+} */
+
+.circleProfile img{
     width: 125px;
     height: 125px;
     border-radius: 50%;
     background-color: lightgray;
     /* position: fixed; */
-    top: 23px;
+    top: 2px;
     right: 472px;
     margin-top: 24px;
 }
@@ -117,6 +128,11 @@ h5 {
 .expLabel{
     margin-left: 10px;
 }
+
+.workHistoryDiv{
+    
+}
+
 .workHistoryDiv .client_country, .projectText, .roleText, .businessSolutionText, .technologyText, .projectResText{
     position: relative;
     bottom: 50px;
@@ -175,10 +191,15 @@ h5 {
 }
 .educationalDiv{
     margin-top: -50px;
+    
 }
 .educationDiv{
     margin-top: -50px;
     margin-left: 50px;
+    
+}
+.Border{
+    border-right: .2rem black solid;
 }
 .subcertificationtraining{
     margin-left: 50px;

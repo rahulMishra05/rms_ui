@@ -145,7 +145,7 @@ function AchievementMembership() {
           </div>
         </form>
         {errors.about && <small className="Validation_am">{errors.about.message}</small>} */}
-    
+         
         <div className="bothDiv">
         <div className="bulletPoints row">
 

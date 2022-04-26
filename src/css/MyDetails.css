@@ -11,6 +11,10 @@
     margin-left: 15%;
     margin-top: 60px;
 }
+
+.bottomSection label{
+    margin-bottom:2rem;
+}
 .labelInput {
     display: flex;
     width: 535px;
@@ -73,14 +77,30 @@
     text-align: center;
     height: 100vh;
 }
-.circle {
+/* .circle {
     width: 200px;
     height: 200px;
     border-radius: 50%;
     background-color: lightgray;
     margin-left: 105px;
     margin-bottom: 30px;
+    /* position:relative; 
+} */
+
+.profileImage .resumeImage{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: lightgray;
+    /* position:absolute; */
+    /* margin-left: 95px; */
+    /* margin-bottom: 30px; */
 }
+
+.insert-image-input{
+    display: none;
+}
+
 .subPoints {
     display: flex;
     flex-direction: column;

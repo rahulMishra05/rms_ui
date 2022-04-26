@@ -51,17 +51,31 @@
     margin-right:10px;
     
 }
-.education a{
+.education .addMoreEducation{
     padding: 10px 20px;
     border: 1px solid #c0c0c0;
-  
     background-color: #c0c0c0;
     border-radius: 0.6rem;
-    margin-left: 210px;
+    margin-left: 6.1rem;
+    position:relative;
+    margin-bottom:3rem;
     
 }
 
+ .education .deleteButton{
+    padding: 8px 20px;
+    border: 1px solid #c0c0c0;
+    background-color: #c0c0c0;
+    border-radius: .7rem;
+    margin-left: 3rem;
+    /* position:absolute; */
+    position:static;
+    margin-top:2rem;
+}
 
+.labelText label{
+    color:black;
+}
 
 
 
