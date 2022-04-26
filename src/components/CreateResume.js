@@ -16,28 +16,77 @@ const CreateResume = () => {
         navigate("/home");
     }
 
+
+
+    const toggleOptions = () => {
+        let result = document.querySelector('#optionsDiv');
+        result.style.display = "flex";
+    }
+
+    const editResume = () => {
+        console.log("Resume Edited")
+    }
+
+    const cloneResume = (index) => {
+        // console.log(index)
+        // console.log("Clone worked")
+        // console.log(index);
+        // console.log(oldResume)
+        // console.log(oldResume.resumeId)
+        // console.log(oldResume)
+
+        var oldResume = result[index];
+        oldResume.resumeId = 0;
+        axios.post('https://localhost:7258/api/Resume/', oldResume);
+
+    }
+
+
+    const shareResume = (index) => {
+        // console.log("Resume Share")
+
+        var oldResume = result[index];
+        var oldResumeId = oldResume.resumeId;
+        var oldResumeTitle = oldResume.resumeTitle;
+        // oldResume.resumeStatus = "Review"
+        var newStatus = {
+            resumeId: oldResumeId,
+            resumeTitle: oldResumeTitle,
+            resumeStatus: "Review",
+            creationDate: "2022-04-13T06:33:42.151Z",
+            updationDate: "2022-04-13T06:33:42.151Z",
+        }
+        console.log(newStatus)
+        axios.put(`https://localhost:7258/api/Resume/${oldResume.resumeId}`, newStatus)
+    }
+    const exportResume = () => {
+        console.log("Resume Exported")
+    }
+
     const [result, getData] = useState([]);
 
-const toggleOptions = () => {
-    let result = document.querySelector('.optionsDiv');
-    result.style.display = "flex";
-}
+    useEffect(() => {
+        fetch('https://localhost:7258/api/Resume', {
 
-const editResume = () => {}
-const cloneResume = () => {}
-const shareResume = () => {}
-const exportResume = () => {}
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json',
+            }
+        }).then(res => res.json())
+            .then(res => getData(res))
+        // .then(res => {
+        //     setData()
+        // })
+    }, []);
 
-useEffect(() => {
-fetch('https://localhost:7258/api/Resume', {
+    // console.log(result);
 
-method:'GET',
-headers:{
-'content-type':'application/json',
-}
-}).then(res =>res.json())
-.then(res => getData(res))
-},[]);
+    // console.log(result[9]);
+    // console.log(result[83].myDetails[0].role)
+    // console.log(result[9].myDetails[0].userName);
+
+
+
 
     return (
         <>
@@ -76,7 +125,7 @@ headers:{
                 <div className="resumeHeading"><h3>My Resumes</h3></div>
                 <div className="createdResumes">
                     {
-                        result.map(current => {
+                        result.map((items, index) => {
                             return (
                                 <div className="resume">
                                     <div className="top">
@@ -85,28 +134,38 @@ headers:{
                                             <p>PSI Proprietary & Confidential</p>
                                         </div>
                                         <div className="shelf2">
-                                            <p><strong>{current.role}</strong></p>
-                                            <p>{current.role}</p>
+                                            <p><strong>{items.myDetails.map((subUserName) => (subUserName.userName))}</strong></p>
+                                            <p>{items.myDetails.map((subRole) => (subRole.role))}</p>
 
 
 
                                         </div>
                                         <div className="shelf3">
-                                            <p>{current.aboutme}</p>
+                                            <p>{items.aboutMes.map((subAboutMe) => (subAboutMe.mainDescription))}</p>
                                         </div>
                                     </div>
                                     <div className="bottom">
-                                        <div className="reviewShelf"> Draft </div>
+                                        <div className="reviewShelf">{items.resumeStatus}</div>
                                         <div className="resumeNameShelf">
-                                            <p className="resumeName">{current.resumeTitle}</p>
+                                            <p className="resumeName">{items.resumeTitle}</p>
                                             {/* <p className="resumeOptions">&#8278;</p> */}
-                                            <button className="resumeOptions" onClick={toggleOptions}>&#8278;</button>
+                                            <div className="dropdownButton">
+                                                <button id="resumeOptions" >&#8278;</button>
+                                                <div id="optionsDiv">
+                                                    <ul>
+                                                        <li onClick={editResume}>Edit</li>
+                                                        <li><a href="" onClick={() => cloneResume(index)}>Clone</a></li>
+                                                        <li><a href="" onClick={() => shareResume(index)}>Share</a></li>
+                                                        <li onClick={exportResume}>Export</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
                                         </div>
 
 
 
                                         <div className="finalBottom">
-                                            <p>PSI Resume {current.designation}</p>
+                                            <p>PSI Resume {items.resumeTitle} {items.myDetails.map((footerUserName) => (footerUserName.userName))}</p>
                                         </div>
                                     </div>
 
@@ -121,16 +180,10 @@ headers:{
                             )
                         })
                     }
-                    <div className="optionsDiv">
-                    <ul>
-                        <li onClick={editResume}>Edit</li>
-                        <li onClick={cloneResume}>Clone</li>
-                        <li onClick={shareResume}>Share</li>
-                        <li onClick={exportResume}>Export</li>
-                    </ul>
+
                 </div>
-                </div>
-                
+
+
 
             </div>
         </>

@@ -38,6 +38,7 @@ export default function MyDetails(props) {
     document.querySelector(".expLabel").innerHTML = exp + " Years";
     document.querySelector(".roleLabel").innerHTML = roles;
     document.querySelector(".circleProfile img").setAttribute("src", imagePath);
+    console.log(imagePath)
     const dateTime = new Date();
 
     const todayDate = JSON.stringify(new Date());
@@ -55,7 +56,7 @@ export default function MyDetails(props) {
 
       myDetails: [
         {
-          profilePicture: "",
+          profilePicture: imagePath.split(',')[1],
           totalExp: d.experience,
           userName: d.name,
           role: d.role
@@ -86,7 +87,9 @@ const [imagePath, setImagePath]=useState('default_image.jpg');
 
  let imageHandler = async (e) => {
     const file = e.target.files[0];
+    console.log(e.target.files)
     let base64 = await convertBase64(file);
+    sessionStorage["fileBase64"] = base64;
     setImagePath(base64);
   }
 
@@ -102,6 +105,14 @@ const [imagePath, setImagePath]=useState('default_image.jpg');
       }
     })
   }
+
+  let photo ;
+  let photo_database;
+  if( sessionStorage.getItem("fileBase64")){
+    photo=sessionStorage.getItem("fileBase64");
+    photo_database = photo.split(',')[1];}
+
+    
   return (
     <>
       <div className="detailsSection">
