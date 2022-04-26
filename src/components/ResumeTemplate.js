@@ -2,20 +2,91 @@ import { reference } from '@popperjs/core'
 import React,{useRef} from 'react'
 import '../css/Template.css'
 import {useReactToPrint}   from "react-to-print";
+import html2canvas from 'html2canvas';
+import { jsPDF } from "jspdf";
 
 
 
-function Template() {
+ function Template() {
 // 	const componentRef=useRef();
 // const handlePrint=useReactToPrint({content:()=> componentRef.current},
-// {copyStyles:true});
-	// const arr = Array.from(sessionStorage.mydetails)
+// {copyStyles:true},{onBeforeGetContent:()=> this.copyStyles});
+	// const arr = Array.from(sessionStorage.mydetails)  ;;;ref={componentRef}
+	
+
+	function makePDF(){
+		const divToDisplay = document.querySelector('.template');
+		html2canvas(divToDisplay).then(function(canvas){
+			var imgData = canvas.toDataURL('image/png');
+			
+	var imgWidth = 210; 
+	var pageHeight = 295;  
+	var imgHeight = canvas.height * imgWidth / canvas.width;
+	var heightLeft = imgHeight;
+	var doc = new jsPDF('p', 'mm');
+	var position = 20; // give some top padding to first page
+
+	doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+	heightLeft -= pageHeight;
+
+	while (heightLeft >= 0) {
+  	position += heightLeft - imgHeight; // top padding for other pages
+  	doc.addPage();
+  	doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+  	heightLeft -= pageHeight;
+		}
+		
+
+
+		// html2canvas(divToDisplay).then(function(canvas) {
+		// 	window.alert("Downloaded..");
+			
+		// 	const HTMLContent_Height=document.querySelector(".template").offsetHeight;
+		// 	console.log("html_height"+HTMLContent_Height);
+		// 	const pdf = new jsPDF();
+		// 	const divImage = canvas.toDataURL("image/png");
+		// 	const width= pdf.internal.pageSize.getWidth();
+		// 	console.log("width"+width);
+
+		// 	const imgProps= pdf.getImageProperties(divImage);
+		// 	const pdfWidth = pdf.internal.pageSize.getWidth();
+
+		// 	const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+		// 	console.log("pdf_height"+pdfHeight);
+			
+
+		// 	const totalPDFPages=(Math.ceil((HTMLContent_Height)/pdfHeight));
+		// 	console.log("Total_pages"+totalPDFPages);
+			
+			
+			
+		// 	// const pdf = new jsPDF();
+		// 	for (var i = 1; i <= totalPDFPages; i++) {
+				
+		// 		pdf.addImage(divImage, 'JPG', 0, (-HTMLContent_Height*i),width,pdfHeight)
+		// 		pdf.addPage();
+				
+		// 	}
+		  // pdf.addImage(divImage, 'PNG', 0, 0);
+		  
+
+			
+			
+		   
+		   doc.save("Resume.pdf");
+		   
+		})
+	}
+
+	
+
 	return (
+		<div >
 		<section className="template" >
-			{/* ref={componentRef} */}
+			
 		<div className="userInfoDiv">
 			<div className="circleProfile">
-          {/* <input className="buttons" type="button" name="mydetails" value="pdf" onClick={handlePrint} ></input> */}
+          <input className="buttons" type="button" name="mydetails" value="pdf" onClick={makePDF} ></input>
 				<img></img>
 			</div>
 			<div className="nameInfo">
@@ -79,6 +150,7 @@ function Template() {
 			</div>
 		</div>
 		</section>
+		</div>
 	)
 }
 export default Template

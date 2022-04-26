@@ -23,8 +23,9 @@ function Sidebar(props) {
 
 	const generatePDF=()=>{
 		var doc=new jsPDF("p","pt","a4");
+		
 		doc.html(document.querySelector(".template"),
-		{
+		{ margin:[0,50,0,0],
 		  callback:function(pdf){
 			var pageCount=doc.internal.getNumberOfPages();
 			while (pageCount>3)
@@ -32,7 +33,7 @@ function Sidebar(props) {
 				pdf.deletePage(pageCount);
 				pageCount=pageCount-1;
 			}
-			
+			window.alert("Downloaded");
 		  pdf.save("MyResume.pdf");
 		}
 	  }
