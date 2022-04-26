@@ -26,7 +26,7 @@ const CreateResume = () => {
     const editResume = () => {
         console.log("Resume Edited")
     }
-    
+
     const cloneResume = (index) => {
         // console.log(index)
         // console.log("Clone worked")
@@ -46,8 +46,18 @@ const CreateResume = () => {
         // console.log("Resume Share")
 
         var oldResume = result[index];
-        oldResume.resumeStatus = "Review"
-        axios.put(`https://localhost:7258/api/Resume/${oldResume.resumeId}`, oldResume)
+        var oldResumeId = oldResume.resumeId;
+        var oldResumeTitle = oldResume.resumeTitle;
+        // oldResume.resumeStatus = "Review"
+        var newStatus = {
+            resumeId: oldResumeId,
+            resumeTitle: oldResumeTitle,
+            resumeStatus: "Review",
+            creationDate: "2022-04-13T06:33:42.151Z",
+            updationDate: "2022-04-13T06:33:42.151Z",
+        }
+        console.log(newStatus)
+        axios.put(`https://localhost:7258/api/Resume/${oldResume.resumeId}`, newStatus)
     }
     const exportResume = () => {
         console.log("Resume Exported")
@@ -75,7 +85,7 @@ const CreateResume = () => {
     // console.log(result[83].myDetails[0].role)
     // console.log(result[9].myDetails[0].userName);
 
-    
+
 
 
     return (
@@ -144,8 +154,8 @@ const CreateResume = () => {
                                                 <div id="optionsDiv">
                                                     <ul>
                                                         <li onClick={editResume}>Edit</li>
-                                                        <li><a onClick={() => cloneResume(index)}>Clone</a></li>
-                                                        <li><a onClick={() => shareResume(index)}>Share</a></li>
+                                                        <li><a href="" onClick={() => cloneResume(index)}>Clone</a></li>
+                                                        <li><a href="" onClick={() => shareResume(index)}>Share</a></li>
                                                         <li onClick={exportResume}>Export</li>
                                                     </ul>
                                                 </div>
