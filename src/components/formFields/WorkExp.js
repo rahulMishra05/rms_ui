@@ -60,7 +60,7 @@ export default function WorkExp(props) {
           workData.push(
             {
             
-              clientDescription: data.test[i].clientName,
+              clientDescription: data.test[i].client,
               country:data.test[i].country,
               projectName: data.test[i].project,
               projectRole: data.test[i].designation,
