@@ -3,6 +3,7 @@ import '../css/Template.css'
 
 function Template() {
 	// const arr = Array.from(sessionStorage.mydetails)
+	
 	return (
 		<section className="template">
 		<div className="userInfoDiv">
@@ -27,17 +28,23 @@ function Template() {
 			<div className="workHistoryDiv">
 				
 				<h5 className="resumeHeadings">Work History</h5>
-				
-				<div className='client_country'>
-					<p className="clientText"></p>
-					<p className="countryText"></p>
+				<div style={{borderTop:'4px solid #73C5E5', marginTop:'-3.5rem', marginLeft:'3.5rem'}}></div>
+				<div className="innerWorkHistoryDiv" style={{marginLeft:'50px', marginBottom:'3rem'}}>
+
 				</div>
-				<p className='projectText'></p>
-				<p className="roleText"></p>
-				<p className="durationText"></p>
-				<p className="businessSolutionText"></p>
-				<p className="technologyText"></p>
-				<p className="projectResText"></p>
+				{/* <div className="innerWorkDiv">
+					<div className='client_country'>
+						<p className="clientText"></p>
+						<p className="countryText"></p>
+					</div>
+					<p className='projectText'></p>
+					<p className="roleText"></p>
+					<p className="durationText"></p>
+					<p className="businessSolutionText"></p>
+					<p className="technologyText"></p>
+					<p className="projectResText"></p>
+				</div> */}
+				
 				
 			</div>
 			<div className="skillsDiv">
@@ -46,15 +53,19 @@ function Template() {
 			</div>
 			<div className="educationalDiv">
 				
-				<h5 className="resumeHeadings">Educational Background</h5>
-				<p className="educationText"></p>
-				<div className="educationDiv">
+				<h5 className="resumeHeadings" style={{marginTop:'-1.5rem'}}>Educational Background</h5>
+				<div style={{borderTop:'4px solid #73C5E5', marginTop:'-3.5rem', marginLeft:'3.5rem'}}></div>
+				<div className="innerEducationDiv" style={{marginLeft:'50px'}}>
+
+				</div>
+				{/* <div className="educationDiv">
+				    <p className="educationText"></p>
 					<p className="specializationText "></p>
 					<p className="instituteText "></p>
 					<p className="university "></p>
 					<p className="yearText "></p>
 					<p className="marksText "></p>
-				</div>
+				</div> */}
 			</div>
 			<div className="certificationTrainingDiv">
 				<h5 className="resumeHeadings">Certification & Training</h5>
@@ -71,6 +82,7 @@ function Template() {
 			</div>
 		</div>
 		</section>
-	)
+	);
+	
 }
 export default Template

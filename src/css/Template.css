@@ -99,15 +99,16 @@ h5 {
 
 .resumeHeadings{
     padding: 50px;
+    
 }
-.client_country{
+/* .client_country{
     display: flex;
     justify-content: space-between;
     font-size: 1rem;
     border-top: 4px solid #73C5E5;
     padding-top: 5px;
     padding-bottom: 5px;
-}
+} */
 .client_country .countryText{
     margin-right: 50px;
 }
@@ -168,7 +169,7 @@ h5 {
     bottom: 50px;
     left: 50px;
     font-size: 1rem;
-    border-top: 4px solid #73C5E5;
+    /* border-top: 4px solid #73C5E5; */
     padding-top: 5px;
     
 }
@@ -207,4 +208,14 @@ h5 {
 }
 .subachievementmembership{
     margin-left:50px;
+}
+
+.innerWorkDiv{
+    margin-left:3rem;
+    border: 1px solid black;
+}
+
+.innerWorkHistoryDiv{
+    margin-left:50px;
+     margin-bottom:3rem;
 }

@@ -63,15 +63,18 @@ function Education() {
 
 	const customFunction = (d) => {
 		sessionStorage.setItem("education", JSON.stringify(d))
-		const data = JSON.parse(sessionStorage.getItem('education'))
+		const data = JSON.parse(sessionStorage.getItem('education'));
+		console.log(data);
 		let educationData=[];
 		for(var i=0;i<data.test.length;i++){
-			document.querySelector(".educationText").innerHTML += data.test[i].courseName+"&nbsp;&nbsp;";
-			document.querySelector(".specializationText").innerHTML += data.test[i].specialization+"&nbsp;&nbsp;";
-			document.querySelector(".instituteText").innerHTML += data.test[i].instituteName+"&nbsp;&nbsp;";
-			document.querySelector(".university").innerHTML += data.test[i].university+"&nbsp;&nbsp;";
-			document.querySelector(".yearText").innerHTML += data.test[i].passingYear+"&nbsp;&nbsp;";
-			document.querySelector(".marksText").innerHTML += data.test[i].marks+"&nbsp;&nbsp;";
+			// document.querySelector(".educationText").innerHTML += data.test[i].courseName+"&nbsp;&nbsp;";
+			// document.querySelector(".specializationText").innerHTML += data.test[i].specialization+"&nbsp;&nbsp;";
+			// document.querySelector(".instituteText").innerHTML += data.test[i].instituteName+"&nbsp;&nbsp;";
+			// document.querySelector(".university").innerHTML += data.test[i].university+"&nbsp;&nbsp;";
+			// document.querySelector(".yearText").innerHTML += data.test[i].passingYear+"&nbsp;&nbsp;";
+			// document.querySelector(".marksText").innerHTML += data.test[i].marks+"&nbsp;&nbsp;";
+			document.querySelector('.educationalDiv .innerEducationDiv').innerHTML+='<div className="educationDiv"><p className="educationText"> Course: '+ data.test[i].courseName+'&nbsp;&nbsp;</p><p className="specializationText ">Specialization: '+data.test[i].specialization+'&nbsp;&nbsp;</p><p className="instituteText ">Institute: ' + data.test[i].instituteName+'&nbsp;&nbsp;</p><p className="university "> University: '+ data.test[i].university +'&nbsp;&nbsp;</p><p className="yearText "> Passing Year: '+ data.test[i].passingYear+'&nbsp;&nbsp;</p><p className="marksText "> Marks Scored:' + data.test[i].marks+'&nbsp;&nbsp</p></div>'
+			// document.querySelector('.educationalDiv').style.borderBottom="1px red solid";
 			educationData.push(
 				{
 					educationalDetailsId: 0,

@@ -3,6 +3,8 @@ import { useState } from "react";
 // import Calendar from 'react-calendar'
 import { useFieldArray, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import '../../css/Template.css'
+import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import Calendar from 'react-calendar'
 // import TextField from '@material-ui/core/TextField';
 import '../../css/WorkExp.css'
@@ -59,36 +61,47 @@ export default function WorkExp(props) {
     // const td=data.tilldate;
     
     // console.log(Startdate);
-    if(data.tilldate=="tilldate")
-    {
-      document.querySelector('.durationText').innerHTML = data.startdate.slice(0, 7) + " - " + data.tilldate;
-    }
-   else if (data.startdate === data.enddate) {
-      window.alert("Start date and end date are same");
-    }
-    else if (data.startdate > data.enddate) {
-      window.alert("Start and End date conflicts");
-    }
-    else {
-      document.querySelector('.durationText').innerHTML = data.startdate.slice(0, 7) + " to " + data.enddate.slice(0, 7);
-    }
+  //   if(data.test[i].tilldate=="tilldate")
+  //   {
+  //     document.querySelector('.durationText').innerHTML = data.startdate.slice(0, 7) + " - " + data.tilldate;
+  //   }
+  //  else if (data.startdate === data.enddate) {
+  //     window.alert("Start date and end date are same");
+  //   }
+  //   else if (data.startdate > data.enddate) {
+  //     window.alert("Start and End date conflicts");
+  //   }
+  //   else {
+  //     document.querySelector('.durationText').innerHTML = data.startdate.slice(0, 7) + " to " + data.enddate.slice(0, 7);
+  //   }
     // let workData=[];
       for(var i=0;i<data.test.length;i++){
-          
-          document.querySelector('.clientText').innerHTML += "Client: "+ data.test[i].client + " &nbsp; &nbsp; &nbsp;"+ <br/>;
-          
-          document.querySelector('.countryText').innerHTML += "&nbsp; &#127988; "+ data.test[i].country + <br/>;
-          
-          document.querySelector('.projectText').innerHTML += "Project: " + data.test[i].project + <br/>;
-          
-          document.querySelector('.roleText').innerHTML += "Role: "+ data.test[i].role + <br/>;
-          
-          document.querySelector('.businessSolutionText').innerHTML +="Business Solution: "+  data.test[i].businessSolution + <br/>;
-          
-          document.querySelector('.technologyText').innerHTML += "&#8226;"+ data.test[i].technology + <br/>;
-          
-          document.querySelector('.projectResText').innerHTML +=""+  data.test[i].projectRes + <br/>;
-          
+        if(data.test[i].tilldate==today)
+        {
+          data.test[i].enddate=today;
+          //document.querySelector('.durationText').innerHTML = data.test[i].startdate.slice(0, 7) + " - " + data.test[i].tilldate;
+        }
+       else if (data.test[i].startdate === data.test[i].enddate) {
+          window.alert("Start date and end date are same");
+          continue;
+        }
+        else if (data.test[i].startdate > data.test[i].enddate) {
+          window.alert("Start and End date conflicts");
+          continue;
+        }
+
+        // else {
+        //   document.querySelector('.durationText').innerHTML = data.test[i].startdate.slice(0, 7) + " to " + data.test[i].enddate.slice(0, 7);
+        // }
+          // document.querySelector('.clientText').innerHTML += "Client: "+ data.test[i].client + " &nbsp; &nbsp; &nbsp;";         
+          // document.querySelector('.countryText').innerHTML += "&nbsp; &#127988; "+ data.test[i].country ;      
+          // document.querySelector('.projectText').innerHTML += "Project: " + data.test[i].project ;         
+          // document.querySelector('.roleText').innerHTML += "Role: "+ data.test[i].role ;          
+          // document.querySelector('.businessSolutionText').innerHTML +="Business Solution: "+  data.test[i].businessSolution ;          
+          // document.querySelector('.technologyText').innerHTML += "&#8226;"+ data.test[i].technology ;
+          // document.querySelector('.projectResText').innerHTML +=""+  data.test[i].projectRes ;
+          document.querySelector('.workHistoryDiv .innerWorkHistoryDiv').innerHTML+='<div className="innerWorkDiv"><div className="client_country d-flex"><p className="clientText">Client:' + data.test[i].client + '</p><p className="countryText">&nbsp; &#127988;' + data.test[i].country+'  </p></div><p className="projectText">Project:  '+ data.test[i].project+ '</p><p className="roleText">Role: '+ data.test[i].role +'</p><p className="durationText">'+ data.test[i].startdate.slice(0, 10) + ' to ' + data.test[i].enddate.slice(0, 10) + '</p><p className="businessSolutionText">Business Solution:' +  data.test[i].businessSolution + '</p><p className="technologyText">&#8226;'+ data.test[i].technology + '</p><p className="projectResText">'+  data.test[i].projectRes + '</p></div>'
+          // document.querySelector('.workHistoryDiv').style.textAlign="center";
           // workData.push(
           //   {
 
@@ -126,7 +139,10 @@ export default function WorkExp(props) {
       control,
       name: "test"
     });
-    
+
+    const [count, setCount]=useState(0);
+    var today = new Date().toISOString().slice(0, 10);
+
   return (
     <>
     <form onSubmit={handleSubmit((data) => customFunction(data))} id="formWorkExp">
@@ -192,7 +208,7 @@ export default function WorkExp(props) {
                   <span className="duration_end"><input className="de"{...register(`test.${index}.enddate`)} type="date"  /></span>
 
                   <span className='td'>
-                <input type='checkbox'  id="tds" name="tilldate"  value='till date' {...register(`test.${index}.tilldate`)} ></input>
+                <input type='checkbox'  id="tds" name="tilldate"  value={today} {...register(`test.${index}.tilldate`)} ></input>
                   <label for='tds'>till date</label>
                   
                 </span>
@@ -223,7 +239,9 @@ export default function WorkExp(props) {
               </div>
               {errors.projectRes && <small className="Validation_we">{errors.projectRes.message}</small>}
               <a href="" className="deleteButton" type="button" onClick={(e) => {e.preventDefault(); 
-                      remove(index)}}> Delete </a>
+                      remove(index);
+                      setCount(count-1);
+                      }}> Delete </a>
 
 
               {/* <hr style={{
@@ -235,18 +253,7 @@ export default function WorkExp(props) {
                 marginRight: '60px'
               }} /> */}
 
-            {
-              fields.length - 1 === index && fields.length < 3 &&
-              <div >
-                  
-  
-                  <a href="" className="button2" onClick={(e) => {
-                    e.preventDefault();
-                    append();}}>&#43; Add More Work Exp</a>
-  
-              </div>
-              
-            }
+            
 
               
             </div>
@@ -258,7 +265,21 @@ export default function WorkExp(props) {
 
            })}
         </div>
-        
+            {
+              // fields.length - 1 === index && fields.length < 3 
+              count<2 &&
+              <div >
+                  
+  
+                  <a href="" className="button2 addMorebtn" onClick={(e) => {
+                    e.preventDefault();
+                    append(); 
+                    setCount(count+1);
+                    }}>&#43; Add More Work Exp</a>
+  
+              </div>
+              
+            }
 
       </form>
       
