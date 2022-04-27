@@ -35,7 +35,6 @@
     width: 60px;
     height: 30px;
     padding: 0.25rem;
-   
     font-size: 10px;
     border-radius: 14.25rem;
     margin-right: 10px;
@@ -60,6 +59,38 @@
     
 }
 
+.deleteButton{
+    padding: 8px 20px;
+    border: 1px solid #c0c0c0;
+    background-color: #c0c0c0;
+    border-radius: .7rem;
+    margin-left: 3rem;
+    position:static;
+    margin-top:1.4rem;
+    margin-bottom:1.2rem;
+}
+
+.deleteButton:hover{
+    background-color:gray;
+    color:white;
+}
+
+.education .addMoreEducation{
+    padding: 10px 20px;
+    border: 1px solid #c0c0c0;
+    background-color: #c0c0c0;
+    border-radius: 0.6rem;
+    margin-left: 6.1rem;
+    position:relative;
+    margin-bottom:3rem;
+    
+}
+
+.education .addMoreEducation:hover{
+    background-color:gray;
+    /* color:white; */
+    
+}
 
 
 

@@ -9,19 +9,21 @@
     margin-top: 40vh;
     margin-left: 125px;
 }*/
-.WorkExp {
+form .WorkExp {
     width: 40vw;
     overflow: scroll;
+    overflow-x: hidden;
+    /* margin-top:3.2rem; */
 }
 .labelWorkExp {
     color: rgb(85, 84, 84);
     width: 150px;
 }
 .topSection {
-    margin: -9px;
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: -10px;
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 40px;
+        margin-top: 1rem;
 }
 #formWorkExp {
     height: 705;
@@ -63,7 +65,6 @@
     width: 60px;
     height: 30px;
     padding: 0.25rem;
-    
     font-size: 10px;
     border-radius: 14.25rem;
     margin-right: 10px;
@@ -90,8 +91,8 @@
 }
 
 .button2:hover{
-    background-color: black;
-    color: #C0C0C0;
+    background-color: gray;
+    color: black;
 }
 
 .WorkExp .FormFeilds {
@@ -176,3 +177,23 @@ color: #000000;
     width: 307px;
     padding: 10px;
 }
+.deleteButton{
+    padding: 8px 20px;
+    border: 1px solid #c0c0c0;
+    background-color: #c0c0c0;
+    border-radius: .7rem;
+    margin-left: 3rem;
+    position:static;
+    margin-top:1.4rem;
+    margin-bottom:1.2rem;
+}
+
+.WorkExp .deleteButton:hover{
+    background-color:gray;
+    color:#000000;
+}
+
+a .addMorebtn{
+    position:static;
+}
+
