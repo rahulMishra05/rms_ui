@@ -24,16 +24,33 @@ function AchievementMembership() {
     if(count<2)
     {
     e.preventDefault();
-    const achievementMembershipDiv = e.target.previousElementSibling.children[0].cloneNode(true);
+    const achievementMembershipDiv = e.target.parentElement.previousElementSibling.children[0].cloneNode(true);
 
     achievementMembershipDiv.children[0].children[0].value = "";
 
-    e.target.previousElementSibling.appendChild(achievementMembershipDiv)
+    e.target.parentElement.previousElementSibling.appendChild(achievementMembershipDiv)
     count++;
     }
     else
     {
-      alert("you can enter max 3 Achievements");
+      alert("You can enter max 3 Training");
+    }
+  };
+  const handleServiceRemove = (e) => {
+    
+    if(count>=0)
+    {
+    e.preventDefault();
+    const achievementMembershipDiv = e.target.parentElement.previousElementSibling;
+
+    //achievementMembershipDiv.children[0].children[0].value = "";
+
+    achievementMembershipDiv.removeChild(achievementMembershipDiv.lastElementChild);
+    count--;
+    }
+    else
+    {
+      alert(" You can't remove this.One Training is compulsory");
     }
   };
   var count1=0;
@@ -42,18 +59,36 @@ function AchievementMembership() {
     if(count1<2)
     {
     e.preventDefault();
-    const achievementMembershipDiv = e.target.previousElementSibling.children[0].cloneNode(true);
+    const achievementMembershipDiv = e.target.parentElement.previousElementSibling.children[0].cloneNode(true);
 
     achievementMembershipDiv.children[0].children[0].value = "";
 
-    e.target.previousElementSibling.appendChild(achievementMembershipDiv)
+    e.target.parentElement.previousElementSibling.appendChild(achievementMembershipDiv)
     count1++;
     }
     else
     {
-      alert("you can enter max 3 Memberships");
+      alert("You can enter max 3 Training");
     }
   };
+  const handleServiceRemove1 = (e) => {
+    
+    if(count1>=0)
+    {
+    e.preventDefault();
+    const achievementMembershipDiv = e.target.parentElement.previousElementSibling;
+
+    //achievementMembershipDiv.children[0].children[0].value = "";
+
+    achievementMembershipDiv.removeChild(achievementMembershipDiv.lastElementChild);
+    count1--;
+    }
+    else
+    {
+      alert(" You can't remove this.One Training is compulsory");
+    }
+  };
+
 
   const customFunction = (d) => {
     var resumeObject = sessionStorage.getItem("resume");
@@ -111,11 +146,13 @@ function AchievementMembership() {
 
       achivements: [
         {
+          
           achievementName:subachievementmembership1.join(",")
         }
       ],
       memberships: [
         {
+         
           membershipName: subachievementmembership2.join(",")
         }
       ]
@@ -163,7 +200,10 @@ function AchievementMembership() {
               </div>
             </div>
           </div>
+          <div>
           <input className="buttons" type="button" onClick={handleServiceAdd} name="mydetails" value="+" />
+          <input className="buttons" type="button" onClick={handleServiceRemove} name="mydetails" value="-" />
+          </div>
         </div>
         <div className="bulletPoints row">
 
@@ -183,7 +223,10 @@ function AchievementMembership() {
               </div>
             </div>
           </div>
+          <div>
           <input className="buttons" type="button" onClick={handleServiceAdd1} name="mydetails" value="+" />
+          <input className="buttons" type="button" onClick={handleServiceRemove1} name="mydetails" value="-" />
+          </div>
         </div>
         </div>
 

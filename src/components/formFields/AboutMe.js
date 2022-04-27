@@ -32,26 +32,42 @@ function AboutMe() {
 
   //   e.target.previousElementSibling.appendChild(aboutMeDiv)
   // };
-
   var count=0;
   const handleServiceAdd = (e) => {
     
     if(count<4)
     {
     e.preventDefault();
-    const aboutMeDiv = e.target.previousElementSibling.children[0].cloneNode(true);
+    const aboutMeDiv = e.target.parentElement.previousElementSibling.children[0].cloneNode(true);
 
     aboutMeDiv.children[0].children[0].value = "";
 
-    e.target.previousElementSibling.appendChild(aboutMeDiv)
+    e.target.parentElement.previousElementSibling.appendChild(aboutMeDiv)
     count++;
     }
     else
     {
-      alert("you can enter max 5 Key Points");
+      alert("You can enter max 5 Key Points");
     }
-  };  
+  };
+  const handleServiceRemove = (e) => {
+    
+    if(count>=0)
+    {
+    e.preventDefault();
+    const aboutMeDiv = e.target.parentElement.previousElementSibling;
 
+    //achievementMembershipDiv.children[0].children[0].value = "";
+
+    aboutMeDiv.removeChild(aboutMeDiv.lastElementChild);
+    count--;
+    }
+    else
+    {
+      alert(" You can't remove this.One Key Point is compulsory");
+    }
+  };
+ 
   const customFunction = (d) => {
     var resumeObject = sessionStorage.getItem("resume");
     // alert(resumeObject["ResumeId"]);
@@ -171,7 +187,11 @@ function AboutMe() {
               </div>
             </div>
           </div>
+          <div>
           <input className="buttons" type="button" onClick={handleServiceAdd} name="mydetails" value="+" />
+          <input className="buttons" type="button" onClick={handleServiceRemove} name="mydetails" value="-" />
+          </div>
+          
         </div>
 
 
