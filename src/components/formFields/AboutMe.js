@@ -91,7 +91,7 @@ function AboutMe() {
       creationDate: "2022-04-13T06:33:42.151Z",
       updationDate: "2022-04-13T06:33:42.151Z",
 
-      aboutMe: [
+      aboutMes: [
         {
           MainDescription: aboutMe,
           KeyPoints: subaboutme.join(",")
