@@ -28,13 +28,8 @@ const CreateResume = () => {
     }
 
     const cloneResume = (index) => {
-        // console.log(index)
-        // console.log("Clone worked")
-        // console.log(index);
-        // console.log(oldResume)
-        // console.log(oldResume.resumeId)
-        // console.log(oldResume)
-
+        console.log("cloneResume Triggered");
+        console.log(index);
         var oldResume = result[index];
         oldResume.resumeId = 0;
         axios.post('https://localhost:7258/api/Resume/', oldResume);
@@ -44,7 +39,7 @@ const CreateResume = () => {
 
     const shareResume = (index) => {
         // console.log("Resume Share")
-
+        console.log("shareResume triggered");
         var oldResume = result[index];
         var oldResumeId = oldResume.resumeId;
         var oldResumeTitle = oldResume.resumeTitle;
@@ -56,6 +51,7 @@ const CreateResume = () => {
             creationDate: "2022-04-13T06:33:42.151Z",
             updationDate: "2022-04-13T06:33:42.151Z",
         }
+        
         console.log(newStatus)
         axios.put(`https://localhost:7258/api/Resume/${oldResume.resumeId}`, newStatus)
     }

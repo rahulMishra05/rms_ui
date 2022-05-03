@@ -82,6 +82,8 @@ function Education() {
 		control,
 		name: "test"
 	});
+	const [count, setCount]=useState(0);
+
 	return (
 		<>
 			<div className="education">
@@ -127,14 +129,21 @@ function Education() {
 								placeholder="Marks" id="marks" className="inputsEducation" />
 						</div>
 						<a href="" className="deleteButton" type="button" onClick={(e) => {e.preventDefault(); 
-										remove(index)}}> Delete </a>
+										remove(index);
+										setCount(count-1);}}> Delete </a>
 					</div>
 					);
 				})}
+				
+				{
+					count<2 &&
+                           <a href="" className="addMoreEducation" onClick={(e) => {
+							e.preventDefault();
+							append();
+							setCount(count+1);}}>Add More Education</a>
+				}
 
-                  <a href="" className="addMoreEducation" onClick={(e) => {
-									e.preventDefault();
-									append();}}>Add More Education</a>
+                 
 				</form>
 			</div>
 		</>

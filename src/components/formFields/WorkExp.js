@@ -8,17 +8,7 @@ import Calendar from 'react-calendar'
 import '../../css/WorkExp.css'
 import axios from 'axios';
 export default function WorkExp(props) {
-  // console.log(props.formfields)
-  // const { register, handleSubmit, formState: { errors } } = useForm();
-  // const [data, setData] = useState("");
-
-  // const deleteContent = () => {
-  //   document.querySelector("div.labelInputWorkExp input[name='client']").value = "";
-  //   document.querySelector("div.labelInputWorkExp input[name='country']").value = "";
-  //   document.querySelector("div.labelInputWorkExp input[name='project']").value = "";
-  //   document.querySelector("div.labelInputWorkExp input[name='businessSolution']").value = "";
-  //   document.querySelector("div.labelInputWorkExp input[name='projectRes']").value = "";
-  // }
+  
 
   const navigate = useNavigate();
   const nextPage = () => {
@@ -54,8 +44,6 @@ export default function WorkExp(props) {
           window.alert("Start and End date conflicts");
           continue;
         }
-
-        
           document.querySelector('.workHistoryDiv .innerWorkHistoryDiv').innerHTML+='<div className="innerWorkDiv"><div className="client_country d-flex"><p className="clientText">Client:' + data.test[i].client + '</p><p className="countryText">&nbsp; &#127988;' + data.test[i].country+'  </p></div><p className="projectText">Project:  '+ data.test[i].project+ '</p><p className="roleText">Role: '+ data.test[i].role +'</p><p className="durationText">'+ data.test[i].startdate.slice(0, 10) + ' to ' + data.test[i].enddate.slice(0, 10) + '</p><p className="businessSolutionText">Business Solution:' +  data.test[i].businessSolution + '</p><p className="technologyText">&#8226;'+ data.test[i].technology + '</p><p className="projectResText">'+  data.test[i].projectRes + '</p></div>'
           workData.push(
             {
@@ -63,15 +51,16 @@ export default function WorkExp(props) {
               clientDescription: data.test[i].client,
               country:data.test[i].country,
               projectName: data.test[i].project,
-              projectRole: data.test[i].designation,
-              startDate: "2022-04-22T08:11:06.418Z",
-              endDate: "2022-04-22T08:11:06.418Z",
+              projectRole: data.test[i].role,
+              startDate: data.test[i].startdate,
+              endDate: data.test[i].enddate,
               businessSolution: data.test[i].businessSolution,
               technologyStack: data.test[i].tech,
               projectResponsibilities: data.test[i].projectRes
             }
           )
      }
+     console.log(workData);
   
      const addWorkExp = (e) => {
       e.preventDefault();
@@ -344,3 +333,14 @@ export default function WorkExp(props) {
   );
 }
 
+// console.log(props.formfields)
+  // const { register, handleSubmit, formState: { errors } } = useForm();
+  // const [data, setData] = useState("");
+
+  // const deleteContent = () => {
+  //   document.querySelector("div.labelInputWorkExp input[name='client']").value = "";
+  //   document.querySelector("div.labelInputWorkExp input[name='country']").value = "";
+  //   document.querySelector("div.labelInputWorkExp input[name='project']").value = "";
+  //   document.querySelector("div.labelInputWorkExp input[name='businessSolution']").value = "";
+  //   document.querySelector("div.labelInputWorkExp input[name='projectRes']").value = "";
+  // }
