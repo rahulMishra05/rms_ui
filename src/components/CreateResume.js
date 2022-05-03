@@ -23,8 +23,8 @@ const CreateResume = () => {
         result.style.display = "flex";
     }
 
-    const editResume = () => {
-        console.log("Resume Edited")
+    const editResume = (id) => {
+        navigate(`home/${id}/mydetails/Edit/${id}`)
     }
 
     const cloneResume = (index) => {
@@ -37,7 +37,7 @@ const CreateResume = () => {
 
         var oldResume = result[index];
         oldResume.resumeId = 0;
-        axios.post('https://localhost:7258/api/Resume/', oldResume);
+        axios.post('https://localhost:44396/api/Resumes/', oldResume);
 
     }
 
@@ -57,7 +57,7 @@ const CreateResume = () => {
             updationDate: "2022-04-13T06:33:42.151Z",
         }
         console.log(newStatus)
-        axios.put(`https://localhost:7258/api/Resume/${oldResume.resumeId}`, newStatus)
+        axios.put(`https://localhost:44396/api/Resumes/${oldResume.resumeId}`, newStatus)
     }
     const exportResume = () => {
         console.log("Resume Exported")
@@ -66,7 +66,7 @@ const CreateResume = () => {
     const [result, getData] = useState([]);
 
     useEffect(() => {
-        fetch('https://localhost:7258/api/Resume', {
+        fetch('https://localhost:44396/api/Resumes', {
 
             method: 'GET',
             headers: {
@@ -153,7 +153,7 @@ const CreateResume = () => {
                                                 <button id="resumeOptions" >&#8278;</button>
                                                 <div id="optionsDiv">
                                                     <ul>
-                                                        <li onClick={editResume}>Edit</li>
+                                                        <li onClick={()=>editResume(items.resumeId)}>Edit</li>
                                                         <li><a href="" onClick={() => cloneResume(index)}>Clone</a></li>
                                                         <li><a href="" onClick={() => shareResume(index)}>Share</a></li>
                                                         <li onClick={exportResume}>Export</li>

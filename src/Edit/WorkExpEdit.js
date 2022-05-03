@@ -2,10 +2,10 @@ import React from 'react'
 import { useState, useEffect } from "react";
 // import Calendar from 'react-calendar'
 import { useForm,useFieldArray } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useParams } from "react-router-dom";
 import Calendar from 'react-calendar'
 // import TextField from '@material-ui/core/TextField';
-import '../../css/WorkExp.css'
+import '../css/WorkExp.css'
 import axios from 'axios';
 export default function WorkExp(props) {
   // console.log(props.formfields)
@@ -24,6 +24,7 @@ export default function WorkExp(props) {
   const nextPage = () => {
     navigate("/home/skills");
   }
+  const {id}=useParams();
   const [workList, setworkList] = useState([{ work: "" }]);
 
   const handleServiceAdd = () => {
@@ -59,7 +60,7 @@ export default function WorkExp(props) {
           document.querySelector('.workHistoryDiv .innerWorkHistoryDiv').innerHTML+='<div className="innerWorkDiv"><div className="client_country d-flex"><p className="clientText">Client:' + data.test[i].client + '</p><p className="countryText">&nbsp; &#127988;' + data.test[i].country+'  </p></div><p className="projectText">Project:  '+ data.test[i].project+ '</p><p className="roleText">Role: '+ data.test[i].role +'</p><p className="durationText">'+ data.test[i].startdate.slice(0, 10) + ' to ' + data.test[i].enddate.slice(0, 10) + '</p><p className="businessSolutionText">Business Solution:' +  data.test[i].businessSolution + '</p><p className="technologyText">&#8226;'+ data.test[i].technology + '</p><p className="projectResText">'+  data.test[i].projectRes + '</p></div>'
           workData.push(
             {
-            
+              workExperienceId:data.test[i].workId,
               clientDescription: data.test[i].client,
               country:data.test[i].country,
               projectName: data.test[i].project,
@@ -93,15 +94,15 @@ export default function WorkExp(props) {
     var rIdWork = sessionStorage.getItem('resumeId');
     var rStatusWork = sessionStorage.getItem('resumeStatus');
     var WorkObj = {
-      resumeId: rIdWork,
+      resumeId: id,
       resumeTitle: "Resume My",
-      resumeStatus: rStatusWork,
+      resumeStatus: "draft",
       creationDate: "2022-04-13T06:33:42.151Z",
       updationDate: "2022-04-13T06:33:42.151Z",
       workExperience: workData
   }
   console.log(WorkObj);
-  axios.put(`https://localhost:44396/api/Resume/${rIdWork}`,WorkObj);
+  axios.put(`https://localhost:44396/api/Resumes/${id}`,WorkObj);
 }
 
   const [result, getData] = useState([]);
@@ -148,6 +149,7 @@ export default function WorkExp(props) {
     }).then(res => res.json())
       .then(res => getTechval(res))
   }, []);
+  const [editData,setEditData]=useState([]);
 
   const { register, control, reset, handleSubmit,formState: { errors } } = useForm({
 
@@ -167,6 +169,10 @@ export default function WorkExp(props) {
   var today = new Date().toISOString().slice(0, 10);
 
   const [count, setCount]=useState(0);
+  
+  useEffect(()=>{
+  axios.get(`https://localhost:44396/api/Resumes/${id}`). then((res)=>setEditData(res.data))
+},[])
   return (
     <>
     <form onSubmit={handleSubmit((data) => customFunction(data))} id="formWorkExp">
@@ -184,13 +190,18 @@ export default function WorkExp(props) {
           {fields.map((singlework, index) => {
             return (
             <div className="FormFeilds">
-
+            <input type='hidden'{...register("workId"
+                )}  name="workId" id="workId" className="inputs"
+                 value={editData.workExperience ? editData.workExperience[index].workExperienceId:0}/>
 
               <div className="labelInputWorkExp">
+              
+       
                 <label className="labelWorkExp" for="ClientDesc">Client Description:</label>
                 <input {...register(`test.${index}.client`, { maxLength: { value: 40, 
                 message: "Only 40 characters are allowed" } })}
-                  placeholder="Client Description"  id="clientDesc" className="inputsWorkExp" />
+                  placeholder="Client Description"  id="clientDesc" className="inputsWorkExp"
+                   defaultValue={editData.workExperience ? editData.workExperience[index].clientDescription:null}/>
               </div>
               {errors.client && <small className="Validation_we">{errors.client.message}</small>}
 
@@ -200,7 +211,8 @@ export default function WorkExp(props) {
                   <input {...register(`test.${index}.country`, {
                     maxLength: { value: 3, message: "Only 3 characters are allowed" },
                     pattern: { value: /^[A-Z]+$/, message: "Capital alphabets are allowed" }
-                  })} placeholder="Country : First 3 Alphabets (All Caps) !"  id="country" className="inputsWorkExp" />
+                  })} placeholder="Country : First 3 Alphabets (All Caps) !"  id="country" className="inputsWorkExp" 
+                  defaultValue={editData.workExperience ? editData.workExperience[index].country:null}/>
                 </div>
               </form>
               {errors.country && <small className="Validation_we">{errors.country.message}</small>}
@@ -210,7 +222,7 @@ export default function WorkExp(props) {
                 <label className="labelWorkExp" for="Project">Project Name:</label>
                 <div className="projectDropDown">
                   <select id="project"  {...register(`test.${index}.project`, { maxLength: { value: 40, message: "40 Characters are allowed" } })} >
-                    <option value="">Select Project</option>
+                    <option value="" selected disabled hidden>{editData.workExperience===[] ? editData.workExperience[index].projectName:"Select Project"}</option>
                     {
                       project.map(items => {
                         return (
@@ -230,7 +242,7 @@ export default function WorkExp(props) {
                 <label className="labelWorkExp" for="role">Designation:</label>
                 <div className="designationDropDown">
                   <select  id="designation" {...register(`test.${index}.role`)}>
-                    <option value="">Select Designation</option>
+                    <option value=""selected disabled hidden>{editData.workExperience===[] ? editData.workExperience[index].projectRole:"Select Project"}</option>
                     {
                       result.map(items => {
                         return (
@@ -268,7 +280,8 @@ export default function WorkExp(props) {
 
               <div className="labelInputWorkExp">
                 <label className="labelWorkExp" for="">Business Solution:</label>
-                <input {...register(`test.${index}.businessSolution`, { maxLength: { value: 100, message: "100 Characters are allowed" } })} placeholder="Business Solution"  id="businessSolution" className="inputsWorkExp" />
+                <input {...register(`test.${index}.businessSolution`, { maxLength: { value: 100, message: "100 Characters are allowed" } })} placeholder="Business Solution"  id="businessSolution" className="inputsWorkExp" 
+                defaultValue={editData.workExperience===[] ? editData.workExperience[0].businessSolution:null}/>
               </div>
               {errors.businessSoulution && <small className="Validation_we">{errors.businessSoulution.message}</small>}
 
@@ -277,7 +290,7 @@ export default function WorkExp(props) {
                 <label className="labelWorkExp" for="role">Technology</label>
                 <div className="techDropDown" >
                   <select name="tech" id="tech" {...register(`test.${index}.technology`)}> 
-                    <option value="">Select Technology</option>
+                    <option value="" selected disabled hidden>{editData.workExperience===[] ? editData.workExperience[0].technologyStack:"Select Technology"}</option>
                     {
                       techval.map(items => {
                         return (
@@ -292,7 +305,8 @@ export default function WorkExp(props) {
               </div>
               <div className="labelInputWorkExp">
                 <label className="labelWorkExp" for="">Project Responsibilities:</label>
-                <input {...register(`test.${index}.projectRes`, { maxLength: { value: 100, message: "100 Characters are allowed" } })} placeholder="Project Responsibilities"  id="Responsibilities" className="inputsWorkExp" />
+                <input {...register(`test.${index}.projectRes`, { maxLength: { value: 100, message: "100 Characters are allowed" } })} placeholder="Project Responsibilities"  id="Responsibilities" className="inputsWorkExp"
+                defaultValue={editData.workExperience===[] ? editData.workExperience[0].projectResponsibilities:null}/> 
               </div>
               {errors.projectRes && <small className="Validation_we">{errors.projectRes.message}</small>}
               

@@ -35,6 +35,9 @@
 	display: flex;
 	/*padding: 20px;*/
 }
+.editPage{
+	width:60vw
+}
 #formMyDetails {
 	display: flex;
 	flex-direction: column;
