@@ -9,16 +9,17 @@ import WorkExp from './components/formFields/WorkExp'
 import AchievementMembership from './components/formFields/AchievementMembership'
 import CertificationTraining from './components/formFields/CertificationTraining'
 import CreateResume from './components/CreateResume'
-
 import './index.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import PreviewResume from './components/PreviewResume'
 
 // ReactDOM.render(<Layout2Home />, document.querySelector("#root"));
 ReactDOM.render(
    <BrowserRouter>
    <Routes>
      <Route path="/" element={<CreateResume/>} />
+     <Route path='previewresume' element={<PreviewResume/>} />
         <Route path="/home" element={<ResumeHome />}>
           <Route path="mydetails" element={<MyDetails />} />
           <Route path="aboutme" element={<AboutMe />} />
