@@ -3,54 +3,221 @@
     padding: 0;
     box-sizing: border-box;
 }
-body{
-    /* background-color: red; */
+
+h5 {
+    color: black;
 }
-.preview{
-    width: 60vw;
-    margin-left: 20vw;
-    margin-right: 20vw;
+.previewResume{
+    width: 70vw;
+    height: 100%;
     background-color: pink;
+    margin-right: 15vw;
+    margin-left: 15vw;
 }
-.userInfoDiv {
-    display: flex;
+.userInfo{
+    align-items: center;
     justify-content: center;
+    
+}
+.aboutMe{
+    /*width: 50px;*/
+    word-wrap: break-word;
+    /* margin-bottom: -500px; */
+    /* margin-top: 46px; */
+    margin-left: -100px;
+}
+/* .aboutMe{
+    position: relative;
+    bottom: 50px;
+    left: 49px;
+    font-size: 1rem;
+    padding-top: 5px;
+    padding-bottom: 5px;
+} */
+.skillText{
+    position: relative;
+    bottom: 50px;
+    left: 49px;
+    border-top: 4px solid #73C5E5;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.subaboutme{
+    position: relative;
+    bottom: 50px;
+    left: 49px;
+}
+.userInfo {
+    display: flex;
     margin-left: 20px;
     margin-bottom: -70px;
-    height: 294;
 }
-.circleProfile img{
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    background-color: black;
-    top: 2px;
-    right: 472px;
-    margin-top: 24px;
-}
-.nameInfo {
+
+.userNameInfo {
     display: flex;
     flex-direction: column;
     margin-top: 35px;
     margin-left: 40px;
-    
+
 }
-.nameHead{
-    font-size: 2.6rem;
+/* .resumeDetails {
+    margin-top: 100px;
+    margin-bottom: 40px;
+    margin-left: -30px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+} */
+.resumeDetails div {
+    width: 16vw;
+    margin-right: 30px;
+}
+.resumeDetails div p{
+    font-size: 0.8rem;
+}
+
+.resumeHeading{
+    padding: 50px;
+}
+.client_country{
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+    border-top: 4px solid #73C5E5;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.client_country .countryText{
+    margin-right: 50px;
+}
+.workHistory {
+    margin-left: 300px;
+}
+
+.clientText{
+    font-size: 20px;
+}
+/* .workHistory .technologyText{
+    border: 2px solid black;
+    border-radius: 5px;
+} */
+.experienceHead{
+    display: flex;
+}
+.experienceLabel{
+    margin-left: 10px;
+}
+.workHistory .client_country, .projectText, .roleText, .businessSolutionText, .technologyText, .projectResText{
+    position: relative;
+    bottom: 50px;
+    left: 49px;
+}
+.workHistory .durationText{
+    position: relative;
+    left: 47px;
+    top: -53px;
+}
+
+.userNameHead{
+    font-size: 3.2rem;
     font-weight: 500;
 }
 
-.roleLabel{
-    font-size: 2.2rem;
+.userRole{
+    font-size: 2rem;
     font-weight: 400;
 }
-.experienceHeading{
+.experienceHead label{
+    font-size: 1.4rem;
+}
+.certificationTrainText{
+    position: relative;
+    bottom: 50px;
+    left: 49px;
+    font-size: 1rem;
+    border-top: 4px solid #73C5E5;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: -60px;
+}
+.educationText{
+    position: relative;
+    bottom: 50px;
+    left: 50px;
+    font-size: 1rem;
+    border-top: 4px solid #73C5E5;
+    padding-top: 5px;
+    
+}
+
+.achievement_MembershipText{
+    position: relative;
+    bottom: 5x;
+    left: 49px;
+    font-size: 1rem;
+    border-top: 4px solid #73C5E5;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: -50px;
+}
+.certificationDiv{
+    margin-top: 20px;
+}
+.skillDiv{
+    margin-top: -50px;
+}
+.educationDiv{
+    margin-top: -50px;
+}
+.educationDiv{
+    margin-top: -50px;
+    margin-left: 50px;
+}
+.subCertificationTraining1{
+    margin-left: 50px;
+
+}
+.subCertificationTraining2{
+    margin-left: 50px;
+
+}
+.subAchievementMembership1{
+    margin-top: 5px;
+    margin-left:50px;
+}
+.subAchievementMembership2{
+
+    margin-left:50px;
+}
+.imageProfile img{
+    width: 225px;
+    height: 225px;
+    border-radius: 50%;
+    background-color: lightgray;
+    top: 2px;
+    right: 472px;
+    margin-top: 24px;
+}
+
+.innerworkHistory{
+    margin-left:50px;
+    margin-bottom:3rem;
+}
+.section1{
     display: flex;
+    justify-content: space-between;
+    margin-left: 10vw;
+    margin-right: 10vw;
 }
-.expLabel{
-    margin-left: 10px;
-    font-size: 1.6rem;
+.section2{
+    display: flex;
+    justify-content: center;
+    margin-left: 10vw;
+    margin-right: 10vw;
 }
-.nameInfo .total{
-    font-size: 1.6rem;
+.section3{
+    display: flex;
+    justify-content: center;
+    margin-left: 10vw;
+    margin-right: 10vw;
 }

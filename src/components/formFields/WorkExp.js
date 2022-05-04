@@ -243,7 +243,7 @@ export default function WorkExp(props) {
                     {
                       result.map(items => {
                         return (
-                          <option>{items.designationName}</option>
+                          <option>{items.desginationName}</option>
 
 
                         );

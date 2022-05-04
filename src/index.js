@@ -27,7 +27,7 @@ ReactDOM.render(
    <BrowserRouter>
    <Routes>
      <Route path="/" element={<CreateResume/>} />
-     <Route path='previewresume' element={<PreviewResume/>} />
+     <Route path='previewresume/:id' element={<PreviewResume/>} />
         <Route path="/home" element={<ResumeHome />}>
           <Route path="mydetails" element={<MyDetails />} />
           <Route path="aboutme" element={<AboutMe />} />
