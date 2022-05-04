@@ -92,7 +92,7 @@ import { jsPDF } from "jspdf";
 			
 		<div className="userInfoDiv">
 			<div className="circleProfile">
-          <input className="buttons" type="button" name="mydetails" value="pdf" onClick={makePDF} ></input>
+          <input className="buttonsPDF" type="button" name="mydetails" value="pdf" onClick={makePDF} ></input>
 				<img></img>
 			</div>
 			<div className="nameInfo">

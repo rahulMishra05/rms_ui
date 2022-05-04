@@ -306,9 +306,10 @@ const CreateResume = () => {
                 <div className="resumeHeading"><h3>My Resumes</h3></div>
                 <div className="createdResumes">
                     {
-                        result.map((items, index) => {
-                            return (
-                                <div className="resume" onClick={() => {previewResume(index); onPreviewPage();}}>
+                        result.map((items, index) => (
+                            
+                            
+                                <div className="resume">
                                     <div className="top">
                                         <div className="shelf1">
                                             <img src={logo} alt="PSI LOGO" />
@@ -326,7 +327,11 @@ const CreateResume = () => {
                                         </div>
                                     </div>
                                     <div className="bottom">
+                                        <div className="firstShelf">
                                         <div className="reviewShelf">{items.resumeStatus}</div>
+                                        <Link to={"/previewresume/" + items.resumeId}><div className="previewButton">Preview</div></Link>
+                                        
+                                        </div>
                                         <div className="resumeNameShelf">
                                             <p className="resumeName">{items.resumeTitle}</p>
                                             {/* <p className="resumeOptions">&#8278;</p> */}
@@ -352,14 +357,15 @@ const CreateResume = () => {
 
 
 
-                                    <Link to="previewresume" target="_blank" />
+                                    {/* <Link to="previewresume" target="_blank" /> */}
                                 </div>
 
 
 
 
+
                             )
-                        })
+                        )
                     }
 
                 </div>

@@ -133,7 +133,7 @@ function Sidebar(props) {
 				
 				<div className='status'>
 					<p>Status</p>
-					<p className='reviewStatus'>Review</p>
+					<p className='reviewStatus'>Draft</p>
 				</div>
 			</div>
 		</aside>
