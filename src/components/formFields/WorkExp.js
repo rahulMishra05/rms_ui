@@ -100,17 +100,13 @@ export default function WorkExp(props) {
       workExperience: workData
   }
   console.log(WorkObj);
-
   axios.put(`https://localhost:44385/api/Resume/${rIdWork}`,WorkObj);
-
 }
 
   const [result, getData] = useState([]);
 
   useEffect(() => {
-
     fetch('https://localhost:44385/api/DesignationMaster/GetActiveDesignation', {
-
       method: 'GET',
       headers: {
         'content-type': 'application/json',
@@ -121,9 +117,7 @@ export default function WorkExp(props) {
 
   const [project, getProject] = useState([]);
   useEffect(() => {
-
     fetch('https://localhost:44385/api/ProjectMaster/GetActiveProjects', {
-
       method: 'GET',
       headers: {
         'content-type': 'application/json',
@@ -134,9 +128,7 @@ export default function WorkExp(props) {
 
   const [tech, getTech] = useState([]);
   useEffect(() => {
-
     fetch('https://localhost:44385/api/TechSatckMaster', {
-
       method: 'GET',
       headers: {
         'content-type': 'application/json',
@@ -147,9 +139,7 @@ export default function WorkExp(props) {
   console.log(tech);
   const [techval, getTechval] = useState([]);
   useEffect(() => {
-
     fetch('https://localhost:44385/api/TechStackValues/GetActiveTechs', {
-
       method: 'GET',
       headers: {
         'content-type': 'application/json',

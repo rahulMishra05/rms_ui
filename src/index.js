@@ -9,14 +9,6 @@ import WorkExp from './components/formFields/WorkExp'
 import AchievementMembership from './components/formFields/AchievementMembership'
 import CertificationTraining from './components/formFields/CertificationTraining'
 import CreateResume from './components/CreateResume'
-import ResumeHomeEdit from './components/ResumeHomeEdit'
-import MyDetailsEdit from './Edit/MyDetailsEdit'
-import AboutMeEdit from './Edit/AboutMeEdit'
-import WorkExpEdit from './Edit/WorkExpEdit'
-import SkillEdit from './Edit/SkillEdit'
-import AchievementEdit from './Edit/AchievementEdit'
-import CertificateEdit from './Edit/CertificateEdit'
-import EducationEdit from './Edit/EducationEdit'
 import './index.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -40,17 +32,6 @@ ReactDOM.render(
 
            {/* <Route path="mydetails" element={<MyDetails />} /> */}
           {/* <Route path="mydetails" element={<MyDetails />} /> */}
-        </Route>
-        
-        <Route path="/home/:id" element={<ResumeHomeEdit />}>
-          <Route path="mydetails/Edit/:id" element={<MyDetailsEdit />} />
-          
-          <Route path="aboutme/Edit/:id" element={<AboutMeEdit />} />
-          <Route path="workexp/Edit/:id" element={< WorkExpEdit />} />
-          <Route path="skills/Edit/:id" element={< SkillEdit />} />
-          <Route path="education/Edit/:id" element={< EducationEdit />} />
-          <Route path="certificationtraining/Edit/:id" element={< CertificateEdit />} />
-          <Route path="achievementmembership/Edit/:id" element={< AchievementEdit />} />
         </Route>
    </Routes>
     
