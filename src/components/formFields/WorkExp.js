@@ -54,9 +54,8 @@ export default function WorkExp(props) {
           window.alert("Start and End date conflicts");
           continue;
         }
-
-        
-          document.querySelector('.workHistoryDiv .innerWorkHistoryDiv').innerHTML+='<div className="innerWorkDiv"><div className="client_country d-flex"><p className="clientText">Client:' + data.test[i].client + '</p><p className="countryText">&nbsp; &#127988;' + data.test[i].country+'  </p></div><p className="projectText">Project:  '+ data.test[i].project+ '</p><p className="roleText">Role: '+ data.test[i].role +'</p><p className="durationText">'+ data.test[i].startdate.slice(0, 10) + ' to ' + data.test[i].enddate.slice(0, 10) + '</p><p className="businessSolutionText">Business Solution:' +  data.test[i].businessSolution + '</p><p className="technologyText">&#8226;'+ data.test[i].technology + '</p><p className="projectResText">'+  data.test[i].projectRes + '</p></div>'
+      //  console.log("tech is "+data.test[i].technology);
+        document.querySelector('.workHistoryDiv .innerWorkHistoryDiv').innerHTML+='<div className="innerWorkDiv" style="border-bottom:1px solid lightgray"><div className="client_country d-flex" style="margin-bottom:10px"><p className="clientText" style="display:inline;">Client:  ' + data.test[i].client + '</p><p className="countryText" style="margin-left:120px; display:inline;">&nbsp; &#127988;' + data.test[i].country+'  </p></div><p className="projectText">Project:  '+ data.test[i].project+ '</p><p className="roleText" style="font-size:15px;font-width:500;">Role:  '+ data.test[i].role +'</p><p className="durationText">Duration: '+ data.test[i].startdate.slice(0, 10) + ' to ' + data.test[i].enddate.slice(0, 10) + '</p><p className="businessSolutionText">Business Solution:  ' +  data.test[i].businessSolution + '</p><p className="technologyText"style="border:1px solid gray;border-radius:20px; width:90px;text-align:center;color:gray;">'+ data.test[i].technology + '</p><p className="projectResText"><li>'+  data.test[i].projectRes + '</li></p></div>'
           workData.push(
             {
             
@@ -101,13 +100,13 @@ export default function WorkExp(props) {
       workExperience: workData
   }
   console.log(WorkObj);
-  axios.put(`https://localhost:7258/api/Resume/${rIdWork}`,WorkObj);
+  axios.put(`https://localhost:44385/api/Resume/${rIdWork}`,WorkObj);
 }
 
   const [result, getData] = useState([]);
 
   useEffect(() => {
-    fetch('https://localhost:7258/api/DesignationMaster/GetActiveDesignation', {
+    fetch('https://localhost:44385/api/DesignationMaster/GetActiveDesignation', {
       method: 'GET',
       headers: {
         'content-type': 'application/json',
@@ -118,7 +117,7 @@ export default function WorkExp(props) {
 
   const [project, getProject] = useState([]);
   useEffect(() => {
-    fetch('https://localhost:7258/api/ProjectMaster/GetActiveProjects', {
+    fetch('https://localhost:44385/api/ProjectMaster/GetActiveProjects', {
       method: 'GET',
       headers: {
         'content-type': 'application/json',
@@ -129,7 +128,7 @@ export default function WorkExp(props) {
 
   const [tech, getTech] = useState([]);
   useEffect(() => {
-    fetch('https://localhost:7258/api/TechSatckMaster', {
+    fetch('https://localhost:44385/api/TechSatckMaster', {
       method: 'GET',
       headers: {
         'content-type': 'application/json',
@@ -140,7 +139,7 @@ export default function WorkExp(props) {
   console.log(tech);
   const [techval, getTechval] = useState([]);
   useEffect(() => {
-    fetch('https://localhost:7258/api/TechStackValues/GetActiveTechs', {
+    fetch('https://localhost:44385/api/TechStackValues/GetActiveTechs', {
       method: 'GET',
       headers: {
         'content-type': 'application/json',
