@@ -123,7 +123,10 @@
     justify-content: space-evenly;
     border-radius: 20%;
 }
-
+.icon{
+    cursor:pointer;
+    /* transform:scale(1.5,1.5); */
+}
 .create .icon {
     font-size: x-large;
 }
@@ -153,7 +156,7 @@
 }
 
 .resume {
-    border: 5px solid #73C5E5;
+    border: 5px solid gray;
     width: 300px;
     margin: 10px;
     cursor: pointer;
@@ -198,7 +201,7 @@
 
 
 .top {
-    border-bottom: 3px solid #73C5E5;
+    border-bottom: 3px solid gray;
 }
 
 
@@ -219,7 +222,7 @@
 
 
 .bottom {
-    background-color: #BBFFFF;
+    background-color: lightgray;
     padding-bottom: 1px;
     padding-top: 8px;
 }
@@ -241,7 +244,7 @@
 #resumeOptions {
     font-size: 2rem;
     cursor: pointer;
-    background-color: #BBFFFF;
+    background-color: lightgray;
     border: none;
 }
 
@@ -264,8 +267,8 @@ border: 1px solid black;
 
 #optionsDiv ul {
     list-style-type: none;
-    border: 1px solid #BBFFFF;
-    background-color: #73C5E5;
+    border: 1px solid lightgray;
+    background-color: slategray;
     width: 100px;
     border-radius: 6px;
     height: 130px;

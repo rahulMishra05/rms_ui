@@ -18,7 +18,7 @@
 	background: lightgray;
 	color: #000;
 	width: 20vw;
-	background-color: #73c5e5;
+	background-color: lightgray;
 }
 .sidebar ul {
 	list-style: none;
@@ -42,7 +42,7 @@
 }
 .iconbuttons{
 	border: none;
-	background-color: #73c5e5;
+	background-color: lightgray;
 	transition: transform 0.1s ease-in;
 }
 

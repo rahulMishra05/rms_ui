@@ -128,7 +128,7 @@ function Sidebar(props) {
 
 				<div className='reviewer'>
 					<p>Reviewer</p>
-					<p>Rahul Mishra <span></span></p>
+					<p>Saurabh Gupta <span></span></p>
 				</div>
 				
 				<div className='status'>

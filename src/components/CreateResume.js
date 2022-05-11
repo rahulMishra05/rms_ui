@@ -86,7 +86,7 @@ const CreateResume = () => {
         //     var currentResumeMainDescription = currentResume.aboutMes[0].mainDescription;
         //     var currentResumeKeyPoints = currentResume.aboutMes[0].keyPoints;
 
-        //     // document.querySelector(".aboutMeMain").innerHTML = currentResumeMainDescription;
+        //     document.querySelector(".aboutMeMain").innerHTML = currentResumeMainDescription;
         // }
         // else{
         //     var currentResumeMainDescription = "";
@@ -308,7 +308,7 @@ const CreateResume = () => {
                     {
                         result.map((items, index) => {
                             return (
-                                <div className="resume" onClick={() => {previewResume(index); onPreviewPage();}}>
+                                <div className="resume" onClick={() => { onPreviewPage(); previewResume(index);}}>
                                     <div className="top">
                                         <div className="shelf1">
                                             <img src={logo} alt="PSI LOGO" />
@@ -322,7 +322,7 @@ const CreateResume = () => {
 
                                         </div>
                                         <div className="shelf3">
-                                            <p>{items.aboutMes.map((subAboutMe) => (subAboutMe.mainDescription))}</p>
+                                            <p>{items.aboutMe.map((subAboutMe) => (subAboutMe.mainDescription))}</p>
                                         </div>
                                     </div>
                                     <div className="bottom">
@@ -335,8 +335,8 @@ const CreateResume = () => {
                                                 <div id="optionsDiv">
                                                     <ul>
                                                         <li onClick={editResume}>Edit</li>
-                                                        <li><a href="" onClick={() => cloneResume(index)}>Clone</a></li>
-                                                        <li><a href="" onClick={() => shareResume(index)}>Share</a></li>
+                                                        <li><a  onClick={() => cloneResume(index)}>Clone</a></li>
+                                                        <li><a  onClick={() => shareResume(index)}>Share</a></li>
                                                         <li onClick={exportResume}>Export</li>
                                                     </ul>
                                                 </div>
